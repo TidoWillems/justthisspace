@@ -1,0 +1,78 @@
+/* Tropfenlinie */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.02); }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+@keyframes pulse-slower {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.01); }
+}
+.animate-pulse-slower {
+  animation: pulse-slower 12s ease-in-out infinite;
+}
+
+/* Tropfenabschnitte */
+section {
+  margin-bottom: 2.5rem;
+  border-left: 4px solid #d1d5db; /* gray-300 */
+  padding-left: 1rem;
+  text-align: center;
+}
+section .frage {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151; /* gray-700 */
+  margin-bottom: 0.5rem;
+}
+section .antwort {
+  color: #4b5563; /* gray-600 */
+  white-space: pre-line;
+  line-height: 1.625;
+}
+
+/* Menü und Sprache */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.menu-item {
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.menu-item-active {
+  font-weight: bold;
+}
+#lang-toggle span {
+  cursor: pointer;
+  padding: 0 6px;
+}
+#lang-toggle .active-lang {
+  font-weight: bold;
+}
+
+/* Fade-Out für Navigation */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.variant {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+}
+
+.variant.opacity-100 {
+  opacity: 1;
+  pointer-events: auto;
+  position: static; /* <-- wichtig für sichtbare h1 */
+}

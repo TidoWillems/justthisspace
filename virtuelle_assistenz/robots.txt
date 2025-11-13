@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /
+
+#User-agent: *
+#Allow: /
+#Sitemap: https://justthisspace.ct.ws/virtuelle_assistenz/sitemap.xml

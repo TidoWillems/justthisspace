@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Grundlos. Zeitlos. Formlos. Klanglos. Bedeutungsfrei. Keine Rückkehr nötig. Kein Ziel, keine Herkunft. Einfach da.">
+    <title>○ justthisspace</title>
+    <link href="tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="zweig_vogel.css?v=20251003a" />
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-serif flex flex-col min-h-screen">
+    <header class="bg-black text-white p-2 shadow-md flex items-center">
+        <button id="home-button" class="text-lg font-extrabold mr-4">justthisspace</button>
+    </header>
+
+<nav id="swipe-menu" class="bg-black text-white p-2 flex items-center overflow-x-auto no-scrollbar">
+  <div class="menu-links">
+    <a href="start.html" class="menu-item [[ACTIVE_start]]">○</a>
+    <a href="frage.html" class="menu-item [[ACTIVE_frage]]">○</a>
+    <a href="kinder.html" class="menu-item [[ACTIVE_kinder]]">○</a>
+    <a href="sinn.html" class="menu-item [[ACTIVE_sinn]]">○</a>
+    <a href="nichts.html" class="menu-item [[ACTIVE_nichts]]">○</a>
+    <a href="pure.html" class="menu-item [[ACTIVE_pure]]">○</a>
+  </div>
+  <div id="lang-toggle" class="flex items-center">
+    <span data-lang="de">●</span>
+    <span data-lang="en">○</span>
+    <span data-lang="fr">○</span>
+  </div>
+</nav>
+
+    <img src="vogel.png" id="bg-vogel" alt="Vogel" />
+    <img src="zweig.png" id="bg-zweig" alt="Zweig" />
+
+    <main id="content" class="flex-grow p-6 max-w-2xl mx-auto space-y-8 text-center">
+        <div class="relative h-full" data-lang-content="de">
+            <h1 class="variant opacity-100 text-3xl font-bold text-gray-900 transition-opacity duration-1000">noch nicht einmal das</h1>
+            <h1 class="variant opacity-0 text-3xl font-bold text-gray-900 transition-opacity duration-1000">unaussprechlich</h1>
+        </div>
+        <section data-lang-content="de">
+            <div class="relative h-64 overflow-hidden">
+                <p class="variant opacity-100 transition-opacity duration-1000 leading-relaxed whitespace-pre-line">
+                    Grundlos. Zeitlos. Formlos. Klanglos. Bedeutungsfrei.
+
+                    Keine Rückkehr nötig. Kein Ziel, keine Herkunft.
+                    Einfach da.
+                </p>
+                <p class="variant opacity-0 transition-opacity duration-1000 leading-relaxed whitespace-pre-line">
+                    Es ist nicht das, was kommt. Nicht das, was war.
+                    Kein Weg führt dorthin. Nichts geht verloren.
+                    Es ist das, was bleibt – ohne festzuhalten.
+                </p>
+            </div>
+        </section>
+        <div class="relative h-full" data-lang-content="en" style="display:none;">
+            <h1 class="variant opacity-100 text-3xl font-bold text-gray-900 transition-opacity duration-1000">not even that</h1>
+            <h1 class="variant opacity-0 text-3xl font-bold text-gray-900 transition-opacity duration-1000">unspeakable</h1>
+        </div>
+        <section data-lang-content="en" style="display:none;">
+            <div class="relative h-64 overflow-hidden">
+                <p class="variant opacity-100 transition-opacity duration-1000 leading-relaxed whitespace-pre-line">
+                    No reason. No time. No shape. No sound. No meaning.
+
+                    No return. No purpose, no origin.
+                    Just this.
+                </p>
+                <p class="variant opacity-0 transition-opacity duration-1000 leading-relaxed whitespace-pre-line">
+                    Not what comes. Not what was.
+                    No path leads here. Nothing is lost.
+                    It’s what remains — without holding on.
+                </p>
+            </div>
+        </section>
+        <div class="relative h-full" data-lang-content="fr" style="display:none;">
+            <h1 class="variant opacity-100 text-3xl font-bold text-gray-900 transition-opacity duration-1000">même pas cela</h1>
+            <h1 class="variant opacity-0 text-3xl font-bold text-gray-900 transition-opacity duration-1000">inexprimable</h1>
+        </div>
+        <section data-lang-content="fr" style="display:none;">
+            <div class="relative h-64 overflow-hidden">
+                <p class="variant opacity-100 transition-opacity duration-1000 leading-relaxed whitespace-pre-line">
+                    Sans raison. Hors du temps. Sans forme. Sans son. Sans signification.
+
+                    Aucun retour. Aucun but, aucune origine.
+                    Juste cela.
+                </p>
+                <p class="variant opacity-0 transition-opacity duration-1000 leading-relaxed whitespace-pre-line">
+                    Ce n’est ni ce qui vient, ni ce qui fut.
+                    Aucun chemin n’y mène. Rien n’est perdu.
+                    C’est ce qui reste — sans s’y accrocher.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <div class="text-center text-gray-400 text-sm p-4">
+        <a href="resonanz.html" class="hover:underline">nicht einmal das • not even that • même pas cela</a>
+        <div class="mt-2 text-xs opacity-30">Build: 2025-05-10 12:02</div>
+    </div>
+
+    <script src="navigation.js?v=20251003a"></script>
+    <script src="sprachlogik.js"></script>
+    <script src="zweig_vogel.js"></script>
+<script src="zweig_vogel_drag.js?v=20251003a"></script>
+</body>
+
+</html>

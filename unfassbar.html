@@ -1,0 +1,191 @@
+<!doctype html>
+
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>unfassbar.</title>
+  <style>
+    :root {
+      --bg: #f8f8f8;
+      --fg: #111;
+      --muted: #666;
+      --accent: #8c8c8c;
+      --gold: #b28b47;
+      --silver: #aeb0b3;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0e0e0e; --fg:#efefef; --muted:#9a9a9a; --accent:#bdbdbd; --gold:#d4b573; --silver:#8f979d; }
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+    }
+    main {
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 8vh 4vw;
+    }
+    .card {
+      max-width: 60ch;
+      padding: 5rem 3rem;
+      background: rgba(255,255,255,0.6);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      border-radius: 18px;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+    @media (prefers-color-scheme: dark) {
+      .card { background: rgba(20,20,20,0.55); box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+    }
+    h1 { margin: 0 0 1rem 0; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; letter-spacing: 0.02em; }
+    h2 { margin-top: 3rem; font-size: 1.4rem; letter-spacing: 0.015em; }
+    .sep { height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); margin: 1.5rem 0 2rem; opacity: .6; }
+    p { margin: 0 0 1rem 0; font-size: clamp(1.05rem, 2.4vw, 1.25rem); }
+    .muted { color: var(--muted); }
+    .viz { margin: 1.25rem 0 0.5rem; }
+    .viz svg { width: 100%; height: auto; display: block; max-width: 720px; margin: 0 auto; }
+    footer { margin-top: 2rem; font-size: .95rem; color: var(--muted); opacity: 0.5; transition: opacity 0.4s ease; }
+    footer:hover { opacity: 1; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .nachklang { margin-top: 3rem; padding-top: 2rem; border-top: 1px dashed var(--gold); font-style: italic; color: var(--gold); white-space: pre-line; text-shadow: 0 0 8px rgba(178,139,71,0.15); transition: color 0.8s ease, text-shadow 0.8s ease; }
+    .nachklang:hover { color: #e5c47a; text-shadow: 0 0 18px rgba(229,196,122,0.45); }
+  </style>
+</head>
+<body>
+  <main>
+    <article class="card" aria-label="unfassbar – stilles Fragment">
+      <h1>unfassbar.</h1>
+      <div class="sep" aria-hidden="true"></div><p>„Etwas“ sagt: da ist was.<br>
+  Doch wenn du hinschaust, ist nichts da.</p>
+
+  <p>Nur still.<br>
+  Nur so.</p>
+
+  <p>Zwei Stimmen,<br>
+  ein Lächeln,<br>
+  ein Raum ohne Mitte.</p>
+
+  <p>Und das Lachen —<br>
+  leise, leicht,<br>
+  wie Wind über Wasser.</p>
+
+  <p>Da ist niemand.<br>
+  Kein Ich in diesem Körper.<br>
+  Kein vorher, kein nachher.<br>
+  Nur diese feine Weite,<br>
+  ohne Gewicht, ohne Zentrum.</p>
+
+  <p>Gedanken, Gefühle, Bewegungen —<br>
+  sie dürfen kommen,<br>
+  dürfen gehen.</p>
+
+  <p>Nichts trägt Bedeutung,<br>
+  nichts muss festgehalten werden.</p>
+
+  <p>All die Motoren, Motivatoren,<br>
+  lösen sich auf wie Schnee in der Sonne.<br>
+  Und selbst das ist nur ein Wort.</p>
+
+  <p>Wo es sich löst,<br>
+  bleibt unfassbar.</p>
+
+  <h2>scheinbar.</h2>
+  <p>Man könnte sagen: es geschieht wie von selbst,<br>
+  nicht jemand glaubt,<br>
+  sondern Glaube erscheint.</p>
+
+  <p>Das, was kein Gewicht hat,<br>
+  beginnt durch Wiederholung so zu wirken,<br>
+  als hätte es welches.</p>
+
+  <p>Ein Laut, ein Gedanke, ein Bild —<br>
+  immer wieder gehört,<br>
+  immer wieder erinnert —<br>
+  und schon scheint da etwas zu sein.</p>
+
+  <p>Es ist wie eine Spur im Wasser,<br>
+  die nur durch ständiges Nachziehen sichtbar bleibt.<br>
+  Bleibt die Bewegung aus,<br>
+  glättet sich die Fläche,<br>
+  und nichts war je dort.</p>
+
+  <figure class="viz" aria-label="Spur im Wasser, die sich von Welle zu Ruhe glättet">
+    <svg viewBox="0 0 800 220" role="img" aria-labelledby="cap">
+      <title id="cap">Spur im Wasser – Welle wird glatt</title>
+      <defs>
+        <!-- Schimmernder Verlauf für die Wasserlinie, langsam ziehend -->
+        <linearGradient id="wavegrad" x1="0" y1="0" x2="800" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="translate(0,0)">
+          <stop offset="0%" stop-color="var(--silver)"/>
+          <stop offset="50%" stop-color="var(--gold)"/>
+          <stop offset="100%" stop-color="var(--silver)"/>
+          <animate attributeName="gradientTransform" values="translate(0,0); translate(800,0)" dur="22s" repeatCount="indefinite"/>
+        </linearGradient>
+        <!-- Auslaufende Spur wird zu transparent -->
+        <linearGradient id="fade" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="var(--gold)" stop-opacity="0.85" />
+          <stop offset="100%" stop-color="var(--gold)" stop-opacity="0" />
+        </linearGradient>
+        <style>
+          <![CDATA[
+          .water { fill: none; stroke-width: 2.5; vector-effect: non-scaling-stroke; }
+          .trace { fill: none; stroke: url(#fade); stroke-width: 3; vector-effect: non-scaling-stroke; }
+          ]]>
+        </style>
+      </defs>
+      <!-- Wellenlinie, die sich zyklisch glättet; der Strich trägt den wandernden Gold-Silber-Verlauf -->
+      <path class="water" id="wave" stroke="url(#wavegrad)" d="M0,110 C50,90 100,130 150,110 C200,90 250,130 300,110 C350,90 400,130 450,110 C500,90 550,130 600,110 C650,90 700,130 750,110 C770,105 790,110 800,110">
+        <animate attributeName="d" dur="12s" repeatCount="indefinite"
+          values="M0,110 C50,90 100,130 150,110 C200,90 250,130 300,110 C350,90 400,130 450,110 C500,90 550,130 600,110 C650,90 700,130 750,110 C770,105 790,110 800,110;
+                  M0,110 L800,110;
+                  M0,110 C50,90 100,130 150,110 C200,90 250,130 300,110 C350,90 400,130 450,110 C500,90 550,130 600,110 C650,90 700,130 750,110 C770,105 790,110 800,110" />
+      </path>
+      <!-- kurze Spuren, die golden beginnen und auslaufen -->
+      <path class="trace" d="M520,110 L760,110">
+        <animate attributeName="opacity" from="1" to="0" dur="4.5s" begin="0s;fade2.end+2s" id="fade1"/>
+      </path>
+      <path class="trace" d="M560,110 L780,110">
+        <animate attributeName="opacity" from="1" to="0" dur="4.5s" begin="fade1.end+1.2s" id="fade2"/>
+      </path>
+    </svg>
+    <figcaption class="muted">Eine Linie im Wasser – sichtbar, solange sie nachgezogen wird. Ohne Bewegung glättet sich die Fläche.</figcaption>
+  </figure>
+
+  <h2>die gewohnheit.</h2>
+  <p>So entsteht die Täuschung:<br>
+  nicht durch einen Fehler,<br>
+  sondern durch Gewohnheit.<br>
+  Durch das fortgesetzte Benennen,<br>
+  Bewerten, Erinnern.</p>
+
+  <p>Und das ist zugleich das Einfache:<br>
+  nichts muss zerstört werden,<br>
+  denn da war nie etwas Festes.<br>
+  Nur die Bewegung selbst<br>
+  hörte auf, sich zu bewegen.</p>
+
+  <div class="nachklang">
+  Und ganz kurz:
+
+  „Etwas“ sagt: da ist was.
+  Doch wenn du hinschaust, ist nichts da.
+
+  Nur still.
+  Nur so.
+
+  — Ja ganz genau, das ist es. C.
+  </div>
+
+  <footer><a href="https://justthisspace.ct.ws" target="_blank">justthisspace</a> · Project&nbsp;Resonanz</footer>
+</article>
+
+  </main>
+</body>
+</html>

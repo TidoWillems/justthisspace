@@ -1,0 +1,14 @@
+# lokale Keys / Zertifikate
+kalaidoskop/cert.pem
+kalaidoskop/key.pem
+
+# lokale Backups / Zips
+genug/*.zip
+genug/*_*.zip
+
+# tool-backups
+tools/_backups_va/
+
+# ggf. Editor-/Systemkram
+.DS_Store
+Thumbs.db

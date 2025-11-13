@@ -1,0 +1,223 @@
+/* ================================
+   Global Fonts (Google Fonts)
+   ================================ */
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=M+PLUS+Rounded+1c:wght@400;500;600&display=swap');
+
+/* Typografie-Basis: Fließtext rund & freundlich, Headlines literarisch */
+:root{
+  --font-body: 'M PLUS Rounded 1c', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-head: 'Spectral', Georgia, 'Times New Roman', serif;
+
+  --text-color: #1f2937;   /* gray-800 */
+  --muted-color: #4b5563;  /* gray-600 */
+  --accent: rgba(0,0,0,.35);
+  --line: rgba(0,0,0,.08);
+  --frame: rgba(0,0,0,.10);
+}
+
+/* ================================
+   Base
+   ================================ */
+html, body {
+  color: var(--text-color);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+
+p { margin: 0 0 0.9rem 0; }
+
+/* ================================
+   Headlines
+   ================================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  line-height: 1.25;
+  color: #111827; /* gray-900 */
+}
+
+/* Basis (mobile-first, <640px) */
+h1 {
+  font-size: 1.75rem;   /* ~28px */
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+}
+h2 {
+  font-size: 1.375rem;  /* ~22px */
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+h3 {
+  font-size: 1.125rem;  /* ~18px */
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+}
+
+/* Ab 640px (sm) */
+@media (min-width: 640px) {
+  h1 { font-size: 2.125rem; }  /* ~34px */
+  h2 { font-size: 1.5rem;   }  /* ~24px */
+  h3 { font-size: 1.25rem;  }  /* ~20px */
+}
+
+/* Ab 1024px (lg) */
+@media (min-width: 1024px) {
+  h1 { font-size: 2.5rem; letter-spacing: 0.01em; } /* ~40px */
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.375rem; }
+}
+
+/* ================================
+   Tropfen-/Atem-Animationen
+   ================================ */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%      { opacity: 0.6; transform: scale(1.02); }
+}
+.animate-pulse-slow { animation: pulse-slow 8s ease-in-out infinite; }
+
+@keyframes pulse-slower {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50%      { opacity: 0.3; transform: scale(1.01); }
+}
+.animate-pulse-slower { animation: pulse-slower 12s ease-in-out infinite; }
+
+/* ================================
+   Sections / QA-Blöcke
+   ================================ */
+section {
+  margin-bottom: 2.5rem;
+  padding-left: 1rem;
+  text-align: center;
+}
+section .frage {
+  font-family: var(--font-head);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151; /* gray-700 */
+  margin-bottom: 0.5rem;
+}
+section .antwort {
+  color: var(--muted-color);
+  white-space: pre-line;
+  line-height: 1.625;
+}
+
+/* ================================
+   Sprachvarianten (falls benutzt)
+   ================================ */
+.variant {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+}
+.variant.opacity-100 {
+  opacity: 1;
+  pointer-events: auto;
+  position: static;
+}
+
+/* ================================
+   Navigation & Sprache
+   ================================ */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+#swipe-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem 1rem;
+}
+#swipe-menu .menu-links {
+  display: flex;
+  gap: .75rem;
+  justify-content: flex-start;
+  flex: 1;
+}
+.menu-item { cursor: pointer; flex: 0 0 auto; }
+.menu-item-active { font-weight: 700; }
+
+#lang-toggle { display: flex; justify-content: flex-end; flex-shrink: 0; }
+#lang-toggle span, #lang-toggle button {
+  cursor: pointer;
+  padding: 0 6px;
+  background: none;
+  border: 0;
+  font: inherit;
+}
+#lang-toggle .active-lang, #lang-toggle .font-bold { font-weight: 700; }
+
+/* Fade-Out für Navigation (optional nutzbar via Klasse) */
+.fade-out { opacity: 0; transition: opacity .3s ease-in-out; }
+
+/* ================================
+   Rahmen / Layout auf großen Screens
+   ================================ */
+body {
+  position: relative;
+  z-index: 0;
+}
+body::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  max-width: 420px;
+  border: 2px solid var(--frame);
+  border-radius: 1rem;
+  z-index: -1;
+  pointer-events: none;
+  animation: pulse-slower 12s ease-in-out infinite;
+}
+
+/* Inhaltsbreite am Desktop begrenzen */
+@media (min-width: 768px) {
+  body {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #swipe-menu { justify-content: center; }
+}
+
+/* ================================
+   Progress-Balken (z. B. unter Textfluss)
+   ================================ */
+.progress {
+  position: relative;
+  height: 2px;
+  margin: 18px auto 0;
+  width: 82%;
+  max-width: 560px;
+  background: var(--line);
+  overflow: hidden;
+  border-radius: 2px;
+  transform: translateZ(0);
+  pointer-events: none;
+}
+.progress > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: left center;
+  transform: scaleX(0);       /* 0 → 1 per JS Transition */
+  transition: transform linear;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* ================================
+   Bewegungsreduktion
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-slow,
+  .animate-pulse-slower,
+  body::before { animation: none !important; }
+  .variant { transition: none !important; }
+  .progress > span { transition: none !important; transform: scaleX(0) !important; }
+}

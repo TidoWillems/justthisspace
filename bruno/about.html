@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Über Bruno Park · justthisspace</title>
+
+<link rel="icon" href="favicon-light.svg" media="(prefers-color-scheme: light)">
+<link rel="icon" href="favicon-dark.svg" media="(prefers-color-scheme: dark)">
+
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+
+  <script> tailwind.config = { darkMode: 'media' } </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .bg-grid {
+      background-image: radial-gradient(currentColor 1px, transparent 1px);
+      background-size: 18px 18px;
+      color: rgba(0,0,0,.08);
+    }
+    .dark .bg-grid { color: rgba(255,255,255,.07); }
+  </style>
+</head>
+<body class="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100">
+  <div class="fixed inset-0 -z-20 bg-white dark:bg-neutral-950"></div>
+  <div class="fixed inset-0 -z-10 bg-grid pointer-events-none"></div>
+
+  <main class="relative z-10 mx-auto max-w-3xl px-6 py-12">
+    <h1 class="text-2xl font-semibold">Über „Bruno&nbsp;Park“</h1>
+
+    <!-- Meta-Badge -->
+    <p class="mt-4 inline-flex items-center gap-2 text-xs sm:text-sm
+              rounded-full border border-neutral-300 dark:border-neutral-700
+              bg-neutral-100 dark:bg-neutral-800 px-3 py-1
+              text-neutral-600 dark:text-neutral-300 shadow-sm">
+      <span>2022&nbsp;–&nbsp;… / Hannover</span>
+      <span aria-hidden="true">•</span>
+      <span class="italic">zeitlos / raumlos</span>
+    </p>
+
+    <p class="mt-5 leading-relaxed text-neutral-700 dark:text-neutral-300">
+      <span class="font-medium">Bruno Park</span> ist kein bürgerlicher Name, eher eine
+      <em>Erscheinung</em> – ein stiller Rahmen, in dem Bilder auftauchen.
+      Der Mensch dahinter heißt <span class="font-medium">Tido&nbsp;Bruno&nbsp;Willems</span>.
+      Namen sind nur Etiketten; das Sehen geschieht auch ohne sie.
+    </p>
+
+    <p class="mt-4 leading-relaxed text-neutral-700 dark:text-neutral-300">
+      Diese Sammlung ist kein Portfolio, keine Chronik. Eher ein Kontaktbogen:
+      Motive, Zufälle, stille Stellen. Die Reihenfolge ist nebensächlich.
+      Wichtig ist, dass etwas sichtbar wird – und wieder verschwindet.
+    </p>
+
+    <p class="mt-4 leading-relaxed text-neutral-700 dark:text-neutral-300 italic">
+      „Nothing to add. Schon jetzt. Schon genug.“
+    </p>
+
+    <!-- Aktionen -->
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="index.html"
+         class="rounded-full bg-neutral-900 text-white dark:bg-neutral-200 dark:text-neutral-900
+                px-4 py-2 text-sm shadow hover:scale-105
+                transition-colors duration-150">Zur Galerie</a>
+      <a href="https://justthisspace.ct.ws"
+         class="rounded-full border border-neutral-300 dark:border-neutral-700
+                px-4 py-2 text-sm hover:bg-neutral-50 dark:hover:bg-neutral-900/40
+                transition-colors duration-150">Startseite</a>
+      <a href="mailto:fluxmatrix@proton.me"
+         class="rounded-full border border-sky-400 text-sky-600 dark:border-sky-500 dark:text-sky-400
+                px-4 py-2 text-sm hover:bg-sky-50 dark:hover:bg-sky-900/30
+                transition-colors duration-150">Kontakt</a>
+    </div>
+
+    <!-- Werkzeugkiste -->
+    <section class="mt-10 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/70 backdrop-blur">
+      <header class="px-4 py-3 text-sm font-medium text-neutral-700 dark:text-neutral-300">Werkzeugkiste</header>
+      <div class="px-4 pb-4 text-sm text-neutral-600 dark:text-neutral-400 leading-6">
+        <ul class="list-disc ml-5">
+          <li><strong>Masonry</strong> via CSS-Columns (leicht, ohne Framework-Overhead)</li>
+          <li><strong>Manifest</strong> (<code>images.json</code>) steuert Reihenfolge & Bildpfade</li>
+          <li><strong>Lightbox</strong> per nativem <code>&lt;dialog&gt;</code>, kein externes JS</li>
+          <li><strong>Design</strong> mit Tailwind-Utilities; Icons als schlanke <strong>Lucide</strong>-SVGs</li>
+        </ul>
+        <p class="mt-2 text-xs text-neutral-500 dark:text-neutral-500">
+          Pflege: <code>img/</code> → <code>auto_rename.py</code> (optional) → <code>build_bruno.sh</code> → <code>upload.sh</code>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <noscript>
+    <div class="fixed bottom-0 inset-x-0 bg-red-600 text-white text-center py-2 text-sm">
+      JavaScript ist deaktiviert – einige Funktionen (z. B. Galerie) stehen dann nicht zur Verfügung.
+    </div>
+  </noscript>
+</body>
+</html>

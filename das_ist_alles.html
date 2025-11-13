@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Das hier ist alles.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ein stiller Raum, der jeden abholt – ohne Vorwissen, ohne Konzept.">
+  <style>
+    :root{
+      --bg:#fcfbf8; --fg:#222; --muted:#666; --accent:#d6cbb3;
+      --paper:#f9f7f3; --paper-edge:#ece7df; --paper-ink:#2b2b2b; --paper-muted:#6d6a66;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      font-feature-settings: "liga","kern","onum","pnum";
+    }
+    a{color:#006688;text-decoration:none} a:hover{text-decoration:underline}
+
+    /* Rahmen */
+    main{max-width: 980px; margin: 0 auto; padding: 2.5rem 1rem 4rem}
+    nav.breadcrumbs{font-size:.9rem; color:var(--muted); margin:.5rem 0 1.25rem}
+
+    /* Intro-Hero */
+    .hero{display:grid;gap:.6rem;margin-bottom:1.25rem}
+    .title{margin:0; line-height:1.15; font-weight:700; font-size:clamp(1.6rem,2.4vw + 1rem,2.4rem)}
+    .lead{color:#333; font-size: clamp(1.05rem, .4vw + .98rem, 1.15rem)}
+
+    /* Zarter Textblock */
+    .soft{
+      background: rgba(255,255,255,.75);
+      backdrop-filter: blur(6px);
+      border: 1px solid #eee;
+      border-radius: 16px;
+      padding: 1.1rem 1.2rem;
+      box-shadow: 0 6px 24px rgba(0,0,0,.05);
+    }
+
+    /* Zitatblock mittig */
+    .center-quote{ text-align:center; font-style:italic; color:#555; line-height:1.6 }
+    .center-quote strong{ font-style:normal }
+
+    /* Karten-Optik */
+    .card{ background:#fff; border:1px solid #eee; border-radius:16px; box-shadow:0 6px 30px rgba(0,0,0,.06); overflow:hidden }
+    .pad{ padding:1rem 1.2rem }
+
+    /* Beiblatt-Stil (Pergament) */
+    .beiblatt{
+      background: radial-gradient(140% 100% at 50% 0%, #fbfaf7 0%, var(--paper) 60%, #f6f3ed 100%);
+      border: 1px solid var(--paper-edge);
+      color: var(--paper-ink);
+      box-shadow: 0 10px 30px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.6);
+      position:relative; overflow:hidden;
+    }
+    .beiblatt::before{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2NkYGD4DwAB/wF/zs1kHgAAAABJRU5ErkJggg==");
+      opacity:.35; mix-blend-mode:multiply;
+    }
+    .beiblatt details{ position:relative; z-index:1 }
+    .beiblatt summary{ list-style:none; cursor:pointer; font-weight:600; font-size:1.05rem; display:flex; align-items:center; gap:.6rem }
+    .beiblatt summary::-webkit-details-marker{ display:none }
+    .caret{ width:18px; height:18px; opacity:.8; transition:transform .25s ease }
+    details[open] .caret{ transform:rotate(90deg) }
+    .beiblatt .body{ margin-top:.75rem; line-height:1.65; font-size:.96rem }
+    .beiblatt .body blockquote{ margin:.9rem 0; padding-left:.9rem; border-left:3px solid #e1dbd0; color:var(--paper-muted) }
+    .beiblatt table{ width:100%; border-collapse:collapse; margin:.5rem 0 1rem; border:1px solid #efeae1; background:#fffdfa }
+    .beiblatt thead th{ background:#f5efe6; color:#3a3937; font-weight:600; padding:6px 10px; border-bottom:1px solid #ece3d8 }
+    .beiblatt td{ padding:6px 10px; border-top:1px solid #f0e8de; vertical-align:top }
+
+    /* Raum ohne Rand – eigener Abschnitt */
+    .raum{
+      position:relative; margin-top: 3rem;
+      background: radial-gradient(circle at 50% 0%, #fefdfb 0%, #fbfaf7 40%, #f6f3ee 100%);
+      border-top: 1px solid #eee5d9;
+      padding: 3.2rem 1.3rem 3.6rem;
+      color:#2d2d2d; box-shadow: inset 0 2px 30px rgba(0,0,0,0.05);
+    }
+    .raum::before{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2NkYGD4DwAB/wF/zs1kHgAAAABJRU5ErkJggg==");
+      opacity:.25; mix-blend-mode:multiply;
+    }
+    .raum-inner{ max-width:820px; margin:0 auto; position:relative; z-index:1; line-height:1.7; font-size:.97rem }
+    .raum-title{ text-align:center; font-size:1.8rem; font-weight:600; margin:0 0 .3rem }
+    .raum-subtitle{ text-align:center; color:#7b766e; margin:.1rem 0 2rem; font-style:italic }
+    .raum hr{ margin:2rem 0; opacity:.25 }
+    .raum h3{ font-size:1.05rem; margin-top:1.5rem }
+    .raum blockquote{ margin:2rem 0 0; padding-left:1rem; border-left:3px solid #e2dacb; color:#6c6862; font-style:italic }
+
+    /* „Fragen eines Jemand“ Karte */
+    .qa{ background:#fafafa; border:1px solid #eee; color:#333; border-radius:16px }
+    .qa details{ cursor:auto }
+    .qa summary{ cursor:pointer; font-weight:600; font-size:1.05rem }
+
+    /* Mobile Lesbarkeit */
+    @media (max-width: 640px){
+      main{ padding: 1.6rem .8rem 3rem }
+      .title{ font-size: 1.9rem }
+      .lead{ font-size: .98rem }
+      .beiblatt .body{ font-size:.94rem; line-height:1.58 }
+      /* Tabellen in Stack-Layout verwandeln */
+      .beiblatt table, .beiblatt thead, .beiblatt tbody, .beiblatt tr, .beiblatt th, .beiblatt td { display:block; width:100% }
+      .beiblatt thead{ display:none }
+      .beiblatt td{ border:none; border-bottom:1px solid #eee7dc; padding:.45rem 0 }
+      .beiblatt td::before{
+        content: attr(data-label);
+        display:block; font-weight:600; color:var(--paper-muted); margin-bottom:.15rem;
+      }
+      .raum{ padding:2.5rem 1rem 3rem }
+      .raum-title{ font-size:1.5rem }
+      .raum-subtitle{ font-size:.95rem }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <nav class="breadcrumbs"><a href="/index.html">/start</a> · <a href="/genug/">/genug</a></nav>
+
+    <header class="hero">
+      <h1 class="title">Das hier ist alles.</h1>
+      <p class="lead soft">Eine Seite ohne Voraussetzung. Keine Methode, kein Ziel. Nur ein stilles Hinweisen – damit jeder ankommen kann, ohne etwas tun zu müssen.</p>
+    </header>
+
+    <!-- Teil 1: dein zentriertes Nachwort/Zitatblock -->
+    <hr style="margin:3rem 0; opacity:.25">
+    <p class="center-quote">
+      Es gibt nichts mitzuteilen.<br>
+      Diese Worte sind nur Hilfsmittel, um eine andere Möglichkeit aufzuzeigen.<br><br>
+      Diese Idee oder Mitteilung ist nicht neu oder alt,<br>
+      sie ist gewöhnlicher als gewöhnlich.<br><br>
+      <strong>Alles, was ist – ist dies.<br>Dies ist alles.</strong>
+    </p>
+
+    <!-- Teil 2: Erklärungsbogen (klar, ruhig, ohne Jargon) -->
+    <section class="card pad beiblatt" style="margin-top:2rem">
+      <details open>
+        <summary>
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path stroke-width="2" d="M8 5l8 7-8 7"/></svg>
+          Ein einfacher Erklärungsbogen
+        </summary>
+        <article class="body">
+          <p>Vorher schienen die Gedanken wichtig. Es gab vieles zu tun, zu planen, zu halten. Es sah so aus, als gäbe es dich hier, die Welt dort, und dazwischen Zeit, Weg und Ziel.</p>
+          <p>Jetzt kann schlichtes Schauen geschehen. Gedanken kommen und gehen – wie Wolken. Doch das, was sieht, bleibt still. Es braucht keinen Namen und keine Anstrengung.</p>
+          <p>Das Gesuchte war nie weg. Es war nie später, nie früher, nie anderswo. Es ist genau hier – in allem, was jetzt erscheint.</p>
+        </article>
+      </details>
+    </section>
+
+    <!-- Teil 3a: Scheinbare Fragen eines „Jemand“ -->
+    <section class="card pad mt-6 qa" style="margin-top:1rem">
+      <details>
+        <summary>🪶 Scheinbare Fragen eines „Jemand“</summary>
+        <article style="margin-top:1rem;line-height:1.7;font-size:0.96rem;">
+          <p><b>Aber wer sagt das?</b><br>
+            Niemand sagt es. Es geschieht als Klang im Bewusstsein, wie Wind über eine Fläche streicht.</p>
+
+          <p><b>Was soll ich damit anfangen?</b><br>
+            Nichts. Jeder Versuch, etwas daraus zu machen, erschafft wieder jemanden, der etwas erreichen möchte.
+            Und doch kann dieses Nicht-Tun jetzt geschehen – ohne Willen.</p>
+
+          <p><b>Wie kann ich das verstehen?</b><br>
+            Es lässt sich nicht verstehen, nur hören. Verstehen versucht zu greifen, was keinen Rand hat.</p>
+
+          <p><b>Heißt das, ich bin nicht wirklich da?</b><br>
+            Das „Ich“ als Figur mit Vergangenheit und Zukunft ist Bewegung in dem, was da ist.
+            Doch das Dasein selbst verschwindet nie – es ist das, in dem selbst Verschwinden erscheint.</p>
+
+          <p><b>Und was bleibt dann?</b><br>
+            Nur dieses einfache Sein.<br>
+            Nicht „mein Sein“ – einfach Sein.<br>
+            Dass überhaupt wahrgenommen wird, dass Klang, Licht, Gedanke, Gefühl erscheinen.</p>
+
+          <p style="margin-top:1.2rem;color:#666;font-style:italic">
+            Vielleicht braucht es keine weiteren Antworten.
+            Nur ein stilles Sehen, dass die Fragen selbst schon Teil des Friedens sind.
+          </p>
+        </article>
+      </details>
+    </section>
+
+    <!-- Teil 3b: Einfache Worte – über das, was bleibt -->
+    <section class="raum">
+      <div class="raum-inner">
+        <h2 class="raum-title">☁️ Raum ohne Rand</h2>
+        <p class="raum-subtitle">Einfache Worte – über das, was bleibt</p>
+
+        <p>Vorher war da Sorge. Viele Gedanken drehten sich – um dich, um andere, um das, was noch kommen sollte.</p>
+        <p>Es schien, als müsstest du etwas schaffen, etwas halten, etwas richtig machen. Ein Weg, ein Ziel, eine Aufgabe, eine Zeit – und du mittendrin.</p>
+        <p>Und doch war da immer dieser leise Ruf: <em>„Ist das wirklich so?“</em></p>
+        <p>Jetzt geschieht Schauen. Kein Machen, kein Tun – einfach Sehen. Gedanken ziehen wie Wolken über einen Himmel, der selbst nie verschwindet.</p>
+        <p>Das, was gesucht wurde, war nie verloren. Es kann nicht gefunden werden, weil es nie weg war. Es ist dies – gewöhnlich, still.</p>
+
+        <hr>
+
+        <h3>💬 Scheinbare Fragen</h3>
+        <p><b>Aber was ist der Unterschied?</b><br>
+          Früher schien da jemand zu sein, der verstehen wollte. Jetzt ist da einfach Wahrnehmen. Leben geschieht – ohne Zentrum, ohne „jemanden“ darin.</p>
+
+        <p><b>Wie kann das so einfach sein?</b><br>
+          Weil es immer schon einfach war. Nur Gedanken machten es schwer. Sie erzählten Geschichten von „mir“ und „dir“, von „vorher“ und „nachher“. Doch das, was schaut, kennt keine Geschichte.</p>
+
+        <p><b>Und was bleibt?</b><br>
+          Atmen. Lauschen. Ein Vogel, ein Licht, ein Lächeln. Ganz ohne Bedeutung – und gerade darin vollständig.</p>
+
+        <blockquote>Es braucht keine neuen Worte mehr.<br>
+          Alles, was wahr ist, war schon hier,<br>
+          als noch geglaubt wurde, man müsse es finden.</blockquote>
+      </div>
+    </section>
+
+    <footer style="text-align:center; color:var(--muted); font-size:.9rem; margin-top:2rem">
+      © justthisspace — still jetzt.
+    </footer>
+  </main>
+
+</body>
+</html>

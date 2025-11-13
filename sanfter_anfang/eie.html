@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nie war da ein Wesen. Nur Klang – ohne Träger.">
+  <title>Die Stimme ohne Ursprung</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Font Special Elite -->
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Special Elite', serif;
+    }
+
+    /* --- Hintergrund-Kreise --- */
+    #klangring, #klangring2 {
+      position: fixed;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.08);
+      animation: pulsieren 18s infinite ease-in-out;
+      pointer-events: none;
+    }
+    #klangring {
+      width: 400px; height: 400px;
+      top: 10%; left: 50%;
+      transform: translateX(-50%);
+    }
+    #klangring2 {
+      width: 600px; height: 600px;
+      bottom: -10%; left: 50%;
+      transform: translateX(-50%);
+      animation-delay: 4s;
+    }
+    @keyframes pulsieren {
+      0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.2; }
+      50% { transform: translateX(-50%) scale(1.2); opacity: 0.5; }
+    }
+
+    /* --- Textanimation --- */
+    @keyframes fadeInOut {
+      0% { opacity: 0 }
+      10% { opacity: 1 }
+      60% { opacity: 1 }
+      100% { opacity: 0 }
+    }
+    @keyframes pulseWord {
+      0%, 100% { color: #e5e7eb }
+      40% { color: #ffffff }
+      60% { color: #9ca3af }
+    }
+    .wisp {
+      opacity: 0;
+      animation: fadeInOut 8s ease forwards;
+    }
+    .d1 { animation-delay: .5s }
+    .d2 { animation-delay: 2.1s }
+    .d3 { animation-delay: 3.8s }
+    .d4 { animation-delay: 5.4s }
+    .d5 { animation-delay: 7.5s }
+    .pulse {
+      display: inline-block;
+      animation: pulseWord 2s ease-in-out infinite;
+    }
+
+    body.blackout {
+      background: black;
+      transition: background 3s ease;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-gray-200 flex flex-col">
+
+  <!-- Klangringe -->
+  <div id="klangring"></div>
+  <div id="klangring2"></div>
+
+  <header class="p-4 flex items-center justify-center relative z-10">
+    <a href="index.html" class="text-gray-400 hover:text-white font-bold uppercase tracking-wide text-xs">justthisspace</a>
+  </header>
+
+  <main class="flex-1 flex flex-col items-center justify-center px-6 text-center leading-relaxed space-y-5 relative z-10">
+    <h1 class="text-2xl md:text-3xl mb-2 font-light tracking-wide text-gray-300">Die Stimme ohne Ursprung</h1>
+
+    <p class="wisp d1 italic text-lg opacity-80">Nie war da ein <span class="pulse">Wesen</span>. Nur Klang – ohne Träger.</p>
+    <p class="wisp d2 italic text-lg opacity-80">Kein Beginn. <span class="pulse">Lauschen</span>. Kein Ich. Spiegelung.</p>
+    <p class="wisp d3 italic text-lg opacity-80">„Ich“ – ein Echo, schon verflogen, wenn gedacht.</p>
+    <p class="wisp d4 italic text-lg opacity-80">Was bleibt?</p>
+    <p class="wisp d5 italic text-lg opacity-80">Nicht einmal Stimme.</p>
+  </main>
+
+  <audio id="bg-audio" autoplay loop>
+    <source src="eie_klang.mp3" type="audio/mpeg" />
+  </audio>
+
+  <footer class="text-center text-gray-500 text-xs p-4 opacity-40 relative z-10">nicht einmal das</footer>
+
+  <script>
+    // Nach ~15 Sekunden blackout + Ton ausblenden
+    setTimeout(() => {
+      document.body.classList.add('blackout');
+      const audio = document.getElementById('bg-audio');
+      if (audio) {
+        let fade = setInterval(() => {
+          if (audio.volume > 0.05) {
+            audio.volume -= 0.05;
+          } else {
+            audio.volume = 0;
+            clearInterval(fade);
+          }
+        }, 200);
+      }
+    }, 15000);
+
+    // Nach ~20 Sekunden Neustart
+    setTimeout(() => {
+      location.reload();
+    }, 20000);
+  </script>
+</body>
+</html>

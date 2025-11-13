@@ -1,0 +1,32 @@
+/* Dunkles Theme überschreibt helle Variablen */
+:root{
+  --bg:#0c0f12;
+  --ink:#f4f4f4;
+  --muted:#9ca3af;
+  --ring:#2d2f32;
+  --btn:#1e1f22;
+  --btn-hover:#2b2d31;
+}
+
+body{background:var(--bg);color:var(--ink);}
+.card{background:#181a1d;border-color:#2a2c2f;}
+.card:hover{background:#202225;}
+.hr{background:#2d2f32;}
+a{color:#a3e635;}
+
+/* --- sanfter Crossfade zwischen Hell/Dunkel --- */
+html, body {
+  transition: background-color .45s ease, color .45s ease;
+}
+
+.portal, .ring, .card, .sceneB, .titleBlock {
+  transition: background-color .45s ease, color .45s ease, border-color .45s ease;
+}
+/* Crossfade-Animation zwischen Hell/Dunkel */
+body {
+  opacity: 1;
+  transition: opacity .45s ease;
+}
+body.fade-out {
+  opacity: 0;
+}

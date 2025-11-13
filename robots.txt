@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /assets/
+Disallow: /backup/
+Disallow: /jens/
+Disallow: /metadrop/
+Disallow: /tzp/
+Allow: /
+
+# Sitemap-Platzhalter – kann später ergänzt werden
+# Sitemap: https://justthis.space/sitemap.xml

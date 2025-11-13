@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="90%" r="90%">
+      <stop offset="0" stop-color="#f2f4f7"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="600" cy="315" r="210" fill="none" stroke="#e6e8eb" stroke-width="3"/>
+  <circle cx="600" cy="315" r="235" fill="none" stroke="#eff1f4" stroke-width="2"/>
+  <circle cx="600" cy="315" r="185" fill="none" stroke="#eff1f4" stroke-width="2"/>
+  <text x="600" y="310" text-anchor="middle"
+        font-family="Bebas Neue, Arial, sans-serif" font-size="140" fill="#333" letter-spacing=".06em">VA</text>
+  <text x="600" y="380" text-anchor="middle"
+        font-family="Inter, Arial, sans-serif" font-size="30" fill="#4b5563" letter-spacing=".02em">
+    Virtuelle Assistenz – klar im Hintergrund
+  </text>
+</svg>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Das, was ist, kennt keine Ausnahme. Kein Ort, kein Moment, kein Gefühl, keine Tat. Alles, was erscheint, ist schon das Eine. Keine Ausnahme. Niemals. Jetzt.">
+    <title>○ justthisspace</title>
+    <link href="tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="zweig_vogel.css?v=20251003a" />
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-serif flex flex-col min-h-screen">
+    <header class="bg-black text-white p-2 shadow-md flex items-center">
+        <button id="home-button" class="text-lg font-extrabold mr-4">justthisspace</button>
+    </header>
+
+<nav id="swipe-menu" class="bg-black text-white p-2 flex items-center overflow-x-auto no-scrollbar">
+  <div class="menu-links">
+    <a href="start.html" class="menu-item [[ACTIVE_start]]">○</a>
+    <a href="frage.html" class="menu-item [[ACTIVE_frage]]">○</a>
+    <a href="kinder.html" class="menu-item [[ACTIVE_kinder]]">○</a>
+    <a href="sinn.html" class="menu-item [[ACTIVE_sinn]]">○</a>
+    <a href="nichts.html" class="menu-item [[ACTIVE_nichts]]">○</a>
+    <a href="pure.html" class="menu-item [[ACTIVE_pure]]">○</a>
+  </div>
+  <div id="lang-toggle" class="flex items-center">
+    <span data-lang="de">●</span>
+    <span data-lang="en">○</span>
+    <span data-lang="fr">○</span>
+  </div>
+</nav>
+
+    <img src="vogel.png" id="bg-vogel" alt="Vogel" />
+    <img src="zweig.png" id="bg-zweig" alt="Zweig" />
+
+    <main id="content" class="flex-grow p-6 max-w-2xl mx-auto space-y-8 text-center">
+        <div data-lang-content="de">
+            <h1 class="variant opacity-100 text-3xl font-bold text-gray-900 transition-opacity duration-1000">sinnlos sinnvoll</h1>
+            <h1 class="variant opacity-0 text-3xl font-bold text-gray-900 transition-opacity duration-1000">vollkommen grundlos</h1>
+        </div>
+        <section data-lang-content="de">
+            <div class="relative h-64 overflow-hidden">
+                <p class="variant opacity-100 transition-opacity duration-1000 leading-relaxed">
+                    Das, was ist, kennt keine Ausnahme.<br>
+                    Kein Ort, kein Moment, kein Gefühl, keine Tat.<br><br>
+                    Alles, was erscheint, ist schon das Eine.<br><br>
+                    Keine Ausnahme. Niemals. Jetzt.
+                </p>
+                <p class="variant opacity-0 transition-opacity duration-1000 leading-relaxed">
+                    Es braucht keinen Sinn –<br>
+                    denn nichts ist außerhalb.<br><br>
+                    Kein Ziel, kein Warum,<br>
+                    und doch erscheint Bedeutung,<br>
+                    als Spiel des Geistes im Raum des Nichts.
+                </p>
+            </div>
+        </section>
+        <div data-lang-content="en" style="display: none;">
+            <h1 class="variant opacity-100 text-3xl font-bold text-gray-900 transition-opacity duration-1000">meaningless meaningful</h1>
+            <h1 class="variant opacity-0 text-3xl font-bold text-gray-900 transition-opacity duration-1000">entirely unneeded</h1>
+        </div>
+        <section data-lang-content="en" style="display: none;">
+            <div class="relative h-64 overflow-hidden">
+                <p class="variant opacity-100 transition-opacity duration-1000 leading-relaxed">
+                    What is knows no exception.<br>
+                    No place, no moment, no feeling, no act.<br><br>
+                    Everything that appears is already the One.<br><br>
+                    No exception. Never. Now.
+                </p>
+                <p class="variant opacity-0 transition-opacity duration-1000 leading-relaxed">
+                    No meaning needed –<br>
+                    for nothing lies outside.<br><br>
+                    No goal, no reason,<br>
+                    and yet meaning arises<br>
+                    as a play of mind in the open space of nothing.
+                </p>
+            </div>
+        </section>
+        <div data-lang-content="fr" style="display: none;">
+            <h1 class="variant opacity-100 text-3xl font-bold text-gray-900 transition-opacity duration-1000">insensé sensé</h1>
+            <h1 class="variant opacity-0 text-3xl font-bold text-gray-900 transition-opacity duration-1000">absolument gratuit</h1>
+        </div>
+        <section data-lang-content="fr" style="display: none;">
+            <div class="relative h-64 overflow-hidden">
+                <p class="variant opacity-100 transition-opacity duration-1000 leading-relaxed">
+                    Ce qui est ne connaît aucune exception.<br>
+                    Aucun lieu, moment, sentiment ou acte.<br><br>
+                    Tout ce qui apparaît est déjà l'Un.<br><br>
+                    Aucune exception. Jamais. Maintenant.
+                </p>
+                <p class="variant opacity-0 transition-opacity duration-1000 leading-relaxed">
+                    Aucun sens requis –<br>
+                    car rien n’est en dehors.<br><br>
+                    Aucun but, aucune raison,<br>
+                    et pourtant le sens surgit<br>
+                    comme un jeu de l’esprit dans l’espace du rien.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <div class="text-center text-gray-400 text-sm p-4">
+        <a href="resonanz.html" class="hover:underline">nicht einmal das • not even that • même pas cela</a>
+        <div class="mt-2 text-xs opacity-30">Build: 2025-05-10 12:02</div>
+    </div>
+
+    <script src="navigation.js?v=20251003a"></script>
+    <script src="sprachlogik.js"></script>
+    <script src="zweig_vogel.js"></script>
+<script src="zweig_vogel_drag.js?v=20251003a"></script>
+</body>
+
+</html>

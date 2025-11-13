@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Für den Suchenden - justthisspace</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Für den Erschöpften. Für die Zweifelnde. Für den Verlorenen, die Haltlose, den Hoffnungslosen. Für alle, die suchen: nach Sinn, nach Stille, nach Zuhause.">
+<style>
+  :root{
+    --paper:#faf8f2;
+    --ink:#161616;
+    --gray:#777;
+  }
+  html,body{height:100%}
+  body{
+    margin:0;
+    background:
+      radial-gradient(800px 600px at 20% 15%, rgba(0,0,0,.06), transparent 60%),
+      radial-gradient(900px 700px at 80% 10%, rgba(0,0,0,.05), transparent 60%),
+      linear-gradient(var(--paper), var(--paper));
+    color:var(--ink);
+    font-family: "Courier New", ui-monospace, Menlo, Consolas, monospace;
+    line-height:1.7;
+    letter-spacing:.01em;
+  }
+
+  .sheet{
+    max-width: 780px;
+    margin: 4.5rem auto;
+    background: rgba(255,255,255,.75);
+    padding: 3rem 2rem 2.5rem;
+    box-shadow: 0 18px 45px rgba(0,0,0,.22);
+    position: relative;
+  }
+
+  /* Oben gelochte Kante */
+  .sheet:before{
+    content:"";
+    position:absolute; left:0; right:0; top:-14px; height:14px;
+    background:
+      radial-gradient(circle at 30px 7px, #bbb 2px, transparent 3px) repeat-x;
+    background-size: 60px 14px;
+    background-position: 0 0;
+  }
+
+  /* Stempel-Kopfzeile */
+  .stamp{
+    display:inline-block;
+    font-weight:700;
+    letter-spacing:.08em;
+    border: 2px solid #222;
+    padding:.25rem .6rem;
+    transform: rotate(-1.2deg);
+    box-shadow: 2px 2px 0 rgba(0,0,0,.35);
+    margin-bottom: 1rem;
+  }
+
+  h1{
+    font-size: 1.3rem;
+    margin:.3rem 0 1.2rem;
+    text-transform: uppercase;
+    letter-spacing:.12em;
+  }
+
+  p{margin: .9rem 0; font-size:1.02rem}
+
+  .ink{
+    text-shadow:
+      0.4px 0 rgba(0,0,0,.6),
+      -0.2px 0 rgba(0,0,0,.25);
+  }
+
+  .rule{
+    margin: 1.8rem 0;
+    height: 2px; border: none;
+    background:
+      repeating-linear-gradient(90deg, #222, #222 14px, transparent 14px, transparent 20px);
+    opacity:.6;
+  }
+
+  .bar{
+    display:inline-block;
+    background:#111; color:#fff;
+    padding:.35rem .6rem;
+    letter-spacing:.04em;
+    box-shadow: 2px 2px 0 rgba(0,0,0,.35);
+    transform: rotate(0.6deg);
+  }
+
+  footer{
+    margin-top: 2rem;
+    font-size:.95rem;
+    letter-spacing:.04em;
+    display:flex;
+    justify-content:center;
+    gap:0.6rem;
+    align-items:center;
+  }
+
+  /* alte Zahl durchgestrichen */
+  .old {
+    position: relative;
+    color: #222;
+  }
+  .old::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 50%;
+    border-top: 2px solid #b00;
+    transform: rotate(-2deg);
+  }
+
+  /* wie mit Tesa geklebt */
+  .tape {
+    background: #fdfdfd;
+    padding: 0.2rem 0.4rem;
+    font-family: serif;
+    font-style: italic;
+    transform: rotate(-2deg);
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.15),
+                2px 2px 4px rgba(0,0,0,.25);
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="stamp ink">justthisspace</div>
+    <h1 class="ink">für den suchenden</h1>
+
+    <p class="ink">Für den Erschöpften. Für die Zweifelnde. Für den Verlorenen, die Haltlose, den Hoffnungslosen.
+       Für alle, die suchen: nach Sinn, nach Stille, nach Zuhause.</p>
+    <p class="ink">Für den, der sagt: „Ich kann nicht mehr.“ Für die, die sich fragt: „Was soll das alles?“
+       Für das, was nicht greifbar ist – aber spürbar.</p>
+    <p class="ink">Für spirituelle Suchende. Für Sinnsucher. Für Wachwerdende. Für Enttäuschte.
+       Für Menschen mit Burnout, mit Fragen, mit einem offenen Herz.</p>
+    <p class="ink">Für das innere Kind. Für das höhere Selbst. Für den, der nicht mehr glaubt – aber noch fühlt.
+       Für die, die bereit ist, zu sehen, was schon da ist.</p>
+
+    <hr class="rule">
+
+    <p class="ink">Es gibt nichts zu finden – weil nie etwas verloren ging.
+       Zeit, Weg, Raum, Plan, freier Wille und Entscheidung sind Erscheinungen.
+       Wie Wolken, die ziehen. Wie ein Traum, der schon im Träumen vergeht.</p>
+
+    <p class="ink">Nichts muss ergänzt, repariert oder erreicht werden.
+       Kein nächster Schritt. Kein nächstes Ziel. Nur dies – immer schon hier.</p>
+
+    <p class="bar ink">Es gibt keinen Suchenden. Nur dies.</p>
+
+    <footer>
+      <span class="old">1957</span>
+      <span class="tape">zeitlos</span>
+    </footer>
+  </div>
+</body>
+</html>

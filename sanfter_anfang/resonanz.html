@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Du kannst mir schreiben – ohne Ziel. Alles ist Resonanz.">
+  <title>Resonanz • justthisspace</title>
+  <link href="tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="zweig_vogel.css?v=20251003a" />
+</head>
+<body class="bg-gray-100 text-gray-800 font-serif flex flex-col min-h-screen transition-opacity duration-300">
+
+  <!-- Header mit Home-Button & Sprach-Toggle -->
+  <header class="bg-black text-white p-2 shadow-md flex items-center justify-between">
+    <button id="home-button" class="text-lg font-extrabold" title="Home">justthisspace</button>
+    <div id="lang-toggle" class="flex items-center">
+      <span data-lang="de" class="active-lang">●</span>
+      <span data-lang="en">○</span>
+      <span data-lang="fr">○</span>
+    </div>
+  </header>
+
+  <!-- Hauptinhalt -->
+  <main id="content" class="flex-grow p-6 max-w-2xl mx-auto space-y-8 text-center">
+    <h1 class="text-3xl font-bold text-gray-900" data-lang-content="de">Resonanz</h1>
+    <h1 class="text-3xl font-bold text-gray-900" data-lang-content="en" style="display:none;">Feedback</h1>
+    <h1 class="text-3xl font-bold text-gray-900" data-lang-content="fr" style="display:none;">Résonance</h1>
+
+    <p data-lang-content="de">Du kannst mir schreiben – ohne Ziel. Alles ist Resonanz.</p>
+    <p data-lang-content="en" style="display:none;">You may write – without goal. Everything is resonance.</p>
+    <p data-lang-content="fr" style="display:none;">Tu peux écrire – sans but. Tout est résonance.</p>
+
+    <form action="mailto:fluxmatrix@proton.me" method="post" enctype="text/plain" class="space-y-4 text-left">
+      <div>
+        <label data-lang-content="de" for="name" class="block mb-1 font-semibold">Name</label>
+        <label data-lang-content="en" for="name" style="display:none;" class="block mb-1 font-semibold">Name</label>
+        <label data-lang-content="fr" for="name" style="display:none;" class="block mb-1 font-semibold">Nom</label>
+        <input id="name" name="Name" type="text" required class="w-full border border-gray-300 rounded p-2" />
+      </div>
+      <div>
+        <label data-lang-content="de" for="email" class="block mb-1 font-semibold">E-Mail</label>
+        <label data-lang-content="en" for="email" style="display:none;" class="block mb-1 font-semibold">Email</label>
+        <label data-lang-content="fr" for="email" style="display:none;" class="block mb-1 font-semibold">E-mail</label>
+        <input id="email" name="E-Mail" type="email" required class="w-full border border-gray-300 rounded p-2" />
+      </div>
+      <div>
+        <label data-lang-content="de" for="message" class="block mb-1 font-semibold">Nachricht</label>
+        <label data-lang-content="en" for="message" style="display:none;" class="block mb-1 font-semibold">Message</label>
+        <label data-lang-content="fr" for="message" style="display:none;" class="block mb-1 font-semibold">Message</label>
+        <textarea id="message" name="Nachricht" rows="6" required class="w-full border border-gray-300 rounded p-2"></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" data-lang-content="de" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">Absenden</button>
+        <button type="submit" data-lang-content="en" style="display:none;" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">Send</button>
+        <button type="submit" data-lang-content="fr" style="display:none;" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">Envoyer</button>
+      </div>
+    </form>
+  </main>
+
+  <!-- Fußzeile -->
+  <footer class="text-center p-4 text-gray-400 text-sm">
+    <a href="start.html" class="hover:underline">zurück zum Anfang • back to start • retour au début</a>
+  </footer>
+
+  <!-- Navigation & Sprachlogik -->
+  <script src="navigation.js?v=20251003a"></script>
+  <script src="sprachlogik.js"></script>
+<script src="zweig_vogel_drag.js?v=20251003a"></script>
+</body>
+</html>

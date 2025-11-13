@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>○ 502</title>
+  <link href="/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/zweig_vogel.css" />
+</head>
+<body class="bg-gray-100 text-gray-800 font-serif flex flex-col min-h-screen">
+  <header class="bg-black text-white p-2 shadow-md flex items-center">
+    <button id="home-button" class="text-lg font-extrabold mr-4" onclick="location.href='/start.html'" title="Home">justthisspace</button>
+  </header>
+
+  <nav id="swipe-menu" class="bg-black text-white p-2 flex justify-between items-center overflow-x-auto no-scrollbar">
+    <div class="flex space-x-4">
+      <a href="/start.html" class="menu-item">○</a>
+      <a href="/frage.html" class="menu-item">○</a>
+      <a href="/kinder.html" class="menu-item">○</a>
+      <a href="/sinn.html" class="menu-item">○</a>
+      <a href="/nichts.html" class="menu-item">○</a>
+      <a href="/pure.html" class="menu-item">○</a>
+      <a href="https://bruno-einfachdas.jimdofree.com/" class="menu-item" target="_blank">○</a>
+    </div>
+    <div id="lang-toggle" class="flex items-center">
+      <span data-lang="de" class="active-lang">●</span>
+      <span data-lang="en">○</span>
+      <span data-lang="fr">○</span>
+    </div>
+  </nav>
+
+  <img src="/zweig.png" alt="Zweig" id="bg-zweig" />
+  <img src="/vogel.png" alt="Vogel" id="bg-vogel" />
+
+  <main id="content" class="flex-grow p-6 max-w-2xl mx-auto space-y-12 text-center">
+    <section data-lang-content="de">
+      <h1 class="text-3xl font-bold text-gray-900">502 • Tor ohne Antwort</h1>
+      <p class="mt-6 text-gray-600 leading-relaxed">
+        Der Versuch, durch ein anderes Tor zu sprechen, blieb unbeantwortet.<br><br>
+        <a href="/start.html" class="underline">Zurück zur Seite</a>.
+      </p>
+    </section>
+    <section data-lang-content="en" style="display:none;">
+      <h1 class="text-3xl font-bold text-gray-900">502 • Gateway No Answer</h1>
+      <p class="mt-6 text-gray-600 leading-relaxed">
+        The gateway tried to respond, but silence followed.<br><br>
+        <a href="/start.html" class="underline">Back to the page</a>.
+      </p>
+    </section>
+    <section data-lang-content="fr" style="display:none;">
+      <h1 class="text-3xl font-bold text-gray-900">502 • Portail silencieux</h1>
+      <p class="mt-6 text-gray-600 leading-relaxed">
+        La réponse du portail n’est jamais venue.<br><br>
+        <a href="/start.html" class="underline">Retour à la page</a>.
+      </p>
+    </section>
+  </main>
+
+  <script src="/navigation.js"></script>
+  <script src="/sprachlogik.js"></script>
+  <script src="/zweig_vogel.js"></script>
+<script src="/zweig_vogel_drag.js"></script>
+</body>
+</html>

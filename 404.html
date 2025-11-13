@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>○ Seite nicht gefunden</title>
+  <link href="/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/zweig_vogel.css" />
+</head>
+<body class="bg-gray-100 text-gray-800 font-serif flex flex-col min-h-screen">
+  <header class="bg-black text-white p-2 shadow-md flex items-center">
+    <button id="home-button" class="text-lg font-extrabold mr-4" title="Home">justthisspace</button>
+  </header>
+
+  <nav class="bg-black text-white p-2 flex justify-between items-center overflow-x-auto no-scrollbar">
+    <div class="flex space-x-4">
+      <a href="/start.html" class="menu-item">○</a>
+      <a href="/frage.html" class="menu-item">○</a>
+      <a href="/nichts.html" class="menu-item">○</a>
+      <a href="/pure.html" class="menu-item">○</a>
+    </div>
+    <div id="lang-toggle" class="flex items-center">
+      <span class="active-lang">●</span>
+      <span>○</span>
+    </div>
+  </nav>
+
+  <img src="/zweig.png" alt="Zweig" id="bg-zweig" />
+  <img src="/vogel.png" alt="Vogel" id="bg-vogel" />
+
+<main id="content" class="flex-grow p-6 max-w-2xl mx-auto space-y-8">
+
+  <section data-lang-content="de">
+    <h1 class="text-3xl font-bold text-gray-900">404 – nicht gefunden</h1>
+    <p class="mt-4 leading-relaxed">
+      Was gesucht wurde, ist nicht da.<br>Vielleicht war es nie da.<br><br>Doch das Suchen selbst –<br>ein stiller Spiegel.
+    </p>
+  </section>
+
+  <section data-lang-content="en" style="display:none;">
+    <h1 class="text-3xl font-bold text-gray-900">404 – not found</h1>
+    <p class="mt-4 leading-relaxed">
+      What was searched for is not here.<br>Maybe it never was.<br><br>But the search itself –<br>a quiet mirror.
+    </p>
+  </section>
+
+  <section data-lang-content="fr" style="display:none;">
+    <h1 class="text-3xl font-bold text-gray-900">404 – introuvable</h1>
+    <p class="mt-4 leading-relaxed">
+      Ce que l’on cherchait n’est pas là.<br>Peut-être ne l’a-t-il jamais été.<br><br>Mais la recherche elle-même –<br>un miroir silencieux.
+    </p>
+  </section>
+
+</main>
+
+  <footer class="text-center text-gray-400 text-sm p-4">
+    nicht einmal das • not even that • même pas cela
+  </footer>
+
+  <script src="/navigation.js"></script>
+  <script src="/zweig_vogel.js"></script>
+<script src="/zweig_vogel_drag.js"></script>
+</body>
+</html>

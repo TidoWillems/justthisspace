@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="justthisspace — sanfter Anfang.">
+  <title>Illusionen entladen</title>
+
+  <!-- Share Tech Mono -->
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <!-- Tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #fff;
+      color: #0e0e0e;
+      font-family: 'Share Tech Mono', monospace;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center; padding: 2rem; min-height: 100vh;
+      transition: opacity 1s ease-in;
+    }
+    body.fadeout { opacity: 0; }
+
+    .circle {
+      width: 200px; height: 200px;
+      border-radius: 50%; border: 4px solid #111;
+      display: grid; place-items: center;
+      margin-bottom: 2rem;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 10px #bbb; transform: scale(1); }
+      50% { box-shadow: 0 0 20px #000; transform: scale(1.03); }
+    }
+
+    .illusion { font-size: 1.35rem; margin-top: 1rem; }
+
+    .implode { animation: implode .6s ease-in-out forwards; }
+    @keyframes implode {
+      0% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0.2); }
+    }
+
+    /* Hauptsatz langsam verschwimmen */
+    @keyframes blurOut {
+      0%   { opacity: 1; filter: blur(0px); }
+      50%  { opacity: 0.9; filter: blur(2px); }
+      100% { opacity: 0; filter: blur(8px); }
+    }
+    .blur-out { animation: blurOut 4s ease forwards; }
+
+    /* Paradox kurz aufblinken */
+    @keyframes hintPulse {
+      0% { opacity: 0; letter-spacing: .02em }
+      20% { opacity: .9; letter-spacing: .08em }
+      60% { opacity: .9; letter-spacing: .06em }
+      100% { opacity: 0; letter-spacing: .02em }
+    }
+    .paradox-hint {
+      font-size: .95rem; margin-top: .5rem; opacity: 0;
+      animation: hintPulse 3s ease forwards;
+    }
+
+    /* Punkt: Aufpoppen + Herzschlag */
+    @keyframes popIn {
+      0%   { transform: scale(0.6); opacity: 0; }
+      60%  { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    #relief.pop-in {
+      animation: popIn 0.8s ease-out forwards, heartbeat 2.8s ease-in-out infinite 1s;
+    }
+
+    #transition-circle {
+      position: fixed; left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px; height: 10px; background: #111;
+      border-radius: 50%;
+      z-index: 9999; opacity: 0;
+      transition: transform 3.2s ease-in, opacity 2.6s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <h1>Illusionen entladen</h1>
+  <div class="circle" id="circle">
+    <span id="counter" class="text-3xl font-bold">100%</span>
+  </div>
+
+  <div id="illusion" class="illusion">
+    <span class="opacity-60">Illusion:&nbsp;</span><span id="illusion-word"></span>
+  </div>
+
+  <div id="paradoxWrap" class="mt-4"></div>
+
+  <button id="relief" class="mt-6 text-4xl hidden" aria-label="Weiter">•</button>
+
+  <div id="transition-circle"></div>
+
+  <audio id="pop-sound" src="pop.mp3" preload="auto"></audio>
+  <audio id="pulse-sound" src="celestial-gong-191122.mp3" preload="auto"></audio>
+
+  <script>
+    const texts = {
+      de: {
+        illusions: ["Ich","Zeit","Glaube","Erfolg","Trennung","Ziel","Verlust","Sinn","Beginn","Form","Antwort","Name"],
+        all: "alle Illusionen entladen.",
+        paradox: "Paradoxon: Entladen findet nie statt."
+      }
+    };
+    const { illusions, all, paradox } = texts.de;
+    let illusionList = [...illusions];
+
+    const circle = document.getElementById('circle');
+    const counter = document.getElementById('counter');
+    const illusionWord = document.getElementById('illusion-word');
+    const paradoxWrap = document.getElementById('paradoxWrap');
+    const relief = document.getElementById('relief');
+    const pop = document.getElementById('pop-sound');
+    const gong = document.getElementById('pulse-sound');
+    const tCircle = document.getElementById('transition-circle');
+
+    let count = 100;
+    const interval = setInterval(() => {
+      counter.textContent = count + "%";
+      if (count % 7 === 0 && illusionList.length > 0) {
+        illusionWord.textContent = illusionList.shift();
+      }
+      count--;
+      if (count < 0) finishSequence();
+    }, 120);
+
+    function finishSequence() {
+      clearInterval(interval);
+      pop.play().catch(()=>{});
+      circle.classList.add('implode');
+      counter.style.display = 'none';
+
+      // Hauptsatz nach 2s
+      setTimeout(() => {
+        const mainLine = document.createElement('div');
+        mainLine.textContent = all;
+        mainLine.className = 'mt-3 text-2xl tracking-wider blur-out';
+        paradoxWrap.appendChild(mainLine);
+
+        // Paradox nach 3.5s
+        setTimeout(() => {
+          const hint = document.createElement('div');
+          hint.textContent = paradox;
+          hint.className = 'paradox-hint';
+          paradoxWrap.appendChild(hint);
+        }, 1500);
+
+        // Punkt erst nach 6s
+        setTimeout(() => {
+          relief.classList.remove('hidden');
+          relief.style.display = 'inline-block';
+          relief.classList.add('pop-in');
+          relief.focus();
+        }, 4000);
+      }, 2000);
+    }
+
+    relief.addEventListener('click', proceed);
+    function proceed(){
+      gong.play().catch(()=>{});
+      setTimeout(() => {
+        tCircle.style.opacity = '1';
+        tCircle.style.transform = 'translate(-50%, -50%) scale(100)';
+      }, 1000);
+      setTimeout(() => document.body.classList.add('fadeout'), 2000);
+      setTimeout(() => {
+        location.href = '/sanfter_anfang/start.html';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

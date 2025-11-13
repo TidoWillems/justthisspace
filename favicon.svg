@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Goldverlauf -->
+    <radialGradient id="goldgrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#efdcae"/>
+      <stop offset="65%" stop-color="#d4b573"/>
+      <stop offset="100%" stop-color="#b28b47"/>
+    </radialGradient>
+
+    <!-- weiche Halo -->
+    <filter id="halo" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      @keyframes pulse {
+        0%,100% { transform: scale(1); opacity: .9; }
+        50%     { transform: scale(1.18); opacity: .7; }
+      }
+      .p {
+        transform-origin: 50% 50%;
+        animation: pulse 6s ease-in-out infinite;
+      }
+      /* Darkmode: leicht stärkerer Glow */
+      @media (prefers-color-scheme: dark) {
+        .halo { opacity: .55; }
+      }
+    </style>
+  </defs>
+
+  <!-- transparenter Hintergrund -->
+  <rect width="100" height="100" fill="transparent"/>
+
+  <!-- Halo (größerer, weicher Kreis mit Filter) -->
+  <g class="p">
+    <circle class="halo" cx="50" cy="50" r="44" fill="#d4b573" opacity=".35" filter="url(#halo)"/>
+    <!-- Kern -->
+    <circle cx="50" cy="50" r="38" fill="url(#goldgrad)"/>
+  </g>
+</svg>

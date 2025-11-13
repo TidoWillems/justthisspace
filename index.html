@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="justthisspace — ein stiller Hinweis. Nichts zu verstehen, nichts zu erreichen. Alles erscheint, schon jetzt, schon genug.">
+<meta name="keywords" content="nonduality, stille, bewusstsein, einfachheit, sein, nichts, resonanz, tidospace">
+<meta name="author" content="justthisspace · Tido Willems">
+<meta property="og:title" content="justthisspace — ein stiller Hinweis">
+<meta property="og:description" content="Dies ist kein Portal. Kein Shop. Keine Agenda. Nur das, was schon da ist.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://justthisspace.ct.ws/">
+<meta property="og:image" content="https://justthisspace.ct.ws/favicon.svg">
+<meta name="theme-color" content="#b28b47">
+  <title>justthisspace</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .bg-dots {
+      background-image: radial-gradient(currentColor 1px, transparent 1px);
+      background-size: 18px 18px;
+      color: rgba(0,0,0,0.08);
+    }
+    .mask-fade {
+      -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, #000 70%, transparent 100%);
+              mask-image: radial-gradient(70% 60% at 50% 40%, #000 70%, transparent 100%);
+    }
+
+    body { background-color: #fff; color: #222; }
+    .text-neutral-900 { color: #111 !important; }
+    .text-neutral-800 { color: #222 !important; }
+    .text-neutral-700 { color: #333 !important; }
+
+    /* goldener Akzent für unfassbar-Link */
+    .link-unfassbar {
+      border-color: rgba(178,139,71,0.5);
+      color: #b28b47;
+      background-color: rgba(178,139,71,0.03);
+      transition: all 0.4s ease;
+    }
+    .link-unfassbar span {
+      background-color: #b28b47;
+      opacity: 0.85;
+      animation: pulseGold 6s ease-in-out infinite;
+    }
+    .link-unfassbar:hover {
+      background-color: rgba(178,139,71,0.09);
+      border-color: rgba(178,139,71,0.8);
+      color: #c7a356;
+    }
+    .link-unfassbar:hover span {
+      background-color: #c7a356;
+    }
+    @keyframes pulseGold {
+      0%, 100% { transform: scale(1); opacity: 0.85; }
+      50% { transform: scale(1.35); opacity: 0.55; }
+    }
+
+/* 🌅 Aurora-Edge — sanfter Morgenschimmer über alle Links */
+a[href] {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s ease;
+}
+
+a[href]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.05) 20%, rgba(255,255,255,0.15) 50%, transparent 80%);
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+a[href]:hover::before {
+  opacity: 1;
+  transform: translateX(50%);
+}
+
+@media (prefers-color-scheme: dark) {
+  a[href]::before {
+    background: linear-gradient(110deg, transparent 0%, rgba(255,230,150,0.08) 25%, rgba(255,200,100,0.15) 50%, transparent 75%);
+  }
+  a[href]:hover::before {
+    opacity: 0.8;
+    transform: translateX(60%);
+  }
+}
+
+    /* 🌙 Variante A – sanft lesbarer Dunkelmodus */
+    @media (prefers-color-scheme: dark) {
+      body { background-color: #0b0b0b; color: #eaeaea; }
+      .bg-dots { color: rgba(255,255,255,0.07); }
+      .mask-fade {
+        -webkit-mask-image: radial-gradient(80% 70% at 50% 45%, #000 90%, transparent 100%);
+                mask-image: radial-gradient(80% 70% at 50% 45%, #000 90%, transparent 100%);
+      }
+      /* Kästchen zarter, kein Taschenlampeneffekt */
+      .fixed.inset-0.pointer-events-none > div {
+        background-color: rgba(255,255,255,0.04) !important;
+        box-shadow: 0 0 10px rgba(255,255,255,0.05);
+      }
+      .text-neutral-700, .text-neutral-800, .text-neutral-900 {
+        color: #eaeaea !important;
+      }
+      .border-neutral-200, .border-neutral-300 {
+        border-color: rgba(255,255,255,0.2) !important;
+      }
+      .link-unfassbar {
+        border-color: rgba(212,181,115,0.6);
+        color: #d4b573;
+        background-color: rgba(212,181,115,0.07);
+      }
+      .link-unfassbar span {
+        background-color: #d4b573;
+        opacity: 0.9;
+        animation: pulseGoldDark 6s ease-in-out infinite;
+      }
+      @keyframes pulseGoldDark {
+        0%, 100% { transform: scale(1); opacity: 0.9; }
+        50% { transform: scale(1.35); opacity: 0.6; filter: drop-shadow(0 0 3px rgba(212,181,115,0.6)); }
+      }
+    }
+/* ---- running ember over nav bullets ---- */
+:root{
+  --gold: #b28b47;
+  --gold-d: #d4b573; /* dark */
+}
+
+#navi nav a > span:first-child{
+  /* Basis: bleibt dein grauer Punkt, aber animierbar */
+  transition: background-color .4s ease, box-shadow .4s ease, transform .4s ease;
+  animation: ember 3.6s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.28s);
+}
+
+/* sanftes Aufglühen */
+@keyframes ember{
+  0%, 65%, 100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  15% {
+    transform: scale(1.18);
+    background-color: var(--gold);
+    box-shadow: 0 0 0.35rem rgba(178,139,71,.55),
+                0 0 0.9rem rgba(178,139,71,.35);
+  }
+}
+
+/* Darkmode: wärmeres Gold + etwas mehr Glow */
+@media (prefers-color-scheme: dark){
+  @keyframes ember{
+    0%, 65%, 100% { transform: scale(1); box-shadow: none; }
+    15% {
+      transform: scale(1.2);
+      background-color: var(--gold-d);
+      box-shadow: 0 0 0.45rem rgba(212,181,115,.6),
+                  0 0 1.2rem rgba(212,181,115,.35);
+    }
+  }
+}
+
+/* Respektiere reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce){
+  #navi nav a > span:first-child{
+    animation: none !important;
+  }
+}
+/* === Ember Tuning (langsamer, schmaler) + Hover-Flamme ==================== */
+
+/* langsameres Grundtempo + größerer Stagger-Abstand */
+#navi nav a > span:first-child{
+  animation-duration: 5.2s !important;              /* vorher 3.6s */
+  animation-delay: calc(var(--i, 0) * 0.34s) !important; /* vorher 0.28s */
+}
+
+/* schmalerer Glow + etwas kleinere Ausdehnung */
+@keyframes ember{
+  0%, 70%, 100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  18% {
+    transform: scale(1.12);                          /* vorher ~1.18 */
+    background-color: var(--gold);
+    /* schmaleres Nachleuchten */
+    box-shadow:
+      0 0 0.22rem rgba(178,139,71,.55),
+      0 0 0.55rem rgba(178,139,71,.30);
+  }
+}
+
+/* Dark-Variante passend schmaler/wärmer */
+@media (prefers-color-scheme: dark){
+  @keyframes ember{
+    0%, 70%, 100% { transform: scale(1); box-shadow: none; }
+    18% {
+      transform: scale(1.14);
+      background-color: var(--gold-d);
+      box-shadow:
+        0 0 0.28rem rgba(212,181,115,.60),
+        0 0 0.80rem rgba(212,181,115,.30);
+    }
+  }
+}
+
+/* kleine Flamme bei Hover/Keyboard-Fokus – kurz wärmer, nicht breit */
+#navi nav a:hover > span:first-child,
+#navi nav a:focus-visible > span:first-child{
+  background-color: var(--gold);
+  transform: scale(1.22);
+  box-shadow:
+    0 0 0.28rem rgba(178,139,71,.65),
+    0 0 0.70rem rgba(178,139,71,.35);
+  transition: background-color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+
+/* Dark: Flamme etwas heller */
+@media (prefers-color-scheme: dark){
+  #navi nav a:hover > span:first-child,
+  #navi nav a:focus-visible > span:first-child{
+    background-color: var(--gold-d);
+    box-shadow:
+      0 0 0.34rem rgba(212,181,115,.70),
+      0 0 0.90rem rgba(212,181,115,.38);
+  }
+}
+  </style>
+</head>
+<body class="min-h-screen text-neutral-900 dark:text-neutral-100">
+
+  <!-- Raster-Hintergrund -->
+  <div class="fixed inset-0 bg-dots mask-fade pointer-events-none"></div>
+
+  <!-- Subtile graue Kästchen -->
+  <div class="fixed inset-0 -z-10 pointer-events-none">
+    <div class="absolute top-24 left-6 w-40 h-28 rounded-2xl bg-neutral-100 shadow shadow-sm/30 rotate-[-2deg]"></div>
+    <div class="absolute bottom-24 right-10 w-56 h-40 rounded-2xl bg-neutral-100 shadow shadow-sm/30 rotate-1"></div>
+  </div>
+
+  <main id="radikal" class="flex items-center justify-center min-h-screen text-center px-6">
+    <p class="text-2xl sm:text-3xl font-medium leading-relaxed text-neutral-800 dark:text-neutral-100">
+      Alles erscheint.<br/>
+      Nicht für jemanden.<br/>
+      Schon jetzt. Schon genug.
+    </p>
+  </main>
+
+  <main id="navi" class="hidden relative mx-auto max-w-3xl px-6 py-16 text-center">
+    <h1 class="text-2xl font-semibold text-neutral-900 dark:text-neutral-100">justthisspace</h1>
+    <p class="mt-6 text-xl leading-relaxed text-neutral-700 dark:text-neutral-200">
+      Dies ist kein Portal. Kein Shop. Keine Agenda.<br/><br/>
+      Dies scheint nur: ein stiller Hinweis.<br/><br/>
+      Nicht auf „etwas“ – sondern auf das, was schon da ist.<br/><br/>
+      Keine Bewegung nötig. Kein Klick. Nur ein Innehalten.
+    </p>
+    <blockquote class="mt-10 border-l-4 border-neutral-300 dark:border-neutral-600 pl-5 text-lg text-neutral-800 dark:text-neutral-100 font-medium">
+      Alles hier erscheint. Nicht für jemanden.<br/>
+      Auch das Wort „jemand“ ist nur Erscheinung – für niemand.
+    </blockquote>
+
+    <nav class="mt-10 grid gap-3 text-left">
+      <a href="/das_ist_alles.html" class="flex items-center gap-3 rounded-xl border border-neutral-200 dark:border-neutral-700 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800">
+        <span class="w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-500"></span>
+        Das hier ist alles
+      </a>
+
+      <a href="/sanfter_anfang/der_kern_der_illusion.html" class="flex items-center gap-3 rounded-xl border border-neutral-200 dark:border-neutral-700 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800">
+        <span class="w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-500"></span>
+        Der Kern der Illusion
+      </a>
+
+      <a href="/genug/index.html" class="flex items-center gap-3 rounded-xl border border-neutral-200 dark:border-neutral-700 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800">
+        <span class="w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-500"></span>
+        Ich bin – und das ist genug
+      </a>
+
+      <a href="/sanfter_anfang/intro.html" class="flex items-center gap-3 rounded-xl border border-neutral-200 dark:border-neutral-700 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800">
+        <span class="w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-500"></span>
+        Illusionen entladen
+      </a>
+
+      <a href="/sanfter_anfang/start.html" class="flex items-center gap-3 rounded-xl border border-neutral-200 dark:border-neutral-700 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800">
+        <span class="w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-500"></span>
+        Der sanfte Anfang
+      </a>
+
+      <a href="/sanfter_anfang/eie.html" class="flex items-center gap-3 rounded-xl border border-neutral-200 dark:border-neutral-700 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800">
+        <span class="w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-500"></span>
+        Die Stimme ohne Ursprung
+      </a>
+
+      <a href="/sanfter_anfang/suchvollmacht.html" class="flex items-center gap-3 rounded-xl border border-neutral-200 dark:border-neutral-700 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800">
+        <span class="w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-500"></span>
+        Wenn nichts mehr Sinn ergibt
+      </a>
+
+      <a href="/sanfter_anfang/stufe3_5.html" class="flex items-center gap-3 rounded-xl border border-neutral-200 dark:border-neutral-700 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800">
+        <span class="w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-500"></span>
+        Stille ▪︎ Schauen
+      </a>
+
+      <a href="/kalaidoskop/index.html" class="flex items-center gap-3 rounded-xl border border-neutral-200 dark:border-neutral-700 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800">
+        <span class="w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-500"></span>
+        Kaleidoskop der Anfangsbilder
+      </a>
+
+      <a href="/bruno/index.html" class="flex items-center gap-3 rounded-xl border border-neutral-200 dark:border-neutral-700 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800">
+        <span class="w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-500"></span>
+        Bruno – Bilder
+      </a>
+
+      <a href="/sanfter_anfang/fragment_0_nichts_besonderes.html" class="flex items-center gap-3 rounded-xl border border-neutral-200 dark:border-neutral-700 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800">
+        <span class="w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-500"></span>
+        fragment 0 – nichts besonderes
+      </a>
+
+      <a href="/unfassbar.html" class="link-unfassbar flex items-center gap-3 rounded-xl border px-4 py-3">
+        <span class="w-2.5 h-2.5 rounded-full"></span>
+        unfassbar – ein stilles Fragment
+      </a>
+
+      <a href="/genug/ausdruck/resonanz_diptychon.html" class="flex items-center gap-3 rounded-xl border border-neutral-200 dark:border-neutral-700 px-4 py-3 hover:bg-neutral-50 dark:hover:bg-neutral-800">
+        <span class="w-2.5 h-2.5 rounded-full bg-neutral-400 dark:bg-neutral-500"></span>
+        resonanz_diptychon
+      </a>
+    </nav>
+
+    <footer class="mt-14 text-sm text-neutral-500 dark:text-neutral-400">
+      © justthisspace — schon jetzt. schon genug.
+    </footer>
+  </main>
+
+  <button id="toggle"
+    class="fixed bottom-5 right-5 rounded-full bg-neutral-900 text-white w-12 h-12 flex items-center justify-center shadow-lg hover:bg-neutral-700 transition">
+    ⇆
+  </button>
+
+  <script>
+    const radikal = document.getElementById('radikal');
+    const navi = document.getElementById('navi');
+    const btn = document.getElementById('toggle');
+    btn.addEventListener('click', () => {
+      radikal.classList.toggle('hidden');
+      navi.classList.toggle('hidden');
+    });
+  </script>
+<script>
+  // vorhandener Toggle bleibt wie er ist …
+  // Jetzt Stagger-Index für die Bullets setzen:
+  const links = document.querySelectorAll('#navi nav a');
+  links.forEach((a, idx) => {
+    a.style.setProperty('--i', idx);
+  });
+</script>
+</body>
+</html>

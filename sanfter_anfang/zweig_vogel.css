@@ -1,0 +1,82 @@
+/* File: zweig_vogel.css — robustes Wiegen & Schweben ohne CSS-Variablen-Fallen */
+
+:root {
+  /* Vogel: werden vom JS gesetzt/animiert */
+  --vogel-x: 0px;
+  --vogel-y: 0px;
+  --vogel-float: 0px;   /* Keyframe-Atem */
+  --vogel-rot: 0deg;    /* Flatter-Impuls */
+  --vogel-scale: 1;
+}
+
+/* Z W E I G */
+#bg-zweig {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  height: 60vh;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+
+  /* Basiszustand; Animation überschreibt das zur Laufzeit */
+  transform: translateX(-50%) translateY(20%) rotate(0deg);
+  transform-origin: bottom left;
+  transition: opacity 0.6s ease;
+  will-change: transform, opacity;
+}
+
+/* V O G E L */
+#bg-vogel {
+  position: fixed;
+  width: 80px;
+  opacity: 1;
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+  z-index: 10;
+
+  transform:
+    translate3d(var(--vogel-x), calc(var(--vogel-y) + var(--vogel-float)), 0)
+    rotate(var(--vogel-rot))
+    scale(var(--vogel-scale));
+  transition: opacity 0.6s ease;
+  will-change: transform, opacity;
+}
+
+/* Vogel schwebt (nur “Float” ändert sich) */
+@keyframes schwebenVar {
+  0%, 100% { --vogel-float: 0px; }
+  50%      { --vogel-float: -4px; }
+}
+#bg-vogel.schwebt {
+  animation: schwebenVar 6s ease-in-out infinite;
+}
+
+/* Zweig wiegt (klassisch, breit kompatibel) */
+@keyframes saZweigWiegen {
+  0%, 100% { transform: translateX(-50%) translateY(20%) rotate(0deg); }
+  50%      { transform: translateX(-50%) translateY(20%) rotate(-2deg); }
+}
+#bg-zweig.wiegt {
+  animation: saZweigWiegen 8s ease-in-out infinite;
+}
+
+/* kurzer Flatter-Impuls (für Sprachwechsel etc.) */
+@keyframes flatterImpuls {
+  0%   { --vogel-scale: 1;   --vogel-rot: 0deg; }
+  50%  { --vogel-scale: 1.15; --vogel-rot: -12deg; }
+  100% { --vogel-scale: 1;   --vogel-rot: 0deg; }
+}
+#bg-vogel.flatter {
+  animation: flatterImpuls 0.3s ease both;
+}
+
+@media (min-width: 768px) {
+  #bg-vogel { width: 100px; }
+  #bg-zweig { height: 80vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #bg-vogel, #bg-zweig { animation: none !important; }
+}

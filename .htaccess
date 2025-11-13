@@ -1,0 +1,12 @@
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+DirectoryIndex /index.html
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.justthisspace\.ct\.ws [NC]
+RewriteRule ^(.*)$ https://justthisspace.ct.ws/$1 [L,R=301]
+
+AddType text/markdown .md
+AddType text/plain .md

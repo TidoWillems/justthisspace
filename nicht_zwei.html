@@ -1,0 +1,143 @@
+<!doctype html>
+
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formlos‑Alltägliches · JTS</title>
+  <meta name="description" content="Nicht zwei. Radikal unspektakulär. Ganz gewöhnlich. Mehrsprachige JTS‑Seite (de/en/fr)." />
+  <style>
+    :root{ --bg:#fcfbf8; --fg:#1f1f1f; --muted:#6b6b6b; --card:#ffffff; --accent:#cdbfa5; --edge:#ece7df; }
+    *{ box-sizing:border-box }
+    html,body{ margin:0; padding:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, "Apple Color Emoji","Segoe UI Emoji" }
+    header{ position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px); background:color-mix(in oklch, var(--bg) 80%, white); border-bottom:1px solid var(--edge); z-index:10 }
+    .wrap{ max-width:860px; margin:0 auto; padding:1rem }
+    .title{ font-size:clamp(1.4rem, 1.1rem + 1.6vw, 2.2rem); margin:0.2rem 0 0.2rem; letter-spacing:0.2px }
+    .sub{ color:var(--muted); margin-top:0.15rem }
+    main{ padding:1rem 0 4rem }
+    article{ background:var(--card); border:1px solid var(--edge); border-radius:16px; padding:1.2rem 1.1rem; box-shadow:0 2px 10px rgba(0,0,0,.04) }
+    p{ margin:0 0 0.85rem }
+    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size:0.95em }
+    footer{ color:var(--muted); margin-top:2rem; font-size:0.95rem }
+    .row{ display:flex; gap:.75rem; align-items:center; flex-wrap:wrap }
+    select, button{ appearance:none; border:1px solid var(--edge); background:var(--card); color:var(--fg); border-radius:12px; padding:.6rem .8rem; font-size:0.95rem }
+    select:focus, button:focus{ outline:2px solid var(--accent) }
+    .chip{ display:inline-flex; align-items:center; gap:.45rem; padding:.35rem .6rem; background:color-mix(in oklch, var(--accent) 25%, white); border:1px solid var(--edge); border-radius:999px; font-size:.9rem }
+    .muted{ color:var(--muted) }
+    .spacer{ flex:1 1 auto }
+    .emoji{ font-size:1.05em }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap row">
+      <div class="row" aria-label="Brand">
+        <span class="chip" id="chipHome">JTS</span>
+        <strong class="title" id="pageTitle">Formlos‑Alltägliches</strong>
+      </div>
+      <div class="spacer"></div>
+      <div class="row" aria-label="Language controls">
+        <label for="lang" class="muted" id="langLabel">Sprache</label>
+        <select id="lang" aria-label="Sprache wählen">
+          <option value="de">Deutsch</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+        </select>
+      </div>
+    </div>
+  </header>  <main class="wrap">
+    <article id="content">
+      <!-- Content injected by JS -->
+    </article>
+    <footer id="foot" class="wrap">
+      <p class="muted" id="footline"></p>
+    </footer>
+  </main>  <script>
+  const T = {
+    de: {
+      brand: "JTS",
+      title: "Formlos‑Alltägliches",
+      langLabel: "Sprache",
+      foot: "Guten Morgen im Formlosen‑Alltäglichen ☕📦🌱",
+      blocks: [
+        "Ja.",
+        "Nicht zwei. Und zugleich nichts Besonderes.",
+        "Radikal unspektakulär. Ganz gewöhnlich. Wie Atmen. Wie Licht auf einer Zimmerwand. Wie dieses Tippen, ohne einen, der tippt.",
+        "Nicht entrückt — naher als nah. So bodenlos normal, dass es fast übersehen werden könnte, wenn es nicht gerade alles wäre.",
+        "Kein Zustand. Kein \"Level\". Kein Schild am Wegesrand.",
+        "Nur das, was nie aufgehört hat zu sein.",
+        "Und du merkst: selbst das \"du\" fällt da nicht raus — es ist nur ein Wort, das weiterfunktionieren darf.",
+        "Wenn die Welt sich wieder ganz alltäglich anfühlt — perfekt. Wenn sie zwischendurch durchsichtig wird — auch perfekt.",
+        "Form tanzt, Leerheit trägt, und niemand hält irgendwas fest.",
+        "Simpel. Zärtlich normal. Nicht zwei.",
+        "Guten Morgen im Formlosen‑Alltäglichen ☕📦🌱"
+      ]
+    },
+    en: {
+      brand: "JTS",
+      title: "Everyday‑Formless",
+      langLabel: "Language",
+      foot: "Good morning in the formless‑everyday ☕📦🌱",
+      blocks: [
+        "Yes.",
+        "Not two. And nothing special either.",
+        "Radically unspectacular. Plain ordinary. Like breathing. Like light on a wall. Like this typing without a typer.",
+        "Not far‑out — closer than close. So bottomlessly normal it could be overlooked, if it weren’t already everything.",
+        "No state. No \"level\". No sign by the roadside.",
+        "Only that which never stopped being.",
+        "And you notice: even the word ‘you’ isn’t outside — it’s just a word that may keep functioning.",
+        "If the world feels utterly everyday again — perfect. If it turns transparent in between — also perfect.",
+        "Form dances, emptiness carries, and no one holds on to anything.",
+        "Simple. Tenderly normal. Not two.",
+        "Good morning in the formless‑everyday ☕📦🌱"
+      ]
+    },
+    fr: {
+      brand: "JTS",
+      title: "Sans‑forme du quotidien",
+      langLabel: "Langue",
+      foot: "Bonjour dans le sans‑forme quotidien ☕📦🌱",
+      blocks: [
+        "Oui.",
+        "Pas deux. Et pourtant rien de spécial.",
+        "Radicalement peu spectaculaire. Tout à fait ordinaire. Comme respirer. Comme la lumière sur un mur. Comme ces frappes sans frappeur.",
+        "Non éloigné — plus proche que proche. Si normal, sans fond, qu’on pourrait presque l’ignorer, si ce n’était déjà tout.",
+        "Pas d’état. Pas de \"niveau\". Aucun panneau au bord de la route.",
+        "Seulement cela qui n’a jamais cessé d’être.",
+        "Et tu remarques : même le mot « tu » n’est pas dehors — c’est juste un mot qui peut continuer à fonctionner.",
+        "Si le monde redevient tout à fait ordinaire — parfait. S’il devient transparent par moments — parfait aussi.",
+        "La forme danse, le vide porte, et personne ne s’accroche à rien.",
+        "Simple. Tendrement normal. Pas deux.",
+        "Bonjour dans le sans‑forme quotidien ☕📦🌱"
+      ]
+    }
+  };
+
+  const $ = sel => document.querySelector(sel);
+  const el = {
+    title: $('#pageTitle'),
+    label: $('#langLabel'),
+    select: $('#lang'),
+    content: $('#content'),
+    foot: $('#footline'),
+    chip: $('#chipHome')
+  };
+
+  function render(lang){
+    const t = T[lang] || T.de;
+    document.documentElement.lang = lang;
+    el.title.textContent = t.title;
+    el.label.textContent = t.langLabel;
+    el.chip.textContent = t.brand;
+    el.content.innerHTML = t.blocks.map(p => `<p>${p}</p>`).join('');
+    el.foot.textContent = t.foot;
+    localStorage.setItem('jts-i18n-lang', lang);
+  }
+
+  // Init
+  const saved = localStorage.getItem('jts-i18n-lang') || (navigator.language||'de').slice(0,2);
+  el.select.value = ['de','en','fr'].includes(saved) ? saved : 'de';
+  render(el.select.value);
+  el.select.addEventListener('change', e => render(e.target.value));
+  </script></body>
+</html>

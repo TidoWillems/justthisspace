@@ -1,0 +1,21 @@
+
+RewriteEngine On
+
+# 0) Assets immer erlauben
+RewriteRule ^(css/.*|js/.*|img/.*|fonts/.*|favicon\.svg|og_va\.(png|svg)|sitemap\.xml|robots\.txt)$ - [L,NC]
+
+# 1) Bypass per Cookie ODER per key in der URL
+RewriteCond %{HTTP_COOKIE} (^|;\s*)va_bypass=allesistnichtswasalsetwaserscheint [NC,OR]
+RewriteCond %{QUERY_STRING} (^|&)key=allesistnichtswasalsetwaserscheint(&|$) [NC]
+RewriteRule ^ - [L]
+
+# 2) Offline-Seite selbst nicht umleiten
+RewriteRule ^offline\.html$ - [L,NC]
+
+# 3) Alles andere → offline
+RewriteRule ^.*$ /virtuelle_assistenz/offline.html [R=302,L]
+
+
+# wechsel zurück in den online - modus
+# in termux: mv .htaccess _htaccess.maintenance
+# mv _htaccess.disabled .htaccess

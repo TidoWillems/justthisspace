@@ -1,0 +1,629 @@
+/data/data/com.termux/files/home/jts/
+├── .gitignore
+├── .htaccess
+├── .jts_root
+├── 401.html
+├── 403.html
+├── 404.html
+├── 418.html
+├── 500.html
+├── 502.html
+├── 503.html
+├── bruno/
+│   ├── about.html
+│   ├── favicon_dark.svg
+│   ├── favicon_light.svg
+│   ├── images.json
+│   ├── img/
+│   │   ├── bruno-001-2.jpg
+│   │   ├── bruno-001.jpg
+│   │   ├── bruno-002-2.jpg
+│   │   ├── bruno-002.jpg
+│   │   ├── bruno-003-2.jpg
+│   │   ├── bruno-003.jpg
+│   │   ├── bruno-004-2.jpg
+│   │   ├── bruno-004.jpg
+│   │   ├── bruno-005-2.jpg
+│   │   ├── bruno-005.jpg
+│   │   ├── bruno-006-2.jpg
+│   │   ├── bruno-006.jpg
+│   │   ├── bruno-007-2.jpg
+│   │   ├── bruno-007.jpg
+│   │   ├── bruno-008-2.jpg
+│   │   ├── bruno-008.jpg
+│   │   ├── bruno-009-2.jpg
+│   │   ├── bruno-009.jpg
+│   │   ├── bruno-010-2.jpg
+│   │   ├── bruno-010.jpg
+│   │   ├── bruno-011-2.jpg
+│   │   ├── bruno-011.jpg
+│   │   ├── bruno-012-2.jpg
+│   │   ├── bruno-012.jpg
+│   │   ├── bruno-013-2.jpg
+│   │   ├── bruno-013.jpg
+│   │   ├── bruno-014-2.jpg
+│   │   ├── bruno-014.jpg
+│   │   ├── bruno-015-2.jpg
+│   │   ├── bruno-015.jpg
+│   │   ├── bruno-016-2.jpg
+│   │   ├── bruno-016.jpg
+│   │   ├── bruno-017-2.jpg
+│   │   ├── bruno-017.jpg
+│   │   ├── bruno-018-2.jpg
+│   │   ├── bruno-018.jpg
+│   │   ├── bruno-019-2.jpg
+│   │   ├── bruno-019.jpg
+│   │   ├── bruno-020-2.jpg
+│   │   ├── bruno-020.jpg
+│   │   ├── bruno-021-2.jpg
+│   │   ├── bruno-021.jpg
+│   │   ├── bruno-022-2.jpg
+│   │   ├── bruno-022.jpg
+│   │   ├── bruno-023-2.jpg
+│   │   ├── bruno-023.jpg
+│   │   ├── bruno-024-2.jpg
+│   │   ├── bruno-024.jpg
+│   │   ├── bruno-024.png
+│   │   ├── bruno-025-2.jpg
+│   │   ├── bruno-025.jpg
+│   │   ├── bruno-026-2.jpg
+│   │   ├── bruno-026.jpg
+│   │   ├── bruno-027-2.jpg
+│   │   ├── bruno-027.jpg
+│   │   ├── bruno-028-2.jpg
+│   │   ├── bruno-028.jpg
+│   │   ├── bruno-029.jpg
+│   │   ├── bruno-029.png
+│   │   ├── bruno-030-2.jpg
+│   │   ├── bruno-030.jpg
+│   │   ├── bruno-031-2.jpg
+│   │   ├── bruno-031.jpg
+│   │   ├── bruno-032-2.jpg
+│   │   ├── bruno-032.jpg
+│   │   ├── bruno-033-2.jpg
+│   │   ├── bruno-033.jpg
+│   │   ├── bruno-034-2.jpg
+│   │   ├── bruno-034.jpg
+│   │   ├── bruno-035-2.jpg
+│   │   ├── bruno-035.jpg
+│   │   ├── bruno-036-2.jpg
+│   │   ├── bruno-036.jpg
+│   │   ├── bruno-037-2.jpg
+│   │   ├── bruno-037.jpg
+│   │   ├── bruno-038-2.jpg
+│   │   ├── bruno-038.jpg
+│   │   ├── bruno-039-2.jpg
+│   │   ├── bruno-039.jpg
+│   │   ├── bruno-040-2.jpg
+│   │   ├── bruno-040.jpg
+│   │   ├── bruno-041-2.jpg
+│   │   ├── bruno-041.jpg
+│   │   ├── bruno-042-2.jpg
+│   │   ├── bruno-042.jpg
+│   │   ├── bruno-043-2.jpg
+│   │   ├── bruno-043.jpg
+│   │   ├── bruno-044-2.jpg
+│   │   ├── bruno-044.jpg
+│   │   ├── bruno-045-2.jpg
+│   │   ├── bruno-045.jpg
+│   │   ├── bruno-046-2.jpg
+│   │   ├── bruno-046.jpg
+│   │   ├── bruno-047-2.jpg
+│   │   ├── bruno-047.jpg
+│   │   ├── bruno-048.jpg
+│   │   ├── bruno-048.png
+│   │   ├── bruno-049.jpg
+│   │   ├── bruno-050.jpg
+│   │   ├── bruno-051.jpg
+│   │   ├── bruno-052.jpg
+│   │   ├── bruno-053.jpg
+│   │   ├── bruno-054.jpg
+│   │   ├── bruno-055.jpg
+│   │   ├── bruno-056.jpg
+│   │   ├── bruno-057.jpg
+│   │   ├── bruno-058.jpg
+│   │   ├── bruno-059.jpg
+│   │   ├── bruno-060.jpg
+│   │   ├── bruno-061.jpg
+│   │   ├── bruno-062.jpg
+│   │   ├── bruno-063.jpg
+│   │   ├── bruno-064.jpg
+│   │   ├── bruno-065.jpg
+│   │   ├── bruno-066.jpg
+│   │   ├── bruno-067.jpg
+│   │   ├── bruno-068.jpg
+│   │   ├── bruno-069.jpg
+│   │   ├── bruno-070.jpg
+│   │   ├── bruno-071.jpg
+│   │   ├── bruno-072.jpg
+│   │   ├── bruno-073.jpg
+│   │   ├── bruno-074.jpg
+│   │   ├── bruno-075.jpg
+│   │   ├── bruno-076.jpg
+│   │   ├── bruno-077.jpg
+│   │   ├── bruno-078.jpg
+│   │   ├── bruno-079.jpg
+│   │   ├── bruno-080.jpg
+│   │   ├── bruno-081.jpg
+│   │   ├── bruno-082.jpg
+│   │   ├── bruno-083.jpg
+│   │   ├── bruno-084.jpg
+│   │   ├── bruno-085.jpg
+│   │   ├── bruno-086.jpg
+│   │   ├── bruno-087.jpg
+│   │   ├── bruno-088.jpg
+│   │   ├── bruno-089.jpg
+│   │   ├── bruno-090.jpg
+│   │   └── bruno-091.jpg
+│   └── index.html
+├── das_ist_alles.html
+├── favicon.svg
+├── genug/
+│   ├── .git/
+│   │   ├── COMMIT_EDITMSG
+│   │   ├── HEAD
+│   │   ├── config
+│   │   ├── description
+│   │   ├── hooks/
+│   │   │   ├── applypatch-msg.sample
+│   │   │   ├── commit-msg.sample
+│   │   │   ├── fsmonitor-watchman.sample
+│   │   │   ├── post-update.sample
+│   │   │   ├── pre-applypatch.sample
+│   │   │   ├── pre-commit.sample
+│   │   │   ├── pre-merge-commit.sample
+│   │   │   ├── pre-push.sample
+│   │   │   ├── pre-rebase.sample
+│   │   │   ├── pre-receive.sample
+│   │   │   ├── prepare-commit-msg.sample
+│   │   │   ├── push-to-checkout.sample
+│   │   │   ├── sendemail-validate.sample
+│   │   │   └── update.sample
+│   │   ├── index
+│   │   ├── info/
+│   │   │   └── exclude
+│   │   ├── logs/
+│   │   │   ├── HEAD
+│   │   │   └── refs/
+│   │   │       ├── heads/
+│   │   │       └── remotes/
+│   │   ├── objects/
+│   │   │   ├── 01/
+│   │   │   │   └── a3b615eabb59c9c50b7e222443202fdefbf832
+│   │   │   ├── 02/
+│   │   │   │   └── 49125b2d96bd8cfbd096a6271636ba32e5f8b3
+│   │   │   ├── 04/
+│   │   │   │   ├── 644049bf08f0317e918ec28f1f4a42b0b6f6c8
+│   │   │   │   └── 89045e1a9c302b8ae5249c9db6d239e1809b71
+│   │   │   ├── 05/
+│   │   │   │   └── 5ae8cbc504dbddee053f548a3722a986083ba9
+│   │   │   ├── 09/
+│   │   │   │   └── 33ff309e756b63714df2e1e7bc2f17d768eb92
+│   │   │   ├── 0a/
+│   │   │   │   ├── 708fa18bfb9bcffda8a25d47d3bcd59002c61e
+│   │   │   │   └── 82323788ad012ce9f5b13febfcd498f4a1a3d7
+│   │   │   ├── 0e/
+│   │   │   │   └── 1a19919b24680812498de58c3fb77706ae472e
+│   │   │   ├── 0f/
+│   │   │   │   └── 64ee2d04a3ab0a773d29ea3cbe5b3478df0173
+│   │   │   ├── 10/
+│   │   │   │   └── 58ee7957d5cd0340ab4ce6a48dc38b5cb7d173
+│   │   │   ├── 15/
+│   │   │   │   └── 9d6a18608fb9617af26be6dcd28cba536eb199
+│   │   │   ├── 1b/
+│   │   │   │   └── f9e97fac9eb1cf768df9043302ccfd75992e14
+│   │   │   ├── 1c/
+│   │   │   │   └── f1b7ca7faf3d44d280a297ee7ec69ba944dc1c
+│   │   │   ├── 23/
+│   │   │   │   └── 652ca10b3d2b5f40083c4401ccc0e979ff5b21
+│   │   │   ├── 28/
+│   │   │   │   ├── 027b3e8ecc6b47341e534850f7865e4b3722f3
+│   │   │   │   └── a6467a58122dba0ca00fd949301aac5cf048ec
+│   │   │   ├── 2b/
+│   │   │   │   ├── 8a44c66b3595702c622e13305c6e9d07f1787e
+│   │   │   │   └── e617e069218fbced1921484dff4cb7dfb92db6
+│   │   │   ├── 2e/
+│   │   │   │   └── 809f58608d01d5d9084f2c127ade8b97fdb7ad
+│   │   │   ├── 2f/
+│   │   │   │   └── b35360de90b6eeaf9d434dd6fbbe634fdb72be
+│   │   │   ├── 31/
+│   │   │   │   ├── 112eef39d7aef4f92b7ab9d570a147f6df903e
+│   │   │   │   └── f1ae6d97bcdb8dee0c6b26bbae4cc4b940ffb6
+│   │   │   ├── 35/
+│   │   │   │   └── de66494251d3d767eb822793f4999202bf9a31
+│   │   │   ├── 3b/
+│   │   │   │   └── 865321167d26f6b6b31b6d062cfd78cbc4bc56
+│   │   │   ├── 3d/
+│   │   │   │   └── 53da5913e0acfc24f44b3325d789d990d13203
+│   │   │   ├── 40/
+│   │   │   │   └── 97c76e355296f07de595a6f4c7bea45b944576
+│   │   │   ├── 41/
+│   │   │   │   ├── bbcf31eb9a63097fa4860cd48bd97b76220e22
+│   │   │   │   ├── c9560896a0c5325516d2cd7a171d25ce3d9185
+│   │   │   │   └── fb8f8b09c0eb6c3212b39655afd4ba593715ff
+│   │   │   ├── 46/
+│   │   │   │   ├── 891bf1287b20b236be6cfc54f92af0a50e90f6
+│   │   │   │   └── df02cf9e5f25329b05f5bafa73f711c1741bab
+│   │   │   ├── 48/
+│   │   │   │   ├── 49eb7a312db4f5cbe7a5e6513d9e19502f1469
+│   │   │   │   └── 798989685ff62dd828c711b6e2eb04414e1289
+│   │   │   ├── 49/
+│   │   │   │   └── 26e3b7ab2242dc54e466b15b7216f81e92bc1c
+│   │   │   ├── 4a/
+│   │   │   │   ├── 762cc8c4f5ef9628ed05799129458730b68800
+│   │   │   │   └── c303d4f96894ac3d1940ee284acfc77b0e5240
+│   │   │   ├── 4e/
+│   │   │   │   └── 7ef98998c2e67fd220b9e708097bfc1f08488d
+│   │   │   ├── 4f/
+│   │   │   │   └── 06e862722c3ba0c1cf9032641735f54016fe34
+│   │   │   ├── 52/
+│   │   │   │   └── 359b7fd994ce6781c7b378eb9929479855a95f
+│   │   │   ├── 57/
+│   │   │   │   └── 25af183f96f144adf09ee115b0982fe055bef1
+│   │   │   ├── 58/
+│   │   │   │   ├── bbd649d7e0948cc470ad607a1caaddb9015930
+│   │   │   │   └── c935c9c63b468a588bc586dc2825a6998cd9aa
+│   │   │   ├── 5b/
+│   │   │   │   └── 9a5f1468c5894a8279d5a992effa85832cc335
+│   │   │   ├── 5e/
+│   │   │   │   └── e9bb5071eaa4afe9c720d73b02905de92e7d8d
+│   │   │   ├── 64/
+│   │   │   │   ├── 306ab7e01188a623c936e2fd860491a3856c5e
+│   │   │   │   └── 6379b43bff71c3de5310cc7f8c8d943e4d003f
+│   │   │   ├── 65/
+│   │   │   │   └── b8985fa2b0b3e4cef0ad982bef46fda95c0008
+│   │   │   ├── 67/
+│   │   │   │   └── e04b9e5ac011c2856d3283cc98a3d7a0a729b0
+│   │   │   ├── 6a/
+│   │   │   │   ├── 9eeec19da65983a745432cfadd9fa55841194b
+│   │   │   │   └── ddacbb6b25ea4ebeba12d91c1d1f9e3922e543
+│   │   │   ├── 6c/
+│   │   │   │   ├── 7fb1f1a44afd1aa709ec01ba3962b2b9708213
+│   │   │   │   ├── 8161d62fc50d19aa1d8f16fa692ca36e4950a4
+│   │   │   │   └── cb21505ddcafc6fe5f0848b642a65e6a27c77f
+│   │   │   ├── 6d/
+│   │   │   │   └── e4c0f93c560edf51af960b7ee5ead605d02a1b
+│   │   │   ├── 72/
+│   │   │   │   ├── 007f7637f257facbfae2e77cb0856acc5b1a4d
+│   │   │   │   └── 35404455a3a4520023451f2663359274ae6cbc
+│   │   │   ├── 74/
+│   │   │   │   └── 05f4190d977cd7a596d3a47542af5bc3986e9e
+│   │   │   ├── 75/
+│   │   │   │   └── 2e3386a22747138656d99aefee99d1b67b08a5
+│   │   │   ├── 76/
+│   │   │   │   ├── 11b4ef61ab4e175fe190481a7bf3b6d00be5d2
+│   │   │   │   └── 637b579eee56f9454f592221768184f5a2b571
+│   │   │   ├── 78/
+│   │   │   │   └── dff1bb506960cf5a4b40abf0fd150aeaf19295
+│   │   │   ├── 83/
+│   │   │   │   └── 7909f37f75160dc6ba3f4de296898012ab8a09
+│   │   │   ├── 86/
+│   │   │   │   └── 55f65b85824b27e9fbaf3094045226351fc4fc
+│   │   │   ├── 87/
+│   │   │   │   └── 280a80484924a854bf25ccda840cc4c8cfec5b
+│   │   │   ├── 8b/
+│   │   │   │   └── 281d4e4020e26de00ef84539098ce9a6909300
+│   │   │   ├── 8d/
+│   │   │   │   └── ce173b6a8d8f0c4405103c3fe540726e2c8928
+│   │   │   ├── 8e/
+│   │   │   │   └── 20f2b522c4a265e14ecc111d734804627ab05b
+│   │   │   ├── 8f/
+│   │   │   │   ├── 6c67a1f410edce95507caf6c6263d1dc299014
+│   │   │   │   └── 6faa01587732753cb3c40704caac8c878daa42
+│   │   │   ├── 95/
+│   │   │   │   ├── c8990ad81e1805a68c27e5d592237f7bc5ab20
+│   │   │   │   └── db58cd3f9303ef65c226b4b9f40a85eb557979
+│   │   │   ├── 96/
+│   │   │   │   └── 6668e066c6f0e459687d9ad7006a0ffe37ac69
+│   │   │   ├── 9d/
+│   │   │   │   └── 31d20da38836932c64c967b0f9a2699a292fac
+│   │   │   ├── 9e/
+│   │   │   │   └── 172c9fc244d7d62dc867bd0c6e09b971541957
+│   │   │   ├── 9f/
+│   │   │   │   └── f30f30ef6384a65cbb1f1c403b0de74afeb504
+│   │   │   ├── a1/
+│   │   │   │   └── 04cfa0a0ba1beaed5eec95a5243c46fb5044b0
+│   │   │   ├── a2/
+│   │   │   │   └── 1d4acf6500eaaf81f49ce3a119f170f33bb8ff
+│   │   │   ├── a3/
+│   │   │   │   ├── 2382c5bbd58890ca3ad02942a619d41119cd87
+│   │   │   │   └── b8930e1d999b9cf5af80ecb2259fb5825c5f73
+│   │   │   ├── a8/
+│   │   │   │   ├── 188b7e355ebd606bdb8701286d630f46b139e0
+│   │   │   │   └── 2ef65ec524e0128bf72d78f9da585611fb5929
+│   │   │   ├── a9/
+│   │   │   │   └── 0fc3bc8c933a05450cecfaf05b52e7ceb43819
+│   │   │   ├── ad/
+│   │   │   │   └── ee77a9417cfa4523c3625cc5e246c25c296c17
+│   │   │   ├── ae/
+│   │   │   │   ├── 00a6363e42ea695a0b2d81f334a72c63c2acf3
+│   │   │   │   └── 2e7b027eb5de955ac6c247a02d305679618e5c
+│   │   │   ├── b0/
+│   │   │   │   └── c13ffccf7d4699e18f793446a6069ede594512
+│   │   │   ├── b1/
+│   │   │   │   ├── a2f6cd99ee7b6e718295c25f22a515dc45535d
+│   │   │   │   └── f90ec2be1aa1ea77ad3836894605c67d152d44
+│   │   │   ├── b2/
+│   │   │   │   └── 5af2b25f79ab3ab3f441739ff00261429aac58
+│   │   │   ├── b4/
+│   │   │   │   ├── 31c0701829286695b7e3df199da70cb1540bc1
+│   │   │   │   └── e0d73b2bdc93af14ec56ed661ecff3c9f78a2f
+│   │   │   ├── b6/
+│   │   │   │   └── 39962d0fa0df1af6f973e01902914f8ced1252
+│   │   │   ├── b9/
+│   │   │   │   └── aa479e709b5a478aa8cce91a8368549610d505
+│   │   │   ├── ba/
+│   │   │   │   └── 098397a16f953411b1dfbdeb63a9e67bc4951e
+│   │   │   ├── bf/
+│   │   │   │   └── 0ce24a3173fd67b3177c2b948d977c21d5b2da
+│   │   │   ├── c8/
+│   │   │   │   ├── 27790180465df3882e5204a7e7f396081b8d77
+│   │   │   │   └── f19a32633499e97b1e9fdd733a504303f39748
+│   │   │   ├── c9/
+│   │   │   │   └── 76b4ac1d0133dcdfecae839fc190f4a8c9b853
+│   │   │   ├── ca/
+│   │   │   │   └── 0bb2e59038808bddce9e5356d509d3a2886986
+│   │   │   ├── cb/
+│   │   │   │   └── 95acb5f69ba923899c42b93e17c2a545363f21
+│   │   │   ├── cc/
+│   │   │   │   └── 94bb20d5ba21363c8e2fde2f7dec012afaad96
+│   │   │   ├── d3/
+│   │   │   │   └── a27f203d8de6cb1aa53a679f4ddd945b63bd08
+│   │   │   ├── d7/
+│   │   │   │   ├── a8eb9a6d858b65b6f2f8fc48e7d19f823e9300
+│   │   │   │   └── d4a2d7b067ec8d6854a7cc7988852de7f987d9
+│   │   │   ├── d9/
+│   │   │   │   └── 3075df02e7b663dbc1de8fdff7dc6db5277029
+│   │   │   ├── db/
+│   │   │   │   └── 2faa4a65378cdc77f6fdafb4aec354b970b80a
+│   │   │   ├── dd/
+│   │   │   │   ├── 6a8beb193a0f4774b6a9929a92a530bf2d7152
+│   │   │   │   └── b00dd60171e8de1f5c0ef0bce48adb6ff31698
+│   │   │   ├── df/
+│   │   │   │   └── 2b79bfac43e8c32656b08a6dfce36739774935
+│   │   │   ├── e0/
+│   │   │   │   └── 4d5817b8695cdb4e1b640e896546de8709b537
+│   │   │   ├── e1/
+│   │   │   │   └── abc4e732b9300e0a929e1cea5c54fedc5dcae4
+│   │   │   ├── e2/
+│   │   │   │   └── 4ffcd782b6e60d65a7b3f678650c74123163ac
+│   │   │   ├── e7/
+│   │   │   │   └── 7cec6d4bd910e471ffd4b879f77af1af5086e1
+│   │   │   ├── e8/
+│   │   │   │   └── 1034882a7d591ebcb52042e817bf655dc30e0b
+│   │   │   ├── e9/
+│   │   │   │   ├── 9c946a4c5d6e61f40ae729041de28033fb0477
+│   │   │   │   └── c39a9af235763748faf4caf6f4399a1ab84faa
+│   │   │   ├── ec/
+│   │   │   │   └── 13ad8a3cf9efa636f3defb81438be111ac11a2
+│   │   │   ├── ee/
+│   │   │   │   └── 89a5cfec352660bf81146bc206e813257b6168
+│   │   │   ├── ef/
+│   │   │   │   └── 21caa699ca0011edce4858f6fbb6f48aeaa423
+│   │   │   ├── f0/
+│   │   │   │   ├── 0094084b5197a8b839a67ad41fe94d45547e35
+│   │   │   │   ├── 12ad66e3a18309e457367e741c2ce2bac3aaf3
+│   │   │   │   └── 18317a6913711f547c2195be3dd300c4e5061d
+│   │   │   ├── f6/
+│   │   │   │   └── 7f2ad9467d4f66c8fee68e28e765a1a8f1d2c6
+│   │   │   ├── f7/
+│   │   │   │   ├── 2d2c0fcd8a3dbf7268f1819f0758bcf2b3dde0
+│   │   │   │   └── be540d521cd3d9bb7be41177ff3034caec3aea
+│   │   │   ├── fe/
+│   │   │   │   └── 91cd67598d258009576ac1e0806d7a96d1d14e
+│   │   │   ├── ff/
+│   │   │   │   └── 59a8847e0b961544d492976c00ce4569a64731
+│   │   │   ├── info/
+│   │   │   └── pack/
+│   │   └── refs/
+│   │       ├── heads/
+│   │       │   └── main
+│   │       ├── remotes/
+│   │       │   └── origin/
+│   │       └── tags/
+│   ├── .github/
+│   │   └── workflows/
+│   │       ├── ci.yml
+│   │       └── release.yml
+│   ├── .htaccess
+│   ├── CHANGELOG.html
+│   ├── LICENSE
+│   ├── README.html
+│   ├── ausdruck/
+│   │   ├── img/
+│   │   │   ├── himmel.jpg*
+│   │   │   └── mauer.png
+│   │   ├── installation_genug.html
+│   │   ├── klangspur.html
+│   │   ├── performance.html
+│   │   └── resonanz_diptychon.html
+│   ├── changelog.html
+│   ├── filelist.json
+│   ├── filelist.json.bak
+│   ├── fragmente/
+│   │   ├── kein_ich.html
+│   │   ├── randnotizen.html
+│   │   ├── saat.html
+│   │   └── spuren.html
+│   ├── genug.js
+│   ├── genug_html.zip
+│   ├── genug_html_20250901-004500-a3b8930.zip
+│   ├── genug_texte.zip
+│   ├── genug_texte_20250901-004500-a3b8930.zip
+│   ├── gespraeche/
+│   │   ├── ich_und_niemand.html
+│   │   └── welt_und_kind.html
+│   ├── home.html
+│   ├── img/
+│   ├── index.html
+│   ├── index.txt
+│   ├── marked.min.js
+│   ├── meta/
+│   │   ├── autor.html
+│   │   ├── gliederung.html
+│   │   └── schluss_ohne_schluss.html
+│   ├── perspektiven/
+│   │   ├── algebra.html
+│   │   ├── biologie.html
+│   │   ├── geburt_und_tod.html
+│   │   ├── gesellschaft.html
+│   │   ├── gesellschaft_2.html
+│   │   ├── kein_konstrukt.html
+│   │   ├── kindheit.html
+│   │   ├── koerper.html
+│   │   ├── kunst.html
+│   │   ├── perspektivlosigkeit.html
+│   │   ├── philosophie.html
+│   │   ├── psychologie.html
+│   │   ├── spiritualitaet.html
+│   │   ├── trauma.html
+│   │   └── urheberrecht.html
+│   ├── sitemap.xml
+│   ├── stille/
+│   │   ├── kein_ich.html
+│   │   ├── leerseite.html
+│   │   ├── nicht_zwei.html
+│   │   └── stiller_eintrag_2025-08-30.html
+│   ├── style.css
+│   └── texte/
+│       ├── 01_das_genug.html
+│       ├── 02_genug_fuer_wen.html
+│       ├── 03_der_moment.html
+│       └── 04_keine_absicht.html
+├── icon_192x192.png
+├── icon_512x512.png
+├── index.html
+├── kalaidoskop/
+│   ├── README.md
+│   ├── assets/
+│   │   ├── css/
+│   │   │   └── kalanf.css
+│   │   └── js/
+│   │       ├── app.bak.js
+│   │       ├── app.bak1.js
+│   │       └── app.js
+│   ├── cert.pem
+│   ├── icons/
+│   │   ├── apple-touch-icon-152.png
+│   │   ├── apple-touch-icon-ipad.png
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon-16.png
+│   │   ├── favicon-32.png
+│   │   ├── favicon-48.png
+│   │   ├── icon-128.png
+│   │   ├── icon-144.png
+│   │   ├── icon-152.png
+│   │   ├── icon-192.png
+│   │   ├── icon-384.png
+│   │   ├── icon-512.png
+│   │   ├── icon-72.png
+│   │   ├── icon-96.png
+│   │   ├── icon.png
+│   │   └── make_icons.sh
+│   ├── index.html
+│   ├── key.pem
+│   ├── manifest.webmanifest
+│   └── sw.js
+├── offline.js
+├── robots.txt
+├── sanfter_anfang/
+│   ├── OrbitControls.js
+│   ├── celestial-gong-191122.mp3
+│   ├── click_ping.mp3
+│   ├── click_ping.ogg
+│   ├── debug.js
+│   ├── der_kern_der_illusion.html
+│   ├── eie.css
+│   ├── eie.html
+│   ├── eie.js
+│   ├── eie_klang.mp3
+│   ├── filelist.json
+│   ├── frage.html
+│   ├── fragment_0_nichts_besonderes.html
+│   ├── icon_192x192.png
+│   ├── icon_512x512.png
+│   ├── images.json
+│   ├── intro.html
+│   ├── kinder.html
+│   ├── layout.md
+│   ├── mini-viewer.html
+│   ├── navigation.js
+│   ├── netzraum_core.js
+│   ├── netzraum_effekte.js
+│   ├── netzraum_faeden.js
+│   ├── netzraum_kristall.js
+│   ├── netzraum_menu.js
+│   ├── netzraum_portale.js
+│   ├── netzraum_terminal.js
+│   ├── nichts.html
+│   ├── offline.js
+│   ├── patch.sh*
+│   ├── pure.html
+│   ├── resonanz.html
+│   ├── seo_add_h1.sh*
+│   ├── seo_apply.py*
+│   ├── seo_check.py*
+│   ├── seo_fix.py*
+│   ├── seo_recheck.sh*
+│   ├── service-worker.js
+│   ├── sinn.html
+│   ├── sprachlogik.js
+│   ├── start.html
+│   ├── stufe3_5.html
+│   ├── style.css
+│   ├── style.css_grau_linie
+│   ├── suchvollmacht.html
+│   ├── tailwind.min.css
+│   ├── three.module.js
+│   ├── vogel.png*
+│   ├── vogel.svg
+│   ├── zweig.png*
+│   ├── zweig.svg
+│   ├── zweig_vogel.css
+│   ├── zweig_vogel.js
+│   ├── zweig_vogel_drag.js
+│   ├── zweig_vogel_hinten.png*
+│   └── zwitscher.mp3
+├── tools/
+│   └── _backups_va/
+│       ├── 20251007-083717/
+│       │   ├── .htaccess
+│       │   └── robots.txt
+│       ├── 20251007-100100/
+│       │   ├── .htaccess
+│       │   └── robots.txt
+│       ├── 20251007-101558/
+│       │   ├── .htaccess
+│       │   └── robots.txt
+│       ├── 20251007-102441/
+│       │   ├── .htaccess
+│       │   └── robots.txt
+│       ├── 20251007-103336/
+│       │   ├── .htaccess
+│       │   └── robots.txt
+│       └── 20251007-103416/
+│           ├── .htaccess
+│           └── robots.txt
+├── tree_jts.txt
+├── unfassbar.html
+└── virtuelle_assistenz/
+    ├── .deploy.ok
+    ├── .htaccess
+    ├── .jts_root
+    ├── _htaccess.disabled
+    ├── css/
+    │   ├── va.css
+    │   └── va_dark.css
+    ├── favicon.svg
+    ├── index.html
+    ├── js/
+    │   └── va.js
+    ├── offline.html
+    ├── og_va.png
+    ├── og_va.svg
+    ├── robots.txt
+    ├── sitemap.xml
+    ├── virtuelle_assistenz.html
+    └── virtuelle_assistenz_dark.html
+
+144 directories, 483 files

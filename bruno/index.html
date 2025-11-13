@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bruno – Bilder · justthisspace</title>
+<link rel="icon" href="favicon-light.svg" media="(prefers-color-scheme: light)">
+<link rel="icon" href="favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <!-- Farb-/Theme-Signale -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+
+  <!-- Tailwind -->
+  <script> tailwind.config = { darkMode: 'media' } </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .bg-grid {
+      background-image: radial-gradient(currentColor 1px, transparent 1px);
+      background-size: 18px 18px;
+      color: rgba(0,0,0,.08);
+    }
+    .dark .bg-grid { color: rgba(255,255,255,.07); }
+    .avoid-break { break-inside: avoid; }
+  </style>
+</head>
+<body class="min-h-screen text-neutral-900 dark:text-neutral-100">
+  <!-- Vollflächen-Hintergrund + Raster -->
+  <div class="fixed inset-0 -z-20 bg-white dark:bg-neutral-950"></div>
+  <div class="fixed inset-0 -z-10 bg-grid pointer-events-none"></div>
+
+  <!-- Header -->
+  <header class="relative z-10 mx-auto max-w-5xl px-6 py-12 text-center">
+    <h1 class="text-3xl font-semibold tracking-tight">Bruno – Bilder</h1>
+    <p class="mt-2 text-lg text-neutral-700 dark:text-neutral-300">
+      Ein Raum von <span class="font-medium">Tido&nbsp;Bruno&nbsp;Willems</span><br/>
+      <span class="text-sm text-neutral-500 dark:text-neutral-400 italic">alias Bruno&nbsp;Park</span>
+    </p>
+
+    <!-- Meta-Badge -->
+    <p class="mt-4 inline-flex items-center gap-2 text-xs sm:text-sm
+              rounded-full border border-neutral-300 dark:border-neutral-700
+              bg-neutral-100 dark:bg-neutral-800 px-3 py-1
+              text-neutral-600 dark:text-neutral-300 shadow-sm">
+      <span id="badge-date">--.--.----</span>
+      <span aria-hidden="true">•</span>
+      <span id="badge-count">0 Bilder</span>
+    </p>
+
+    <div class="sr-only" id="status" aria-live="polite">Lade Manifest …</div>
+  </header>
+
+  <!-- Galerie -->
+  <main class="relative z-10 mx-auto max-w-6xl px-4 pb-16">
+    <section id="gallery" class="columns-1 sm:columns-2 lg:columns-3 gap-5"></section>
+
+    <!-- Technik -->
+    <details class="mx-auto mt-10 max-w-3xl rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white/70 dark:bg-neutral-900/70 backdrop-blur shadow-sm">
+      <summary class="cursor-pointer select-none px-4 py-3 text-sm text-neutral-700 dark:text-neutral-300 flex items-center gap-2">
+        <span>Technik</span>
+      </summary>
+      <div class="px-4 pb-4">
+        <div id="statusVis" class="text-sm text-neutral-600 dark:text-neutral-400">Lade Manifest …</div>
+        <div id="errors" class="mt-2 text-sm text-red-600 dark:text-red-400"></div>
+        <p class="mt-4 text-sm text-neutral-500 dark:text-neutral-400 italic">
+          Namen sind nur Etiketten. Das Bild ist nicht der Name.
+        </p>
+        <p class="mt-2 text-xs text-neutral-400 dark:text-neutral-500">
+          Technik: Masonry (CSS-Columns) · Lightbox (&lt;dialog&gt;) · Manifest (images.json)
+        </p>
+      </div>
+    </details>
+
+    <!-- Links -->
+    <p class="mt-8 text-center">
+      <span class="inline-flex gap-3">
+        <a href="about.html"
+           class="rounded-full border border-neutral-300 dark:border-neutral-700
+                  px-4 py-2 text-sm hover:bg-neutral-50 dark:hover:bg-neutral-900/40
+                  transition-colors duration-150">
+          Über „Bruno&nbsp;Park“
+        </a>
+        <a href="https://justthisspace.ct.ws"
+           class="rounded-full border border-neutral-300 dark:border-neutral-700
+                  px-4 py-2 text-sm hover:bg-neutral-50 dark:hover:bg-neutral-900/40
+                  transition-colors duration-150">
+          Startseite
+        </a>
+      </span>
+    </p>
+  </main>
+
+  <!-- Lightbox -->
+  <dialog id="lightbox" class="backdrop:bg-black/70 p-0 rounded-xl overflow-hidden">
+    <img id="lightbox-img" src="" alt="" class="max-h-[85vh] max-w-[92vw] object-contain bg-black" />
+  </dialog>
+
+  <!-- FAB -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <a href="https://justthisspace.ct.ws"
+       class="rounded-full bg-neutral-900 text-white dark:bg-neutral-200 dark:text-neutral-900
+              w-12 h-12 flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-150"
+       aria-label="Startseite" title="Startseite">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7"></path>
+        <path d="M9 22V12h6v10"></path>
+      </svg>
+    </a>
+    <button type="button" onclick="reloadGallery()"
+       class="rounded-full bg-neutral-900 text-white dark:bg-neutral-200 dark:text-neutral-900
+              w-12 h-12 flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-150"
+       aria-label="Galerie neu laden" title="Galerie neu laden">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 2v6h-6"></path>
+        <path d="M21 13a8 8 0 1 1-2-5.3L21 8"></path>
+      </svg>
+    </button>
+  </div>
+
+  <noscript>
+    <div class="fixed bottom-0 inset-x-0 bg-red-600 text-white text-center py-2 text-sm">
+      JavaScript ist deaktiviert – Galerie benötigt Manifest-Laden.
+    </div>
+  </noscript>
+
+  <script>
+    const gallery  = document.getElementById('gallery');
+    const statusEl = document.getElementById('status');
+    const statusVis= document.getElementById('statusVis');
+    const errEl    = document.getElementById('errors');
+    const dlg      = document.getElementById('lightbox');
+    const dlgImg   = document.getElementById('lightbox-img');
+
+    async function loadManifest() {
+      try {
+        const v = Date.now();
+        const res = await fetch(`images.json?v=${v}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const items = await res.json();
+
+        gallery.innerHTML = '';
+        errEl.textContent = '';
+        const total = Array.isArray(items) ? items.length : 0;
+
+        const text = `Manifest geladen: ${total} Bilder`;
+        statusVis.textContent = text;
+        statusEl.textContent  = text;
+
+        if (!Array.isArray(items) || total === 0) {
+          gallery.innerHTML = '<p class="text-neutral-600 dark:text-neutral-400">Keine Bilder im Manifest.</p>';
+          updateMetaBadge(total);
+          return;
+        }
+
+        let shown = 0, failed = 0;
+        items.forEach(it => {
+          const src = it?.src || '';
+          if (!src) return;
+          const fig = document.createElement('figure');
+          fig.className = "avoid-break mb-5 overflow-hidden rounded-2xl shadow-sm ring-1 ring-neutral-200/60 dark:ring-neutral-800/60 hover:-translate-y-0.5 hover:shadow-md transition";
+          fig.innerHTML = `
+            <img src="${src}" alt="" class="w-full h-auto block" loading="lazy" decoding="async" />
+            <figcaption class="px-3 py-2 text-sm text-neutral-600 dark:text-neutral-400">
+              ${(it.caption||'').replace(/</g,'&lt;')}
+            </figcaption>
+            <button class="hidden" data-full="${src}"></button>
+          `;
+          const img = fig.querySelector('img');
+          img.addEventListener('error', () => {
+            failed++;
+            errEl.innerHTML += `<div>Fehler beim Laden: <code>${src}</code></div>`;
+            fig.remove();
+            statusVis.textContent = `Manifest geladen: ${total} • angezeigt: ${shown} • Fehler: ${failed}`;
+          });
+          img.addEventListener('load', () => {
+            shown++;
+            statusVis.textContent = `Manifest geladen: ${total} • angezeigt: ${shown} • Fehler: ${failed}`;
+          });
+          gallery.appendChild(fig);
+        });
+
+        updateMetaBadge(total);
+      } catch (e) {
+        statusVis.textContent = 'Konnte images.json nicht laden.';
+        statusEl.textContent  = 'Konnte images.json nicht laden.';
+        errEl.textContent     = e.message || String(e);
+        console.error(e);
+        updateMetaBadge(0);
+      }
+    }
+
+    function updateMetaBadge(count) {
+      const cEl = document.getElementById('badge-count');
+      const dEl = document.getElementById('badge-date');
+      if (!cEl || !dEl) return;
+      cEl.textContent = `${count} Bilder`;
+      const d = new Date();
+      dEl.textContent = d.toLocaleDateString('de-DE', { day:'2-digit', month:'2-digit', year:'numeric' });
+    }
+
+    function reloadGallery() {
+      statusVis.textContent = 'Lade Manifest …';
+      statusEl.textContent  = 'Lade Manifest …';
+      gallery.innerHTML = '';
+      errEl.textContent = '';
+      loadManifest();
+    }
+
+    gallery.addEventListener('click', (e) => {
+      const img = e.target.closest('img');
+      if (!img) return;
+      const full = img.closest('figure').querySelector('button[data-full]')?.dataset.full || img.src;
+      dlgImg.src = full;
+      dlg.showModal();
+    });
+    dlg.addEventListener('click', (e) => {
+      const rect = dlg.getBoundingClientRect();
+      if (!(e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom)) dlg.close();
+    });
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') dlg.close(); });
+
+    loadManifest();
+  </script>
+</body>
+</html>

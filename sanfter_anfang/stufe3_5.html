@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="justthisspace — sanfter Anfang.">
+  <title>Stufe 3.5 – Tiefenraum mit Berührung</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: radial-gradient(ellipse at center, #0b0c10 0%, #000000 100%);
+      overflow: hidden;
+      touch-action: none;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+<script src="debug.js"></script>
+</head>
+<body>
+  <h1>Stufe 3.5 – Tiefenraum mit Berührung</h1>
+  <canvas id="raum"></canvas>
+  <script>
+    const canvas = document.getElementById('raum');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    let nodes = [];
+    let touchX = null, touchY = null;
+    const NODE_COUNT = 80;function resize() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+function createNodes() {
+  nodes = [];
+  for (let i = 0; i < NODE_COUNT; i++) {
+    nodes.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      z: Math.random() * 200 + 50,
+      dx: (Math.random() - 0.5) * 0.2,
+      dy: (Math.random() - 0.5) * 0.2,
+      dz: (Math.random() - 0.5) * 0.2
+    });
+  }
+}
+createNodes();
+
+function draw() {
+  ctx.clearRect(0, 0, w, h);
+
+  nodes.forEach(n => {
+    let size = 6 * (200 / n.z);
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255,255,255,${0.05 + 0.4 * (200 - n.z)/200})`;
+    ctx.fill();
+  });
+
+  for (let i = 0; i < nodes.length; i++) {
+    for (let j = i + 1; j < nodes.length; j++) {
+      let dx = nodes[i].x - nodes[j].x;
+      let dy = nodes[i].y - nodes[j].y;
+      let dz = nodes[i].z - nodes[j].z;
+      let dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
+      if (dist < 180) {
+        ctx.strokeStyle = `rgba(255,255,255,${1 - dist/180})`;
+        ctx.lineWidth = 0.3;
+        ctx.beginPath();
+        ctx.moveTo(nodes[i].x, nodes[i].y);
+        ctx.lineTo(nodes[j].x, nodes[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function update() {
+  nodes.forEach(n => {
+    n.x += n.dx;
+    n.y += n.dy;
+    n.z += n.dz;
+
+    if (n.x < 0 || n.x > w) n.dx *= -1;
+    if (n.y < 0 || n.y > h) n.dy *= -1;
+    if (n.z < 50 || n.z > 250) n.dz *= -1;
+
+    if (touchX !== null && touchY !== null) {
+      const dx = n.x - touchX;
+      const dy = n.y - touchY;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 120) {
+        n.dx += dx / dist * 0.05;
+        n.dy += dy / dist * 0.05;
+        n.dz -= 0.3;
+      }
+    }
+  });
+}
+
+function animate() {
+  update();
+  draw();
+  requestAnimationFrame(animate);
+}
+
+canvas.addEventListener('touchstart', e => {
+  if (e.touches.length > 0) {
+    touchX = e.touches[0].clientX;
+    touchY = e.touches[0].clientY;
+  }
+});
+
+canvas.addEventListener('touchmove', e => {
+  if (e.touches.length > 0) {
+    touchX = e.touches[0].clientX;
+    touchY = e.touches[0].clientY;
+  }
+});
+
+canvas.addEventListener('touchend', () => {
+  touchX = null;
+  touchY = null;
+});
+
+animate();
+
+  </script>
+</body>
+</html>
