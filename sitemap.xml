@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- root pages -->
+  <url><loc>https://tidowillems.github.io/justthisspace/</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/index.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/das_ist_alles.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/nicht_zwei.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/unfassbar.html</loc></url>
+
+  <!-- bruno -->
+  <url><loc>https://tidowillems.github.io/justthisspace/bruno/</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/bruno/index.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/bruno/about.html</loc></url>
+
+  <!-- genug -->
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/index.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/home.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/changelog.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/README.html</loc></url>
+
+  <!-- genug / meta -->
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/meta/autor.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/meta/gliederung.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/meta/schluss_ohne_schluss.html</loc></url>
+
+  <!-- genug / fragmente -->
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/fragmente/kein_ich.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/fragmente/randnotizen.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/fragmente/saat.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/fragmente/spuren.html</loc></url>
+
+  <!-- genug / gespräche -->
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/gespraeche/ich_und_niemand.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/gespraeche/welt_und_kind.html</loc></url>
+
+  <!-- genug / stille -->
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/stille/kein_ich.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/stille/leerseite.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/stille/nicht_zwei.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/stille/stiller_eintrag_2025-08-30.html</loc></url>
+
+  <!-- genug / perspektiven -->
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/algebra.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/biologie.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/geburt_und_tod.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/gesellschaft.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/gesellschaft_2.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/kein_konstrukt.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/kindheit.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/koerper.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/kunst.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/perspektivlosigkeit.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/philosophie.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/psychologie.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/spiritualitaet.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/trauma.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/genug/perspektiven/urheberrecht.html</loc></url>
+
+  <!-- kaleidoskop -->
+  <url><loc>https://tidowillems.github.io/justthisspace/kalaidoskop/</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/kalaidoskop/index.html</loc></url>
+
+  <!-- sanfter anfang -->
+  <url><loc>https://tidowillems.github.io/justthisspace/sanfter_anfang/der_kern_der_illusion.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/sanfter_anfang/eie.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/sanfter_anfang/frage.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/sanfter_anfang/fragment_0_nichts_besonderes.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/sanfter_anfang/intro.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/sanfter_anfang/kinder.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/sanfter_anfang/nichts.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/sanfter_anfang/pure.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/sanfter_anfang/resonanz.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/sanfter_anfang/sinn.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/sanfter_anfang/start.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/sanfter_anfang/stufe3_5.html</loc></url>
+  <url><loc>https://tidowillems.github.io/justthisspace/sanfter_anfang/suchvollmacht.html</loc></url>
+
+</urlset>
