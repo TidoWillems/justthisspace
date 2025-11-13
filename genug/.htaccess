@@ -1,0 +1,2 @@
+AddType text/markdown .md
+AddType text/plain .md

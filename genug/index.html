@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ich bin – und das ist genug</title>
+
+<!-- Build-Version -->
+<script>window.BUILD="20251006-234746";</script>
+<script defer src="genug.js?v=20251006-234746"></script>
+<link rel="stylesheet" href="style.css?v=20251006-234746">
+</head>
+
+<body>
+<div class="overlay" id="overlay" aria-hidden="true"></div>  
+  <header>
+    <h1 class="site-title">Ich bin – und das ist genug</h1>
+    <div class="toolbar">
+<button class="btn" id="navToggle" aria-expanded="false" aria-controls="nav">☰ Menü</button>
+      <button class="btn" id="themeToggle" title="Thema umschalten">☯︎ Theme</button>
+      <a class="btn" href="/index.html">← justthisspace</a>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <div class="search">
+        <input id="search" type="search" placeholder="Suche Dateien …" />
+      </div>
+      <ul id="nav" class="tree">Lade Dateien…</ul>
+    </aside>
+
+    <main>
+      <div class="card">
+        <div id="toc" class="toc" hidden></div>
+        <article id="content">Wähle eine Datei.</article>
+        <a class="toplink" href="#">⬆️ nach oben</a>
+      </div>
+    </main>
+  </div>
+<footer>
+<small>© justthis.space — Stand: 20251006-234746</small>
+</footer>
+</body>
+</html>
+
