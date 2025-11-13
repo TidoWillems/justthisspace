@@ -1,5 +1,0 @@
-# Lokale Rewrites aus, damit die Root-Regeln hier nicht greifen
-RewriteEngine Off
-
-# Diese Datei zuerst ausliefern, wenn /virtuelle_assistenz/ aufgerufen wird
-DirectoryIndex virtuelle_assistenz.html
