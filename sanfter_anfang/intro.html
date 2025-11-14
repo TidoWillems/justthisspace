@@ -35,7 +35,7 @@
       50% { box-shadow: 0 0 20px #000; transform: scale(1.03); }
     }
 
-    .illusion { font-size: 1.35rem; margin-top: 1rem; }
+    .illusion { font-size: 1.35rem; margin-top: 0rem; }
 
     .implode { animation: implode .6s ease-in-out forwards; }
     @keyframes implode {
@@ -85,10 +85,26 @@
       z-index: 9999; opacity: 0;
       transition: transform 3.2s ease-in, opacity 2.6s ease-out;
     }
+/* --- Vertikale Symmetrie um den Kreis ------------------------------ */
+
+#title {
+  margin-bottom: 2rem;
+}
+
+#circle {
+  margin: 0 auto;
+}
+
+#illusion {
+  margin-top: 2rem;
+}
+
+/* Du kannst die 2rem hier anpassen – gilt oben + unten gleich */
+
   </style>
 </head>
 <body>
-  <h1>Illusionen entladen</h1>
+  <h1 id="title">Illusionen entladen</h1>
   <div class="circle" id="circle">
     <span id="counter" class="text-3xl font-bold">100%</span>
   </div>
@@ -158,12 +174,19 @@
         }, 1500);
 
         // Punkt erst nach 6s
+        // Punkt zeigen
         setTimeout(() => {
           relief.classList.remove('hidden');
           relief.style.display = 'inline-block';
           relief.classList.add('pop-in');
-          relief.focus();
+
+          // 🔥 Auto-Proceed nach 2 Sekunden (kein Klick nötig)
+          setTimeout(() => {
+            proceed();
+          }, 2000);
+
         }, 4000);
+
       }, 2000);
     }
 
