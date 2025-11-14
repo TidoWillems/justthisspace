@@ -5,8 +5,9 @@ ErrorDocument 500 /500.html
 DirectoryIndex /index.html
 
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www\.justthisspace\.ct\.ws [NC]
-RewriteRule ^(.*)$ https://justthisspace.ct.ws/$1 [L,R=301]
+
+# alles von ct.ws → GitHub Pages spiegeln
+RewriteRule ^(.*)$ https://tidowillems.github.io/justthisspace/$1 [L,R=301]
 
 AddType text/markdown .md
 AddType text/plain .md
