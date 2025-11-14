@@ -12,17 +12,25 @@
   --muted-color: #4b5563;  /* gray-600 */
   --accent: rgba(0,0,0,.35);
   --line: rgba(0,0,0,.08);
-  --frame: rgba(0,0,0,.10);
+  /* Rahmen leicht vergolden */
+  --frame: rgba(178,139,71,0.18);
+
+  /* Gold wie auf index/favicons */
+  --gold: #b28b47;
+  --gold-soft: #c9a164;
+  --gold-deep: #8b6735;
 }
 
 /* ================================
    Base
    ================================ */
+
 html, body {
   color: var(--text-color);
   font-family: var(--font-body);
   line-height: 1.65;
   -webkit-text-size-adjust: 100%;
+  background: #f4f5f7;         /* ruhiger Rahmen-Hintergrund */
 }
 
 p { margin: 0 0 0.9rem 0; }
@@ -154,6 +162,46 @@ section .antwort {
 /* Fade-Out für Navigation (optional nutzbar via Klasse) */
 .fade-out { opacity: 0; transition: opacity .3s ease-in-out; }
 
+/* Header-Balken oben */
+header {
+  background: var(--gold);
+  color: #fdf8ee;
+  box-shadow: 0 1px 4px rgba(0,0,0,.18);
+}
+
+/* Swipe-Menü in Gold verlaufend */
+#swipe-menu {
+  background: linear-gradient(
+    90deg,
+    rgba(178,139,71,0.96),
+    rgba(178,139,71,0.88)
+  );
+  color: #fdf8ee;
+}
+
+/* Punkte im Menü leicht zurückgenommen, aktiver Punkt etwas heller */
+#swipe-menu .menu-links .menu-item {
+  color: #fdf8ee;
+  opacity: .75;
+  transition: opacity .25s ease;
+}
+#swipe-menu .menu-links .menu-item:hover {
+  opacity: 1;
+}
+.menu-item-active {
+  opacity: 1;
+  text-shadow: 0 0 4px rgba(0,0,0,.35);
+}
+
+/* Sprach-Toggle bullets */
+#lang-toggle span {
+  opacity: .55;
+}
+#lang-toggle .active-lang {
+  opacity: 1;
+}
+
+
 /* ================================
    Rahmen / Layout auf großen Screens
    ================================ */
@@ -167,9 +215,9 @@ body::before {
   position: fixed;
   top: 0; bottom: 0; left: 0; right: 0;
   margin: auto;
-  max-width: 420px;
-  border: 2px solid var(--frame);
-  border-radius: 1rem;
+  max-width: 540px;                     /* breiterer, „wohnlicher“ Rahmen */
+  border: 1px solid var(--frame);       /* etwas feiner */
+  border-radius: 1.25rem;
   z-index: -1;
   pointer-events: none;
   animation: pulse-slower 12s ease-in-out infinite;
@@ -178,9 +226,11 @@ body::before {
 /* Inhaltsbreite am Desktop begrenzen */
 @media (min-width: 768px) {
   body {
-    max-width: 420px;
+    max-width: 540px;                   /* zur Rahmenbreite passend */
     margin-left: auto;
     margin-right: auto;
+    padding-left: 2rem;                 /* Inhalt nicht direkt an der Kante */
+    padding-right: 2rem;
   }
   #swipe-menu { justify-content: center; }
 }
