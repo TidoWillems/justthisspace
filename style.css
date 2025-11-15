@@ -1,0 +1,373 @@
+  .bg-dots {
+    background-image: radial-gradient(currentColor 1px, transparent 1px);
+    background-size: 18px 18px;
+    color: rgba(0,0,0,0.08);
+  }
+
+  .mask-fade {
+    -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, #000 70%, transparent 100%);
+            mask-image: radial-gradient(70% 60% at 50% 40%, #000 70%, transparent 100%);
+  }
+
+  body { background-color: #fff; color: #222; }
+  .text-neutral-900 { color: #111 !important; }
+  .text-neutral-800 { color: #222 !important; }
+  .text-neutral-700 { color: #333 !important; }
+
+  /* Zarte Hintergrund-Aura um den Mittelpunkt – Lightmode */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background:
+      radial-gradient(
+        circle at 50% 55%,
+        rgba(255, 245, 225, 0.85) 0%,   /* Zentrum */
+        rgba(255, 245, 225, 0.35) 26%,
+        rgba(255, 245, 225, 0.00) 55%
+      );
+    mix-blend-mode: soft-light;
+  }
+
+  /* goldener Akzent für unfassbar-Link */
+  .link-unfassbar {
+    border-color: rgba(178,139,71,0.5);
+    color: #b28b47;
+    background-color: rgba(178,139,71,0.03);
+    transition: all 0.4s ease;
+  }
+  .link-unfassbar span {
+    background-color: #b28b47;
+    opacity: 0.85;
+    animation: pulseGold 6s ease-in-out infinite;
+  }
+  .link-unfassbar:hover {
+    background-color: rgba(178,139,71,0.09);
+    border-color: rgba(178,139,71,0.8);
+    color: #c7a356;
+  }
+  .link-unfassbar:hover span {
+    background-color: #c7a356;
+  }
+  @keyframes pulseGold {
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.35); opacity: 0.55; }
+  }
+
+  /* 🌅 Aurora-Edge — sanfter Morgenschimmer über alle Links */
+  a[href] {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s ease;
+  }
+
+  a[href]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      transparent 0%,
+      rgba(255,255,255,0.05) 20%,
+      rgba(255,255,255,0.15) 50%,
+      transparent 80%
+    );
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+  }
+
+  a[href]:hover::before {
+    opacity: 1;
+    transform: translateX(50%);
+  }
+
+  :root{
+    --gold: #b28b47;
+    --gold-d: #d4b573; /* dark */
+  }
+
+  /* ---- running ember over nav bullets ---- */
+  #navi nav a > span:first-child{
+    /* Basis: bleibt dein grauer Punkt, aber animierbar */
+    transition: background-color .4s ease, box-shadow .4s ease, transform .4s ease;
+    animation: ember 5.2s ease-in-out infinite;                /* langsamer */
+    animation-delay: calc(var(--i, 0) * 0.34s);
+  }
+
+  /* sanftes Aufglühen (Lightmode) */
+  @keyframes ember{
+    0%, 70%, 100% {
+      transform: scale(1);
+      box-shadow: none;
+    }
+    18% {
+      transform: scale(1.12);
+      background-color: var(--gold);
+      box-shadow:
+        0 0 0.22rem rgba(178,139,71,.55),
+        0 0 0.55rem rgba(178,139,71,.30);
+    }
+  }
+
+  /* kleine Flamme bei Hover/Keyboard-Fokus – kurz wärmer, nicht breit */
+  #navi nav a:hover > span:first-child,
+  #navi nav a:focus-visible > span:first-child{
+    background-color: var(--gold);
+    transform: scale(1.22);
+    box-shadow:
+      0 0 0.28rem rgba(178,139,71,.65),
+      0 0 0.70rem rgba(178,139,71,.35);
+    transition: background-color .25s ease, transform .25s ease, box-shadow .25s ease;
+  }
+
+  /* Respektiere reduzierte Bewegung */
+  @media (prefers-reduced-motion: reduce){
+    #navi nav a > span:first-child{
+      animation: none !important;
+    }
+  }
+
+  /* === Goldener Toggle mit stärkerem Lightmode-Halo === */
+  #toggle{
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    border-radius: 9999px;
+    isolation: isolate;               /* Halo bleibt darunter */
+    z-index: 50;
+    /* Basis-Look (Lightmode: Gold, Darkmode überschreibt gleich) */
+    background: radial-gradient(circle at 30% 30%,
+                #f8e4b7 0%, #ddb266 45%, #b28b47 100%);
+    color: #fff;
+    box-shadow:
+      0 8px 18px rgba(0,0,0,0.18),
+      0 0 0 1px rgba(178,139,71,0.35);
+  }
+
+  /* goldener Halo */
+  #toggle::before{
+    content: "";
+    position: absolute;
+    inset: -14px;                     /* größerer Halo */
+    border-radius: 9999px;
+    z-index: -1;
+    background: radial-gradient(
+      circle,
+      rgba(178,139,71,0.70) 0%,
+      rgba(178,139,71,0.35) 35%,
+      rgba(178,139,71,0.10) 65%,
+      transparent 100%
+    );
+    filter: blur(10px);
+    opacity: 0.9;
+    animation: haloPulse 4.8s ease-in-out infinite;
+  }
+
+  /* sanftes Atmen */
+  @keyframes haloPulse{
+    0%, 100%{
+      transform: scale(0.9);
+      opacity: 0.65;
+    }
+    50%{
+      transform: scale(1.15);
+      opacity: 1;
+    }
+  }
+
+  /* Hover: etwas konzentrierter und heller */
+  #toggle:hover{
+    background: radial-gradient(circle at 30% 30%,
+                #fbe9bf 0%, #e0b96f 40%, #c0924d 100%);
+    box-shadow:
+      0 10px 22px rgba(0,0,0,0.22),
+      0 0 0 1px rgba(178,139,71,0.5);
+  }
+  #toggle:hover::before{
+    opacity: 1;
+    filter: blur(9px);
+  }
+
+  /* Zarter goldener Atem über der Intro-Schrift + sanftes Einblenden */
+  .intro-gold {
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    /* Zwei Animationen:
+       1) introFade – einmalig, holt den Text sanft rein
+       2) goldBreath – startet leicht verzögert, läuft endlos */
+    animation:
+      introFade 1.8s ease-out forwards,
+      goldBreath 9s ease-in-out 0.6s infinite;
+  }
+
+  /* einmalige Einblendung */
+  @keyframes introFade {
+    0% {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  /* Lightmode – sehr leise */
+  @keyframes goldBreath {
+    0%, 100% {
+      text-shadow:
+        0 0 0.8px rgba(178,139,71,0.18),
+        0 0 2px rgba(178,139,71,0.10);
+      opacity: 0.98;
+    }
+    40% {
+      text-shadow:
+        0 0 1.6px rgba(178,139,71,0.32),
+        0 0 3.6px rgba(178,139,71,0.20);
+      opacity: 1;
+    }
+    60% {
+      text-shadow:
+        0 0 1.9px rgba(178,139,71,0.40),
+        0 0 4.4px rgba(178,139,71,0.24);
+      opacity: 1;
+    }
+  }
+
+  /* 🌙 Variante A – sanft lesbarer Dunkelmodus */
+  @media (prefers-color-scheme: dark) {
+    body { background-color: #0b0b0b; color: #eaeaea; }
+
+    /* dunklere Dots & Maske */
+    .bg-dots { color: rgba(255,255,255,0.07); }
+    .mask-fade {
+      -webkit-mask-image: radial-gradient(80% 70% at 50% 45%, #000 90%, transparent 100%);
+              mask-image: radial-gradient(80% 70% at 50% 45%, #000 90%, transparent 100%);
+    }
+
+    /* Kästchen zarter, kein Taschenlampeneffekt */
+    .fixed.inset-0.pointer-events-none > div {
+      background-color: rgba(255,255,255,0.04) !important;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+    }
+
+    .text-neutral-700, .text-neutral-800, .text-neutral-900 {
+      color: #eaeaea !important;
+    }
+    .border-neutral-200, .border-neutral-300 {
+      border-color: rgba(255,255,255,0.2) !important;
+    }
+
+    /* Link-Aurora in warmem Gold */
+    a[href]::before {
+      background: linear-gradient(
+        110deg,
+        transparent 0%,
+        rgba(255,230,150,0.08) 25%,
+        rgba(255,200,100,0.15) 50%,
+        transparent 75%
+      );
+    }
+    a[href]:hover::before {
+      opacity: 0.8;
+      transform: translateX(60%);
+    }
+
+    /* Darkmode-Variante von link-unfassbar */
+    .link-unfassbar {
+      border-color: rgba(212,181,115,0.6);
+      color: #d4b573;
+      background-color: rgba(212,181,115,0.07);
+    }
+    .link-unfassbar span {
+      background-color: #d4b573;
+      opacity: 0.9;
+      animation: pulseGoldDark 6s ease-in-out infinite;
+    }
+    @keyframes pulseGoldDark {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.35); opacity: 0.6; filter: drop-shadow(0 0 3px rgba(212,181,115,0.6)); }
+    }
+
+    /* Dark-Variante Aura */
+    body::before {
+      background:
+        radial-gradient(
+          circle at 50% 55%,
+          rgba(212, 181, 115, 0.55) 0%,
+          rgba(212, 181, 115, 0.22) 30%,
+          rgba(212, 181, 115, 0.00) 60%
+        );
+      mix-blend-mode: soft-light;
+    }
+
+    /* Ember im Darkmode etwas wärmer/breiter */
+    @keyframes ember{
+      0%, 70%, 100% { transform: scale(1); box-shadow: none; }
+      18% {
+        transform: scale(1.14);
+        background-color: var(--gold-d);
+        box-shadow:
+          0 0 0.28rem rgba(212,181,115,.60),
+          0 0 0.80rem rgba(212,181,115,.30);
+      }
+    }
+
+    /* Dark: Flamme etwas heller */
+    #navi nav a:hover > span:first-child,
+    #navi nav a:focus-visible > span:first-child{
+      background-color: var(--gold-d);
+      box-shadow:
+        0 0 0.34rem rgba(212,181,115,.70),
+        0 0 0.90rem rgba(212,181,115,.38);
+    }
+
+    /* Toggle Dark-Version */
+    #toggle{
+      background: radial-gradient(circle at 30% 30%,
+                  #252525 0%, #181818 45%, #000 100%);
+      box-shadow:
+        0 8px 20px rgba(0,0,0,0.55),
+        0 0 0 1px rgba(212,181,115,0.35);
+    }
+    #toggle::before{
+      background: radial-gradient(
+        circle,
+        rgba(212,181,115,0.85) 0%,
+        rgba(212,181,115,0.45) 35%,
+        rgba(212,181,115,0.16) 65%,
+        transparent 100%
+      );
+      filter: blur(11px);
+      opacity: 0.95;
+    }
+    #toggle:hover{
+      background: radial-gradient(circle at 30% 30%,
+                  #353535 0%, #202020 45%, #050505 100%);
+    }
+
+    /* Darkmode – wärmerer goldBreath */
+    @keyframes goldBreath {
+      0%, 100% {
+        text-shadow:
+          0 0 1px rgba(212,181,115,0.25),
+          0 0 2.5px rgba(212,181,115,0.15);
+        opacity: 0.96;
+      }
+      50% {
+        text-shadow:
+          0 0 2px rgba(212,181,115,0.45),
+          0 0 6px rgba(212,181,115,0.25);
+        opacity: 1;
+      }
+    }
+  }
+
