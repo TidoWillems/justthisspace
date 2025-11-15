@@ -314,6 +314,74 @@ a[href]:hover::before {
                 #353535 0%, #202020 45%, #050505 100%);
   }
 }
+/* Zarter goldener Atem über der Intro-Schrift */
+/* Zarter goldener Atem über der Intro-Schrift + sanftes Einblenden */
+.intro-gold {
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  /* Zwei Animationen:
+     1) introFade – einmalig, holt den Text sanft rein
+     2) goldBreath – startet leicht verzögert, läuft endlos */
+  animation:
+    introFade 1.8s ease-out forwards,
+    goldBreath 9s ease-in-out 0.6s infinite;
+}
+
+/* einmalige Einblendung */
+@keyframes introFade {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+/* Lightmode – sehr leise */
+@keyframes goldBreath {
+  0%, 100% {
+    text-shadow:
+      0 0 0.8px rgba(178,139,71,0.18),
+      0 0 2px rgba(178,139,71,0.10);
+    opacity: 0.98;
+  }
+  40% {
+    text-shadow:
+      0 0 1.6px rgba(178,139,71,0.32),
+      0 0 3.6px rgba(178,139,71,0.20);
+    opacity: 1;
+  }
+  60% {
+    text-shadow:
+      0 0 1.9px rgba(178,139,71,0.40),
+      0 0 4.4px rgba(178,139,71,0.24);
+    opacity: 1;
+  }
+}
+
+/* Darkmode – etwas wärmer, klarer */
+@media (prefers-color-scheme: dark) {
+  @keyframes goldBreath {
+    0%, 100% {
+      text-shadow:
+        0 0 1px rgba(212,181,115,0.25),
+        0 0 2.5px rgba(212,181,115,0.15);
+      opacity: 0.96;
+    }
+    50% {
+      text-shadow:
+        0 0 2px rgba(212,181,115,0.45),
+        0 0 6px rgba(212,181,115,0.25);
+      opacity: 1;
+    }
+  }
+}
   </style>
 </head>
 <body class="min-h-screen text-neutral-900 dark:text-neutral-100">
@@ -328,11 +396,12 @@ a[href]:hover::before {
   </div>
 
   <main id="radikal" class="flex items-center justify-center min-h-screen text-center px-6">
-    <p class="text-2xl sm:text-3xl font-medium leading-relaxed text-neutral-800 dark:text-neutral-100">
+  <p class="intro-gold text-2xl sm:text-3xl font-medium leading-relaxed text-neutral-800 dark:text-neutral-100" data-i18n="index.hero">
       Alles erscheint.<br/>
       Nicht für jemanden.<br/>
       Schon jetzt. Schon genug.
     </p>
+
   </main>
 
   <main id="navi" class="hidden relative mx-auto max-w-3xl px-6 py-16 text-center">
