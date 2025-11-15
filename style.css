@@ -371,3 +371,124 @@
     }
   }
 
+/* ===================== */
+/* Lese-Druckmodus (B)   */
+/* ===================== */
+
+@media print {
+
+  /* Grundsetup: ruhiger, buchähnlicher Satz */
+  @page {
+    margin: 18mm 22mm 20mm 22mm;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+    background-image: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  /* Aura / Raster / Kästchen / Halo entfernen */
+  body::before,
+  .bg-dots,
+  .mask-fade,
+  .fixed,
+  .pointer-events-none,
+  #toggle {
+    display: none !important;
+  }
+
+  /* Intro und Navi beide sichtbar, sequenziell statt Toggle */
+  #radikal,
+  #navi {
+    display: block !important;
+    min-height: auto !important;
+    text-align: left;
+    padding: 0;
+    margin: 0 0 12mm 0;
+  }
+
+  /* Intro wie Gedichtseite */
+  #radikal p {
+    font-size: 18pt;
+    line-height: 1.5;
+    margin: 0 0 14mm 0;
+  }
+
+  /* Haupttitel & Einleitung im Navi */
+  #navi h1 {
+    font-size: 16pt;
+    margin: 0 0 4mm 0;
+  }
+
+  #navi p {
+    font-size: 12pt;
+    margin: 0 0 5mm 0;
+  }
+
+  /* Zitatblock ruhiger, wie Buchsatz */
+  #navi blockquote {
+    font-size: 12pt;
+    margin: 7mm 0;
+    padding-left: 4mm;
+    border-left: 2px solid #cccccc;
+    font-style: italic;
+  }
+
+  /* Linkliste: wie Inhaltsverzeichnis */
+  #navi nav {
+    margin-top: 10mm;
+  }
+
+  #navi nav a {
+    display: block;
+    border: none !important;
+    padding: 2mm 0;
+    text-decoration: none;
+    color: #111111;
+  }
+
+  /* Punkte & goldene Marker im Druck ausblenden */
+  #navi nav a span {
+    display: none !important;
+  }
+
+  .link-unfassbar {
+    background: none !important;
+    border: none !important;
+    color: #111111 !important;
+  }
+
+  /* Intro-Gold-Effekt nur als klarer Text */
+  .intro-gold {
+    text-shadow: none !important;
+    opacity: 1 !important;
+  }
+
+  /* Footer als leise Buchfußzeile */
+  footer {
+    margin-top: 14mm;
+    padding-top: 3mm;
+    border-top: 1px solid #dddddd;
+    font-size: 10pt;
+    color: #666666;
+  }
+
+  /* Links dezent markieren, ohne URL-Anhang */
+  a[href] {
+    color: #111111;
+    text-decoration: underline;
+  }
+}

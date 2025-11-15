@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>justthisspace – Gedichtband</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Gedichtband-artige Ausgabe von justthisspace – für ruhiges Lesen und PDF-Druck.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Grundlayout nur für diesen Band */
+    body.band {
+      background: #fdfaf5;
+      color: #222;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    main.band-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3.5rem;
+    }
+
+    header.band-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    header.band-header h1 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+      margin-bottom: 0.25rem;
+    }
+
+    header.band-header p {
+      margin: 0.2rem 0;
+      color: #666;
+    }
+
+    .band-subtle {
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: 0.4rem;
+    }
+
+    nav.band-toc {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      padding: 1rem 0 1rem;
+      margin-bottom: 2.2rem;
+      font-size: 0.97rem;
+    }
+
+    nav.band-toc h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 0.4rem 0;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #777;
+    }
+
+    nav.band-toc ol {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      columns: 2;
+      column-gap: 2.5rem;
+    }
+
+    nav.band-toc li {
+      break-inside: avoid;
+      margin-bottom: 0.25rem;
+    }
+
+    nav.band-toc a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    nav.band-toc a:hover {
+      text-decoration: underline;
+    }
+
+    section.band-section {
+      margin: 2.4rem 0 0;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    section.band-section h2 {
+      font-size: 1.2rem;
+      margin: 0 0 0.2rem;
+    }
+
+    section.band-section .band-origin {
+      font-size: 0.85rem;
+      color: #999;
+      margin-bottom: 0.8rem;
+    }
+
+    section.band-section .band-body {
+      margin-top: 0.6rem;
+      line-height: 1.6;
+      font-size: 0.98rem;
+    }
+
+    section.band-section .band-body p {
+      margin: 0 0 0.7rem;
+    }
+
+    section.band-section .band-body br {
+      line-height: 2;
+    }
+
+    .band-frag {
+      font-style: italic;
+    }
+
+    footer.band-footer {
+      margin-top: 3rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      font-size: 0.85rem;
+      color: #777;
+      text-align: center;
+    }
+
+    /* Druck-Layout: Buchartig, alles Gold-Glimmern aus */
+    @media print {
+      @page {
+        margin: 18mm 22mm 20mm 22mm;
+      }
+
+      body.band {
+        background: #ffffff !important;
+        color: #111111 !important;
+        font-family: "Georgia", "Times New Roman", serif;
+        font-size: 12pt;
+        line-height: 1.45;
+      }
+
+      main.band-wrapper {
+        padding: 0;
+        margin: 0;
+        max-width: none;
+      }
+
+      /* alles Dekorative von style.css beruhigen */
+      .bg-dots,
+      .mask-fade,
+      #toggle,
+      .fixed,
+      .pointer-events-none,
+      body::before {
+        display: none !important;
+      }
+
+      /* keine Link-Schimmer-Effekte */
+      a[href]::before {
+        display: none !important;
+      }
+
+      .intro-gold {
+        text-shadow: none !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body class="band">
+
+  <main class="band-wrapper">
+    <header class="band-header">
+      <h1>justthisspace</h1>
+      <p>ein stiller Hinweis</p>
+      <p class="band-subtle">Auszüge aus justthisspace – in Lesereihenfolge.</p>
+    </header>
+
+    <nav class="band-toc">
+      <h2>Inhalt</h2>
+      <ol>
+        <li><a href="#intro">Alles erscheint</a></li>
+        <li><a href="#das-ist-alles">Das hier ist alles</a></li>
+        <li><a href="#kern-illusion">Der Kern der Illusion</a></li>
+        <li><a href="#genug">Ich bin – und das ist genug</a></li>
+        <li><a href="#sanfter-anfang">Der sanfte Anfang</a></li>
+        <li><a href="#unfassbar">unfassbar – ein stilles Fragment</a></li>
+        <!-- weitere Titel kannst du hier ergänzen -->
+      </ol>
+    </nav>
+
+    <!-- 1. Startseiten-Intro -->
+    <section id="intro" class="band-section">
+      <h2>Alles erscheint</h2>
+      <div class="band-origin">Startseite · justthisspace</div>
+      <div class="band-body band-frag">
+        <p>
+          Alles erscheint.<br>
+          Nicht für jemanden.<br>
+          Schon jetzt. Schon genug.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. Das hier ist alles – hier kannst du den Text aus das_ist_alles.html einfügen -->
+    <section id="das-ist-alles" class="band-section">
+      <h2>Das hier ist alles</h2>
+      <div class="band-origin">aus <code>das_ist_alles.html</code></div>
+      <div class="band-body">
+        <!--
+        Hier kannst du den Kerntext von „Das hier ist alles“ als Fließtext einfügen,
+        z.B. einzelne Absätze ohne UI-Rahmen.
+        -->
+        <p>[hier später Text aus „Das hier ist alles“ einkleben]</p>
+      </div>
+    </section>
+
+    <!-- 3. Der Kern der Illusion -->
+    <section id="kern-illusion" class="band-section">
+      <h2>Der Kern der Illusion</h2>
+      <div class="band-origin">aus <code>sanfter_anfang/der_kern_der_illusion.html</code></div>
+      <div class="band-body">
+        <p>[hier später Text aus „Der Kern der Illusion“ einkleben]</p>
+      </div>
+    </section>
+
+    <!-- 4. Ich bin – und das ist genug -->
+    <section id="genug" class="band-section">
+      <h2>Ich bin – und das ist genug</h2>
+      <div class="band-origin">aus <code>genug/index.html</code> bzw. <code>genug/texte/…</code></div>
+      <div class="band-body">
+        <p>[hier später ausgewählte Abschnitte aus GENUG einfügen]</p>
+      </div>
+    </section>
+
+    <!-- 5. Der sanfte Anfang -->
+    <section id="sanfter-anfang" class="band-section">
+      <h2>Der sanfte Anfang</h2>
+      <div class="band-origin">aus <code>sanfter_anfang/start.html</code></div>
+      <div class="band-body">
+        <p>[hier später Text aus „Der sanfte Anfang“ einfügen]</p>
+      </div>
+    </section>
+
+    <!-- 6. unfassbar -->
+    <section id="unfassbar" class="band-section">
+      <h2>unfassbar – ein stilles Fragment</h2>
+      <div class="band-origin">aus <code>unfassbar.html</code></div>
+      <div class="band-body">
+        <p>[hier später die Kernpassagen aus „unfassbar“ einkleben]</p>
+      </div>
+    </section>
+
+    <!-- Platz für weitere Fragmente -->
+    <!--
+    <section id="fragment-0" class="band-section">
+      <h2>fragment 0 – nichts besonderes</h2>
+      <div class="band-origin">aus <code>sanfter_anfang/fragment_0_nichts_besonderes.html</code></div>
+      <div class="band-body">
+        <p>[Text …]</p>
+      </div>
+    </section>
+    -->
+
+    <footer class="band-footer">
+      © justthisspace — still jetzt. · Für ruhiges Lesen und PDF-Druck.
+    </footer>
+  </main>
+</body>
+</html>
