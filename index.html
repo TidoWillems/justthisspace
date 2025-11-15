@@ -227,6 +227,93 @@ a[href]:hover::before {
       0 0 0.90rem rgba(212,181,115,.38);
   }
 }
+/* === Goldener Toggle mit stärkerem Lightmode-Halo === */
+
+#toggle{
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  border-radius: 9999px;
+  isolation: isolate;               /* Halo bleibt darunter */
+  z-index: 50;
+  /* Basis-Look (Lightmode: Gold, Darkmode überschreibt gleich) */
+  background: radial-gradient(circle at 30% 30%,
+              #f8e4b7 0%, #ddb266 45%, #b28b47 100%);
+  color: #fff;
+  box-shadow:
+    0 8px 18px rgba(0,0,0,0.18),
+    0 0 0 1px rgba(178,139,71,0.35);
+}
+
+/* goldener Halo */
+#toggle::before{
+  content: "";
+  position: absolute;
+  inset: -14px;                     /* größerer Halo */
+  border-radius: 9999px;
+  z-index: -1;
+  background: radial-gradient(
+    circle,
+    rgba(178,139,71,0.70) 0%,
+    rgba(178,139,71,0.35) 35%,
+    rgba(178,139,71,0.10) 65%,
+    transparent 100%
+  );
+  filter: blur(10px);
+  opacity: 0.9;
+  animation: haloPulse 4.8s ease-in-out infinite;
+}
+
+/* sanftes Atmen */
+@keyframes haloPulse{
+  0%, 100%{
+    transform: scale(0.9);
+    opacity: 0.65;
+  }
+  50%{
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+/* Hover: etwas konzentrierter und heller */
+#toggle:hover{
+  background: radial-gradient(circle at 30% 30%,
+              #fbe9bf 0%, #e0b96f 40%, #c0924d 100%);
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.22),
+    0 0 0 1px rgba(178,139,71,0.5);
+}
+#toggle:hover::before{
+  opacity: 1;
+  filter: blur(9px);
+}
+
+/* 🌙 Darkmode: Button wieder dunkel, Halo bleibt warm-golden */
+@media (prefers-color-scheme: dark){
+  #toggle{
+    background: radial-gradient(circle at 30% 30%,
+                #252525 0%, #181818 45%, #000 100%);
+    box-shadow:
+      0 8px 20px rgba(0,0,0,0.55),
+      0 0 0 1px rgba(212,181,115,0.35);
+  }
+  #toggle::before{
+    background: radial-gradient(
+      circle,
+      rgba(212,181,115,0.85) 0%,
+      rgba(212,181,115,0.45) 35%,
+      rgba(212,181,115,0.16) 65%,
+      transparent 100%
+    );
+    filter: blur(11px);
+    opacity: 0.95;
+  }
+  #toggle:hover{
+    background: radial-gradient(circle at 30% 30%,
+                #353535 0%, #202020 45%, #050505 100%);
+  }
+}
   </style>
 </head>
 <body class="min-h-screen text-neutral-900 dark:text-neutral-100">
