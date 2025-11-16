@@ -265,7 +265,25 @@ footer{margin-top:2rem; font-size:.95rem; letter-spacing:.04em;
     <div class="stamp ink" id="stampBrand">justthisspace</div>
     <h1 class="ink" id="pageTitle">der kern der illusion</h1>
 
-    <div id="content"></div>
+    <!-- Fallback-Inhalt, falls JS deaktiviert oder fehlerhaft ist -->
+    <div id="content" class="ink">
+      <p>Man sagt: „Ich bin.“ Und schon ist das Universum geboren.</p>
+      <p>Ein Laut, drei Buchstaben – <em>ich</em>. Ein winziger Gedanke, der sich für den Denker hält.</p>
+      <p>So entsteht die Welt: nicht durch Materie, sondern durch Bedeutung. Durch die Annahme, dass etwas jemanden betrifft.</p>
+      <hr class="rule">
+      <p>Doch niemand spricht diesen Satz. Niemand hört ihn. Er geschieht – wie Wind auf Wasser.</p>
+      <p>Das „Ich“ ist der erste Mythos. Ein Spiegel, der sich selbst betrachtet und glaubt, er sei Auge.</p>
+      <p>Aus diesem Spiegel brechen alle weiteren Formen hervor: Gott und Mensch, Zeit und Tod, Schuld und Hoffnung. Doch sie alle zeigen nur die Oberfläche derselben Stille.</p>
+      <hr class="rule">
+      <p>Wenn das Zentrum fällt, bleibt nichts verloren – denn nichts war je fest.</p>
+      <span class="bar ink">Es gibt keinen, der erwacht. Nur Erwachen.</span>
+    </div>
+
+    <noscript>
+      <p class="ink">
+        (Hinweis: Die Sprachauswahl ist ohne JavaScript nicht aktiv. Es wird nur die deutsche Version angezeigt.)
+      </p>
+    </noscript>
 
     <footer class="ink" id="foot">
       © justthisspace — keine Person, kein Anfang, kein Ende.
@@ -274,6 +292,7 @@ footer{margin-top:2rem; font-size:.95rem; letter-spacing:.04em;
 </main>
 
 <script>
+// Übersetzungen
 const T = {
   de: {
     brand: "JTS",
@@ -286,13 +305,13 @@ const T = {
       "Man sagt: „Ich bin.“ Und schon ist das Universum geboren.",
       "Ein Laut, drei Buchstaben – <em>ich</em>. Ein winziger Gedanke, der sich für den Denker hält.",
       "So entsteht die Welt: nicht durch Materie, sondern durch Bedeutung. Durch die Annahme, dass etwas jemanden betrifft.",
-      "<hr class=\\"rule\\">",
+      '<hr class="rule">',
       "Doch niemand spricht diesen Satz. Niemand hört ihn. Er geschieht – wie Wind auf Wasser.",
       "Das „Ich“ ist der erste Mythos. Ein Spiegel, der sich selbst betrachtet und glaubt, er sei Auge.",
       "Aus diesem Spiegel brechen alle weiteren Formen hervor: Gott und Mensch, Zeit und Tod, Schuld und Hoffnung. Doch sie alle zeigen nur die Oberfläche derselben Stille.",
-      "<hr class=\\"rule\\">",
+      '<hr class="rule">',
       "Wenn das Zentrum fällt, bleibt nichts verloren – denn nichts war je fest.",
-      "<span class=\\"bar ink\\">Es gibt keinen, der erwacht. Nur Erwachen.</span>"
+      '<span class="bar ink">Es gibt keinen, der erwacht. Nur Erwachen.</span>'
     ]
   },
   en: {
@@ -306,13 +325,13 @@ const T = {
       "One says: “I am.” And already the universe is born.",
       "A single sound, one letter – <em>I</em>. A tiny thought that takes itself to be the thinker.",
       "Thus the world arises: not from matter, but from meaning. From the assumption that something concerns someone.",
-      "<hr class=\\"rule\\">",
+      '<hr class="rule">',
       "Yet no one speaks this sentence. No one hears it. It happens – like wind on water.",
       "“I” is the first myth. A mirror looking at itself and believing it is an eye.",
       "From this mirror all further forms break forth: god and human, time and death, guilt and hope. Yet all of them show only the surface of the same stillness.",
-      "<hr class=\\"rule\\">",
+      '<hr class="rule">',
       "When the center falls, nothing is lost – because nothing was ever solid.",
-      "<span class=\\"bar ink\\">There is no one who awakens. Only awakening.</span>"
+      '<span class="bar ink">There is no one who awakens. Only awakening.</span>'
     ]
   },
   fr: {
@@ -326,18 +345,20 @@ const T = {
       "On dit&nbsp;: «&nbsp;Je suis&nbsp;». Et déjà l’univers naît.",
       "Un seul son, deux lettres – <em>je</em>. Une petite pensée qui se prend pour la penseuse.",
       "Le monde ne naît pas de la matière mais du sens. De la supposition que quelque chose concerne quelqu’un.",
-      "<hr class=\\"rule\\">",
+      '<hr class="rule">',
       "Pourtant, personne ne prononce cette phrase. Personne ne l’entend. Elle se produit – comme le vent sur l’eau.",
       "Le «&nbsp;je&nbsp;» est le premier mythe. Un miroir qui se regarde lui-même et croit être un œil.",
       "De ce miroir jaillissent toutes les autres formes&nbsp;: dieu et humain, temps et mort, culpabilité et espoir. Mais toutes ne montrent que la surface du même silence.",
-      "<hr class=\\"rule\\">",
+      '<hr class="rule">',
       "Quand le centre tombe, rien n’est perdu – car rien n’a jamais été solide.",
-      "<span class=\\"bar ink\\">Il n’y a personne qui s’éveille. Il n’y a que l’éveil.</span>"
+      '<span class="bar ink">Il n’y a personne qui s’éveille. Il n’y a que l’éveil.</span>'
     ]
   }
 };
 
+// kleines Hilfsalias für querySelector
 const $ = sel => document.querySelector(sel);
+
 const el = {
   headerTitle: $('#headerTitle'),
   stamp: $('#stampBrand'),
@@ -349,9 +370,52 @@ const el = {
   chip: $('#chipHome')
 };
 
-function render(lang){
+// Safe-Wrapper für localStorage
+function getStoredLang() {
+  try {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      return localStorage.getItem('jts-i18n-lang');
+    }
+  } catch (e) {
+    // Storage geblockt – ignorieren
+  }
+  return null;
+}
+
+function storeLang(lang) {
+  try {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem('jts-i18n-lang', lang);
+    }
+  } catch (e) {
+    // nichts tun, wenn geblockt
+  }
+}
+
+// Navigator-Sprache robust lesen
+function getNavigatorLang() {
+  try {
+    if (typeof navigator !== 'undefined' && typeof navigator.language === 'string') {
+      return navigator.language.slice(0, 2);
+    }
+  } catch (e) {
+    // ignorieren
+  }
+  return 'de';
+}
+
+// Render-Funktion
+function render(lang) {
   const t = T[lang] || T.de;
+
+  // Wenn wesentliche Elemente fehlen, nichts tun (Fallback bleibt sichtbar)
+  if (!el.headerTitle || !el.pageTitle || !el.stamp || !el.label ||
+      !el.foot || !el.chip || !el.content) {
+    return;
+  }
+
   document.documentElement.lang = lang;
+
   el.headerTitle.textContent = t.headerTitle;
   el.pageTitle.textContent = t.title;
   el.label.textContent = t.langLabel;
@@ -359,25 +423,49 @@ function render(lang){
   el.foot.textContent = t.foot;
   el.chip.textContent = t.brand;
 
-  // Blöcke rendern – HTML direkt erlauben (für <em>, <hr>, <span class="bar">)
-  el.content.innerHTML = t.blocks
-    .map(block => {
-      // hr und bar kommen bereits als fertige Fragmente
-      if (block.startsWith("<hr") || block.startsWith("<span")) {
-        return block;
-      }
-      return `<p class="ink">${block}</p>`;
-    })
-    .join('');
+  // Blöcke rendern – HTML direkt erlauben (für <em>, <hr>, <span class="bar"> etc.)
+  const html = t.blocks.map(block => {
+    const trimmed = (block || '').trim();
+    // Wenn Block wie ein HTML-Tag beginnt, direkt einfügen
+    if (/^<\w+/.test(trimmed)) {
+      return trimmed;
+    }
+    // sonst normaler Absatz
+    return '<p class="ink">' + block + '</p>';
+  }).join('');
 
-  localStorage.setItem('jts-i18n-lang', lang);
+  el.content.innerHTML = html;
+
+  storeLang(lang);
 }
 
-// Init Sprache
-const saved = localStorage.getItem('jts-i18n-lang') || (navigator.language||'de').slice(0,2);
-el.select.value = ['de','en','fr'].includes(saved) ? saved : 'de';
-render(el.select.value);
-el.select.addEventListener('change', e => render(e.target.value));
+// Initialisierung in IIFE gekapselt
+(function initI18N() {
+  if (!el.select || !el.content) {
+    // Wenn kein Select oder Content, bleibt der Fallback-Text einfach stehen
+    return;
+  }
+
+  const stored = getStoredLang();
+  const navLang = getNavigatorLang();
+
+  const candidate = stored || navLang || 'de';
+  const supported = ['de','en','fr'];
+  const initialLang = supported.includes(candidate) ? candidate : 'de';
+
+  // Select-Value setzen, wenn Option existiert
+  if (supported.includes(initialLang)) {
+    el.select.value = initialLang;
+  } else {
+    el.select.value = 'de';
+  }
+
+  render(el.select.value);
+
+  el.select.addEventListener('change', function(e) {
+    render(e.target.value);
+  });
+})();
 </script>
 
 </body>
