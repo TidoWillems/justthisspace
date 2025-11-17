@@ -67,7 +67,7 @@
     if (zweig) {
       zweig.classList.add('wiegt');
       // falls CSS überschrieben → Animation hart setzen
-      zweig.style.animation = 'wiegen 8s ease-in-out infinite';
+      zweig.style.animation = 'saZweigWiegen 8s ease-in-out infinite';
       zweig.style.transformOrigin = 'bottom left';
     }
     vogel.classList.add('schwebt');

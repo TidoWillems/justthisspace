@@ -1,70 +1,156 @@
-<!DOCTYPE html><html lang="de">
+<!DOCTYPE html>
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Du kannst mir schreiben – ohne Ziel. Alles ist Resonanz.">
-  <title>Resonanz • justthisspace</title>
+  <meta name="description" content="Du kannst mir schreiben – ohne Ziel, ohne Pflicht. Ein leises Resonanzfeld zu „nicht einmal das“, jenseits von Support-Tickets und To-dos.">
+  <title>Resonanz – nicht einmal das · justthisspace</title>
+
   <link href="tailwind.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-<link rel="stylesheet" href="zweig_vogel.css?v=20251003a" />
+  <link rel="stylesheet" href="zweig_vogel.css?v=20251003a" />
 </head>
-<body class="bg-gray-100 text-gray-800 font-serif flex flex-col min-h-screen transition-opacity duration-300">
+<body class="bg-gray-100 text-gray-800 font-serif flex flex-col min-h-screen relative">
 
-  <!-- Header mit Home-Button & Sprach-Toggle -->
-  <header class="bg-black text-white p-2 shadow-md flex items-center justify-between">
-    <button id="home-button" class="text-lg font-extrabold" title="Home">justthisspace</button>
+  <!-- Header -->
+  <header class="bg-black text-white p-2 shadow-md flex items-center">
+    <button id="home-button" class="text-lg font-extrabold mr-4">justthisspace</button>
+  </header>
+
+  <!-- Swipe-Navigation wie bei start.html -->
+  <nav id="swipe-menu" class="bg-black text-white p-2 flex items-center overflow-x-auto no-scrollbar">
+    <div class="menu-links">
+      <a href="start.html"  class="menu-item">○</a>
+      <a href="frage.html"  class="menu-item">○</a>
+      <a href="kinder.html" class="menu-item">○</a>
+      <a href="sinn.html"   class="menu-item">○</a>
+      <a href="nichts.html" class="menu-item">○</a>
+      <a href="pure.html"   class="menu-item">○</a>
+    </div>
     <div id="lang-toggle" class="flex items-center">
-      <span data-lang="de" class="active-lang">●</span>
+      <span data-lang="de">●</span>
       <span data-lang="en">○</span>
       <span data-lang="fr">○</span>
     </div>
-  </header>
+  </nav>
+
+  <!-- Hintergrund-Elemente wie auf der Startseite -->
+  <img src="vogel.png" id="bg-vogel" alt="Vogel" />
+  <img src="zweig.png" id="bg-zweig" alt="Zweig" />
 
   <!-- Hauptinhalt -->
-  <main id="content" class="flex-grow p-6 max-w-2xl mx-auto space-y-8 text-center">
+  <main id="content" class="flex-grow p-6 max-w-2xl mx-auto space-y-8 text-center relative z-10">
+
+    <!-- Überschrift -->
     <h1 class="text-3xl font-bold text-gray-900" data-lang-content="de">Resonanz</h1>
-    <h1 class="text-3xl font-bold text-gray-900" data-lang-content="en" style="display:none;">Feedback</h1>
+    <h1 class="text-3xl font-bold text-gray-900" data-lang-content="en" style="display:none;">Resonance</h1>
     <h1 class="text-3xl font-bold text-gray-900" data-lang-content="fr" style="display:none;">Résonance</h1>
 
-    <p data-lang-content="de">Du kannst mir schreiben – ohne Ziel. Alles ist Resonanz.</p>
-    <p data-lang-content="en" style="display:none;">You may write – without goal. Everything is resonance.</p>
-    <p data-lang-content="fr" style="display:none;">Tu peux écrire – sans but. Tout est résonance.</p>
+    <!-- Einleitung -->
+    <p data-lang-content="de" class="text-base text-gray-700">
+      Du kannst mir schreiben – ohne Ziel. Es muss nichts gelöst werden. Alles ist Resonanz.
+    </p>
+    <p data-lang-content="en" style="display:none;" class="text-base text-gray-700">
+      You may write – without any goal. Nothing has to be fixed. Everything is resonance.
+    </p>
+    <p data-lang-content="fr" style="display:none;" class="text-base text-gray-700">
+      Tu peux écrire – sans but. Rien n’a besoin d’être réglé. Tout est résonance.
+    </p>
 
-    <form action="mailto:fluxmatrix@proton.me" method="post" enctype="text/plain" class="space-y-4 text-left">
-      <div>
-        <label data-lang-content="de" for="name" class="block mb-1 font-semibold">Name</label>
-        <label data-lang-content="en" for="name" style="display:none;" class="block mb-1 font-semibold">Name</label>
-        <label data-lang-content="fr" for="name" style="display:none;" class="block mb-1 font-semibold">Nom</label>
-        <input id="name" name="Name" type="text" required class="w-full border border-gray-300 rounded p-2" />
-      </div>
-      <div>
-        <label data-lang-content="de" for="email" class="block mb-1 font-semibold">E-Mail</label>
-        <label data-lang-content="en" for="email" style="display:none;" class="block mb-1 font-semibold">Email</label>
-        <label data-lang-content="fr" for="email" style="display:none;" class="block mb-1 font-semibold">E-mail</label>
-        <input id="email" name="E-Mail" type="email" required class="w-full border border-gray-300 rounded p-2" />
-      </div>
-      <div>
-        <label data-lang-content="de" for="message" class="block mb-1 font-semibold">Nachricht</label>
-        <label data-lang-content="en" for="message" style="display:none;" class="block mb-1 font-semibold">Message</label>
-        <label data-lang-content="fr" for="message" style="display:none;" class="block mb-1 font-semibold">Message</label>
-        <textarea id="message" name="Nachricht" rows="6" required class="w-full border border-gray-300 rounded p-2"></textarea>
-      </div>
-      <div class="text-center">
-        <button type="submit" data-lang-content="de" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">Absenden</button>
-        <button type="submit" data-lang-content="en" style="display:none;" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">Send</button>
-        <button type="submit" data-lang-content="fr" style="display:none;" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">Envoyer</button>
-      </div>
-    </form>
+    <!-- Chips / kleine Hinweise -->
+    <div data-lang-content="de" class="mt-4 flex flex-wrap justify-center gap-2 text-xs text-gray-600">
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm">
+        🕊️ kein Muss
+      </span>
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm">
+        📨 öffnet dein Mail-Programm
+      </span>
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm">
+        🤍 darf einfach im Raum verpuffen
+      </span>
+    </div>
+
+    <div data-lang-content="en" style="display:none;" class="mt-4 flex flex-wrap justify-center gap-2 text-xs text-gray-600">
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm">
+        🕊️ no obligation
+      </span>
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm">
+        📨 opens your mail app
+      </span>
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm">
+        🤍 may simply fade into space
+      </span>
+    </div>
+
+    <div data-lang-content="fr" style="display:none;" class="mt-4 flex flex-wrap justify-center gap-2 text-xs text-gray-600">
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm">
+        🕊️ aucune obligation
+      </span>
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm">
+        📨 ouvre ton application e-mail
+      </span>
+      <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white border border-gray-200 shadow-sm">
+        🤍 peut simplement se dissoudre dans l’espace
+      </span>
+    </div>
+
+    <!-- Karte mit Formular -->
+    <section class="mt-6 bg-white/95 border border-gray-200 rounded-2xl shadow-sm p-6 text-left space-y-4">
+      <form action="mailto:fluxmatrix@proton.me" method="post" enctype="text/plain" class="space-y-4">
+
+        <div>
+          <label data-lang-content="de" for="name" class="block mb-1 font-semibold text-sm">Name (kann Pseudonym sein)</label>
+          <label data-lang-content="en" for="name" style="display:none;" class="block mb-1 font-semibold text-sm">Name (can be a pseudonym)</label>
+          <label data-lang-content="fr" for="name" style="display:none;" class="block mb-1 font-semibold text-sm">Nom (pseudonyme possible)</label>
+          <input id="name" name="Name" type="text" required
+                 class="w-full border border-gray-300 rounded-lg p-2 bg-white text-sm focus:border-gray-900 focus:outline-none" />
+        </div>
+
+        <div>
+          <label data-lang-content="de" for="email" class="block mb-1 font-semibold text-sm">E-Mail</label>
+          <label data-lang-content="en" for="email" style="display:none;" class="block mb-1 font-semibold text-sm">Email</label>
+          <label data-lang-content="fr" for="email" style="display:none;" class="block mb-1 font-semibold text-sm">E-mail</label>
+          <input id="email" name="E-Mail" type="email" required
+                 class="w-full border border-gray-300 rounded-lg p-2 bg-white text-sm focus:border-gray-900 focus:outline-none" />
+        </div>
+
+        <div>
+          <label data-lang-content="de" for="message" class="block mb-1 font-semibold text-sm">Nachricht</label>
+          <label data-lang-content="en" for="message" style="display:none;" class="block mb-1 font-semibold text-sm">Message</label>
+          <label data-lang-content="fr" for="message" style="display:none;" class="block mb-1 font-semibold text-sm">Message</label>
+          <textarea id="message" name="Nachricht" rows="6" required
+                    class="w-full border border-gray-300 rounded-lg p-2 bg-white text-sm leading-relaxed focus:border-gray-900 focus:outline-none"></textarea>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" data-lang-content="de"
+                  class="inline-flex items-center justify-center bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-900 transition-colors">
+            Absenden
+          </button>
+          <button type="submit" data-lang-content="en" style="display:none;"
+                  class="inline-flex items-center justify-center bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-900 transition-colors">
+            Send
+          </button>
+          <button type="submit" data-lang-content="fr" style="display:none;"
+                  class="inline-flex items-center justify-center bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-900 transition-colors">
+            Envoyer
+          </button>
+        </div>
+      </form>
+    </section>
   </main>
 
   <!-- Fußzeile -->
-  <footer class="text-center p-4 text-gray-400 text-sm">
-    <a href="start.html" class="hover:underline">zurück zum Anfang • back to start • retour au début</a>
+  <footer class="text-center p-4 text-gray-400 text-sm relative z-10">
+    <a href="start.html" class="hover:underline">
+      zurück zum sanften Anfang · back to the gentle beginning · retour au début doux
+    </a>
   </footer>
 
   <!-- Navigation & Sprachlogik -->
   <script src="navigation.js?v=20251003a"></script>
   <script src="sprachlogik.js"></script>
-<script src="zweig_vogel_drag.js?v=20251003a"></script>
+  <script src="zweig_vogel.js"></script>
+  <script src="zweig_vogel_drag.js?v=20251003a"></script>
 </body>
 </html>

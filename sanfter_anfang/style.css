@@ -10,15 +10,17 @@
 
   --text-color: #1f2937;   /* gray-800 */
   --muted-color: #4b5563;  /* gray-600 */
-  --accent: rgba(0,0,0,.35);
-  --line: rgba(0,0,0,.08);
-  /* Rahmen leicht vergolden */
-  --frame: rgba(178,139,71,0.18);
 
-  /* Gold wie auf index/favicons */
+  --accent: rgba(0,0,0,.35);
+  --line: rgba(0,0,0,.06);
+
+  /* Gold / Akzente (angelehnt an jts-Index & favicons) */
   --gold: #b28b47;
   --gold-soft: #c9a164;
   --gold-deep: #8b6735;
+
+  /* Rahmen leicht vergolden */
+  --frame: rgba(178,139,71,0.18);
 }
 
 /* ================================
@@ -30,7 +32,7 @@ html, body {
   font-family: var(--font-body);
   line-height: 1.65;
   -webkit-text-size-adjust: 100%;
-  background: #f4f5f7;         /* ruhiger Rahmen-Hintergrund */
+  background: #f5f5f7;         /* ruhiger, heller Rahmen-Hintergrund */
 }
 
 p { margin: 0 0 0.9rem 0; }
@@ -38,6 +40,7 @@ p { margin: 0 0 0.9rem 0; }
 /* ================================
    Headlines
    ================================ */
+
 h1, h2, h3, h4 {
   font-family: var(--font-head);
   font-weight: 600;
@@ -47,31 +50,31 @@ h1, h2, h3, h4 {
 
 /* Basis (mobile-first, <640px) */
 h1 {
-  font-size: 1.75rem;   /* ~28px */
+  font-size: 1.8rem;
   line-height: 1.25;
   margin-bottom: 1.25rem;
 }
 h2 {
-  font-size: 1.375rem;  /* ~22px */
+  font-size: 1.4rem;
   line-height: 1.3;
   margin-bottom: 1rem;
 }
 h3 {
-  font-size: 1.125rem;  /* ~18px */
+  font-size: 1.125rem;
   line-height: 1.35;
   margin-bottom: 0.75rem;
 }
 
 /* Ab 640px (sm) */
 @media (min-width: 640px) {
-  h1 { font-size: 2.125rem; }  /* ~34px */
-  h2 { font-size: 1.5rem;   }  /* ~24px */
-  h3 { font-size: 1.25rem;  }  /* ~20px */
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
 }
 
 /* Ab 1024px (lg) */
 @media (min-width: 1024px) {
-  h1 { font-size: 2.5rem; letter-spacing: 0.01em; } /* ~40px */
+  h1 { font-size: 2.4rem; letter-spacing: 0.01em; }
   h2 { font-size: 1.75rem; }
   h3 { font-size: 1.375rem; }
 }
@@ -79,6 +82,7 @@ h3 {
 /* ================================
    Tropfen-/Atem-Animationen
    ================================ */
+
 @keyframes pulse-slow {
   0%, 100% { opacity: 0.4; transform: scale(1); }
   50%      { opacity: 0.6; transform: scale(1.02); }
@@ -94,11 +98,13 @@ h3 {
 /* ================================
    Sections / QA-Blöcke
    ================================ */
+
 section {
   margin-bottom: 2.5rem;
   padding-left: 1rem;
   text-align: center;
 }
+
 section .frage {
   font-family: var(--font-head);
   font-size: 1.125rem;
@@ -106,6 +112,7 @@ section .frage {
   color: #374151; /* gray-700 */
   margin-bottom: 0.5rem;
 }
+
 section .antwort {
   color: var(--muted-color);
   white-space: pre-line;
@@ -115,6 +122,7 @@ section .antwort {
 /* ================================
    Sprachvarianten (falls benutzt)
    ================================ */
+
 .variant {
   position: absolute;
   inset: 0;
@@ -131,92 +139,135 @@ section .antwort {
 /* ================================
    Navigation & Sprache
    ================================ */
+
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* Header-Balken oben – aufgehellt, jts-typisch luftig */
+header {
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(10px);
+  color: #111827;
+  box-shadow: 0 1px 3px rgba(15,23,42,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+header #home-button {
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--gold-deep);
+}
+
+/* Swipe-Menü als helle Chip-Leiste, nicht mehr als Gold-Block */
 #swipe-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .5rem 1rem;
+  padding: .45rem .85rem;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.03);
 }
+
 #swipe-menu .menu-links {
   display: flex;
-  gap: .75rem;
+  gap: .4rem;
   justify-content: flex-start;
   flex: 1;
 }
-.menu-item { cursor: pointer; flex: 0 0 auto; }
-.menu-item-active { font-weight: 700; }
 
-#lang-toggle { display: flex; justify-content: flex-end; flex-shrink: 0; }
-#lang-toggle span, #lang-toggle button {
+/* Kleine Chips für die Punkte */
+.menu-item {
   cursor: pointer;
-  padding: 0 6px;
+  flex: 0 0 auto;
+  min-width: 1.6rem;
+  text-align: center;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  border: 1px solid rgba(0,0,0,0.05);
+  background: rgba(255,255,255,0.8);
+  color: #4b5563;
+  opacity: .85;
+  transition:
+    opacity .2s ease,
+    background-color .2s ease,
+    color .2s ease,
+    box-shadow .2s ease,
+    transform .15s ease;
+}
+
+#swipe-menu .menu-links .menu-item:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Aktiver „Punkt“ – goldener Chip */
+.menu-item-active {
+  opacity: 1;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  color: #fdf8ee;
+  border-color: rgba(178,139,71,0.6);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.35), 0 4px 10px rgba(0,0,0,0.14);
+  text-shadow: 0 0 4px rgba(0,0,0,.25);
+}
+
+/* Sprach-Toggle bullets rechts */
+#lang-toggle {
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  gap: 0.25rem;
+}
+
+#lang-toggle span,
+#lang-toggle button {
+  cursor: pointer;
+  padding: 0 4px;
   background: none;
   border: 0;
   font: inherit;
-}
-#lang-toggle .active-lang, #lang-toggle .font-bold { font-weight: 700; }
-
-/* Fade-Out für Navigation (optional nutzbar via Klasse) */
-.fade-out { opacity: 0; transition: opacity .3s ease-in-out; }
-
-/* Header-Balken oben */
-header {
-  background: var(--gold);
-  color: #fdf8ee;
-  box-shadow: 0 1px 4px rgba(0,0,0,.18);
+  color: #6b7280;
+  transition: color .2s ease, transform .15s ease, opacity .2s ease;
 }
 
-/* Swipe-Menü in Gold verlaufend */
-#swipe-menu {
-  background: linear-gradient(
-    90deg,
-    rgba(178,139,71,0.96),
-    rgba(178,139,71,0.88)
-  );
-  color: #fdf8ee;
-}
-
-/* Punkte im Menü leicht zurückgenommen, aktiver Punkt etwas heller */
-#swipe-menu .menu-links .menu-item {
-  color: #fdf8ee;
-  opacity: .75;
-  transition: opacity .25s ease;
-}
-#swipe-menu .menu-links .menu-item:hover {
-  opacity: 1;
-}
-.menu-item-active {
-  opacity: 1;
-  text-shadow: 0 0 4px rgba(0,0,0,.35);
-}
-
-/* Sprach-Toggle bullets */
 #lang-toggle span {
   opacity: .55;
 }
+
 #lang-toggle .active-lang {
   opacity: 1;
+  color: var(--gold-deep);
+  transform: translateY(-0.5px);
 }
 
+/* Fade-Out für Navigation (Page-Transition) */
+.fade-out {
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
 
 /* ================================
    Rahmen / Layout auf großen Screens
    ================================ */
+
 body {
   position: relative;
   z-index: 0;
 }
+
 body::before {
   content: "";
   display: block;
   position: fixed;
   top: 0; bottom: 0; left: 0; right: 0;
   margin: auto;
-  max-width: 540px;                     /* breiterer, „wohnlicher“ Rahmen */
-  border: 1px solid var(--frame);       /* etwas feiner */
+  max-width: 540px;                 /* breiterer, „wohnlicher“ Rahmen */
+  border: 1px solid var(--frame);   /* etwas feiner */
   border-radius: 1.25rem;
   z-index: -1;
   pointer-events: none;
@@ -226,18 +277,21 @@ body::before {
 /* Inhaltsbreite am Desktop begrenzen */
 @media (min-width: 768px) {
   body {
-    max-width: 540px;                   /* zur Rahmenbreite passend */
+    max-width: 540px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 2rem;                 /* Inhalt nicht direkt an der Kante */
+    padding-left: 2rem;
     padding-right: 2rem;
   }
-  #swipe-menu { justify-content: center; }
+  #swipe-menu {
+    justify-content: center;
+  }
 }
 
 /* ================================
    Progress-Balken (z. B. unter Textfluss)
    ================================ */
+
 .progress {
   position: relative;
   height: 2px;
@@ -250,6 +304,7 @@ body::before {
   transform: translateZ(0);
   pointer-events: none;
 }
+
 .progress > span {
   display: block;
   height: 100%;
@@ -264,10 +319,18 @@ body::before {
 /* ================================
    Bewegungsreduktion
    ================================ */
+
 @media (prefers-reduced-motion: reduce) {
   .animate-pulse-slow,
   .animate-pulse-slower,
-  body::before { animation: none !important; }
-  .variant { transition: none !important; }
-  .progress > span { transition: none !important; transform: scaleX(0) !important; }
+  body::before {
+    animation: none !important;
+  }
+  .variant {
+    transition: none !important;
+  }
+  .progress > span {
+    transition: none !important;
+    transform: scaleX(0) !important;
+  }
 }
