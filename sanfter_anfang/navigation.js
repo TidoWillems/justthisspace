@@ -7,15 +7,31 @@ function initNavigation() {
     setTimeout(() => (location.href = href), 300);
   };
 
-  // Basispfad (z.B. "/sanfter_anfang/")
-  const base = location.pathname.replace(/[^/]*$/, '');
-  // Dateiname der aktuellen Seite
-  const currentFile = (location.pathname.split('/').pop() || 'start.html').toLowerCase();
+// Basispfad (z.B. "/sanfter_anfang/")
+const base = location.pathname.replace(/[^/]*$/, '');
+// Dateiname der aktuellen Seite
+const currentFile = (location.pathname.split('/').pop() || 'start.html').toLowerCase();
 
-  // Home-Button bleibt im Ordner
-  const home = document.getElementById('home-button');
-  if (home) home.addEventListener('click', () => navigateTo(base + 'start.html'));
+// Home-Button: auf Root-Index (z.B. "/" oder "/justthisspace/")
+const home = document.getElementById('home-button');
+if (home) {
+  home.addEventListener('click', () => {
+    const marker = '/sanfter_anfang/';
+    let rootPath = '/';
 
+    const idx = location.pathname.indexOf(marker);
+    if (idx !== -1) {
+      // alles vor /sanfter_anfang/ → Projekt-Root (z.B. "/justthisspace")
+      rootPath = location.pathname.slice(0, idx) || '/';
+    } else {
+      // Fallback: einfach Server-Root
+      rootPath = '/';
+    }
+
+    if (!rootPath.endsWith('/')) rootPath += '/';
+    navigateTo(rootPath + 'index.html');
+  });
+}
   // Menü-Items aktiv setzen (Vergleich nur per Dateiname)
   const items = document.querySelectorAll('#swipe-menu .menu-item');
   items.forEach((item) => {
