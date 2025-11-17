@@ -31,31 +31,6 @@
     mix-blend-mode: soft-light;
   }
 
-  /* goldener Akzent für unfassbar-Link */
-  .link-unfassbar {
-    border-color: rgba(178,139,71,0.5);
-    color: #b28b47;
-    background-color: rgba(178,139,71,0.03);
-    transition: all 0.4s ease;
-  }
-  .link-unfassbar span {
-    background-color: #b28b47;
-    opacity: 0.85;
-    animation: pulseGold 6s ease-in-out infinite;
-  }
-  .link-unfassbar:hover {
-    background-color: rgba(178,139,71,0.09);
-    border-color: rgba(178,139,71,0.8);
-    color: #c7a356;
-  }
-  .link-unfassbar:hover span {
-    background-color: #c7a356;
-  }
-  @keyframes pulseGold {
-    0%, 100% { transform: scale(1); opacity: 0.85; }
-    50% { transform: scale(1.35); opacity: 0.55; }
-  }
-
   /* 🌅 Aurora-Edge — sanfter Morgenschimmer über alle Links */
   a[href] {
     position: relative;
@@ -281,21 +256,6 @@
       transform: translateX(60%);
     }
 
-    /* Darkmode-Variante von link-unfassbar */
-    .link-unfassbar {
-      border-color: rgba(212,181,115,0.6);
-      color: #d4b573;
-      background-color: rgba(212,181,115,0.07);
-    }
-    .link-unfassbar span {
-      background-color: #d4b573;
-      opacity: 0.9;
-      animation: pulseGoldDark 6s ease-in-out infinite;
-    }
-    @keyframes pulseGoldDark {
-      0%, 100% { transform: scale(1); opacity: 0.9; }
-      50% { transform: scale(1.35); opacity: 0.6; filter: drop-shadow(0 0 3px rgba(212,181,115,0.6)); }
-    }
 
     /* Dark-Variante Aura */
     body::before {
@@ -463,12 +423,6 @@
   /* Punkte & goldene Marker im Druck ausblenden */
   #navi nav a span {
     display: none !important;
-  }
-
-  .link-unfassbar {
-    background: none !important;
-    border: none !important;
-    color: #111111 !important;
   }
 
   /* Intro-Gold-Effekt nur als klarer Text */
