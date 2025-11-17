@@ -2,56 +2,325 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ich bin – und das ist genug</title>
+  <meta name="description" content="Ein leises Dokument. Ohne Autor. Ohne Ziel. Und doch da. Ich bin – und das ist genug.">
+
   <style>
-    :root { color-scheme: light; }
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background-color: #fafafa;
-      color: #222;
-      margin: 0;
-      padding: 4rem 1.5rem;
-      text-align: center;
+    :root{
+      color-scheme: light dark;
+      --bg-top:#f6f6f8;
+      --bg-mid:#f1f3f6;
+      --bg-bottom:#f7f7fa;
+      --ink:#111827;
+      --muted:#6b7280;
+      --accent:#0b7285;
+      --card:#ffffff;
+      --border:#e5e7eb;
+      --shadow:0 18px 35px rgba(15,23,42,0.10);
+      --radius:22px;
     }
-    main { max-width: 48rem; margin: 0 auto; }
-    h1 { font-size: 2.4rem; margin: 0 0 1rem; }
-    p  { font-size: 1.1rem; margin: 0 auto 1.5rem; line-height: 1.6; }
-    a  { text-decoration: none; color: #0077aa; font-weight: 600; }
-    a:hover { text-decoration: underline; }
-    .links { display: grid; gap: .75rem; margin: 2rem auto; justify-items: center; }
-    .links a { display: inline-block; padding: .5rem .9rem; border-radius: .6rem; background: #eef6fa; }
-    .subgrid { display: grid; gap: .5rem; margin-top: .5rem; }
-    footer { margin-top: 3rem; font-size: .95rem; color: #666; }
+
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg-top:#020617;
+        --bg-mid:#020617;
+        --bg-bottom:#020617;
+        --ink:#e5e7eb;
+        --muted:#9ca3af;
+        --accent:#58c4d8;
+        --card:#020617;
+        --border:#1e293b;
+        --shadow:none;
+      }
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 700px at 50% -10%, rgba(15,23,42,0.06), transparent 70%),
+        radial-gradient(700px 600px at 50% 110%, rgba(15,23,42,0.05), transparent 70%),
+        linear-gradient(to bottom,var(--bg-top),var(--bg-mid),var(--bg-bottom));
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter:saturate(180%) blur(10px);
+      -webkit-backdrop-filter:saturate(180%) blur(10px);
+      background:color-mix(in srgb, var(--bg-top) 75%, rgba(255,255,255,0.85));
+      border-bottom:1px solid rgba(148,163,184,0.35);
+    }
+    .wrap{
+      max-width:880px;
+      margin:0 auto;
+      padding:0.6rem 1.1rem;
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+      flex-wrap:wrap;
+    }
+    .spacer{flex:1 1 auto;}
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.28rem .9rem;
+      border-radius:999px;
+      font-size:.9rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      text-decoration:none;
+      background:radial-gradient(circle at 30% 30%,
+                #f8e4b7 0%, #ddb266 45%, #b28b47 100%);
+      color:#fff;
+      border:1px solid rgba(178,139,71,0.35);
+      box-shadow:
+        0 3px 8px rgba(0,0,0,0.24),
+        0 0 0 1px rgba(178,139,71,0.35);
+      transition:
+        background .35s ease,
+        box-shadow .35s ease,
+        transform .25s ease,
+        opacity .25s ease;
+      opacity:0;
+      animation:chipFadeIn 1s ease-out forwards;
+    }
+    .chip::before{
+      content:"";
+      position:absolute;
+      inset:-10px;
+      border-radius:999px;
+      z-index:-1;
+      background:radial-gradient(
+        circle,
+        rgba(178,139,71,0.70) 0%,
+        rgba(178,139,71,0.35) 35%,
+        rgba(178,139,71,0.10) 65%,
+        transparent 100%
+      );
+      filter:blur(8px);
+      opacity:0.8;
+      animation:haloPulse 5s ease-in-out infinite;
+    }
+    .chip:hover{
+      background:radial-gradient(circle at 30% 30%,
+                #fbe9bf 0%, #e0b96f 40%, #c0924d 100%);
+      box-shadow:
+        0 4px 12px rgba(0,0,0,0.26),
+        0 0 0 1px rgba(178,139,71,0.5);
+      transform:translateY(-1px);
+    }
+    .chip:active{transform:scale(0.97);}
+
+    @keyframes chipFadeIn{
+      from{opacity:0;transform:translateY(-4px) scale(0.96);}
+      to{opacity:1;transform:translateY(0) scale(1);}
+    }
+    @keyframes haloPulse{
+      0%,100%{transform:scale(0.9);opacity:0.6;}
+      50%{transform:scale(1.12);opacity:1;}
+    }
+
+    .site-title{
+      font-size:clamp(1.1rem,1rem + 1.2vw,1.6rem);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+    }
+    .site-sub{
+      font-size:.9rem;
+      color:var(--muted);
+    }
+
+    main{
+      flex:1 1 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:2.5rem 1.1rem 3.2rem;
+    }
+
+    .card{
+      max-width:44rem;
+      width:100%;
+      margin:0 auto;
+      padding:2.3rem 1.9rem 2.4rem;
+      border-radius:var(--radius);
+      background:color-mix(in srgb, var(--card) 92%, rgba(255,255,255,0.85));
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-70%;
+      background:
+        radial-gradient(circle at 15% -10%,rgba(248,250,252,0.22),transparent 55%),
+        radial-gradient(circle at 90% 110%,rgba(248,250,252,0.12),transparent 55%);
+      opacity:0.9;
+      pointer-events:none;
+    }
+    .card-inner{position:relative;z-index:1;}
+
+    h1{
+      font-size:clamp(1.8rem,1.4rem + 1.4vw,2.4rem);
+      margin:0 0 0.8rem;
+    }
+    .lead{
+      font-size:1rem;
+      color:var(--muted);
+      margin-bottom:1.8rem;
+      line-height:1.7;
+    }
+
+    .lines{
+      font-size:1.05rem;
+      line-height:1.8;
+      margin-bottom:2rem;
+    }
+
+    .links{
+      display:grid;
+      gap:.75rem;
+      justify-items:center;
+      margin-bottom:1.8rem;
+    }
+    .links a{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding:.55rem 1.1rem;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.85);
+      color:var(--accent);
+      font-weight:500;
+      font-size:.95rem;
+      text-decoration:none;
+      transition:
+        background .2s ease,
+        transform .15s ease,
+        box-shadow .2s ease;
+      box-shadow:0 4px 12px rgba(15,23,42,0.08);
+    }
+    .links a:hover{
+      background:#e0f2f5;
+      box-shadow:0 6px 18px rgba(15,23,42,0.15);
+      transform:translateY(-1px);
+      text-decoration:none;
+    }
+    .links a span.emoji{font-size:1.1rem;}
+
+    .note{
+      font-size:.98rem;
+      color:var(--muted);
+      margin-bottom:1.5rem;
+    }
+
+    footer{
+      font-size:.86rem;
+      color:var(--muted);
+      display:flex;
+      flex-direction:column;
+      gap:.3rem;
+      align-items:center;
+    }
+    footer a{
+      color:var(--accent);
+      text-decoration:none;
+    }
+    footer a:hover{text-decoration:underline;}
+
+    @media (max-width:640px){
+      .wrap{
+        padding:0.5rem 0.9rem;
+        justify-content:space-between;
+      }
+      main{
+        padding:1.8rem 0.9rem 2.6rem;
+        align-items:stretch;
+      }
+      .card{
+        padding:1.8rem 1.3rem 2.1rem;
+        border-radius:18px;
+      }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Ich bin – und das ist genug</h1>
-
-    <p>
-      Ein leises Dokument.<br/>
-      Ohne Autor.<br/>
-      Ohne Ziel.<br/>
-      Und doch da.
-    </p>
-
-    <div class="links">
-      <a href="index.html">👁️ Alle Texte durchstöbern</a>
-      <a href="genug_html.zip">⤓ Alle Seiten (HTML) herunterladen</a>
+  <header>
+    <div class="wrap">
+      <a href="../index.html"
+         class="chip"
+         aria-label="Zur Startseite justthisspace">
+        JTS
+      </a>
+      <div>
+        <div class="site-title">Ich bin – und das ist genug</div>
+        <div class="site-sub">ein leises Dokument · HTML-Edition</div>
+      </div>
+      <div class="spacer"></div>
     </div>
+  </header>
 
+  <main>
+    <section class="card" aria-label="Übersicht Genug-Projekt">
+      <div class="card-inner">
+        <h1>Ich bin – und das ist genug</h1>
+        <p class="lead">
+          Ein leises Dokument.<br>
+          Ohne Autor. Ohne Ziel.<br>
+          Und doch da.
+        </p>
 
-    <p style="margin-top:2rem;">
-      Du brauchst nicht alles zu verstehen.<br/>
-      Es genügt, dass du bist.
-    </p>
+        <p class="lines">
+          Du musst nichts erreichen.<br>
+          Du musst nichts verstehen.<br>
+          Es genügt, dass du bist.
+        </p>
 
-    <footer>
-      von <em>nicht und noch nichtmal das</em><br/>
-      <a href="../">zurück zu justthisspace</a>
-    <p><a href="https://github.com/TidoWillems/genug/blob/main/STATUS.md">📖 Projektstatus</a></p>
-    </footer>
+        <div class="links">
+          <a href="index.html">
+            <span class="emoji">👁️</span>
+            <span>Alle Texte im Browser durchstöbern</span>
+          </a>
+          <a href="genug_html.zip">
+            <span class="emoji">⤓</span>
+            <span>Alle Seiten (HTML) herunterladen</span>
+          </a>
+          <a href="genug_texte.zip">
+            <span class="emoji">⤓</span>
+            <span>Nur die Rohtexte herunterladen</span>
+          </a>
+        </div>
+
+        <p class="note">
+          Die Reihenfolge spielt keine Rolle.
+          Irgendeine Seite reicht – der Rest ist ohnehin schon da.
+        </p>
+
+        <footer>
+          <span>© justthisspace — schon jetzt. schon genug.</span>
+          <span>von <em>nicht und noch nichtmal das</em></span>
+          <span>
+            <a href="../index.html">zurück zu justthisspace</a>
+            ·
+            <a href="https://github.com/TidoWillems/genug/blob/main/STATUS.md">📖 Projektstatus</a>
+          </span>
+        </footer>
+      </div>
+    </section>
   </main>
 </body>
 </html>

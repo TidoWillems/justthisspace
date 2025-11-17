@@ -1,29 +1,203 @@
 <!doctype html>
 <html lang="de" class="no-js">
 
-<head> 
-<meta charset="utf-8"> <title>Kaleidoskop der Anfangsbilder</title> 
-<meta name="description" content="Ein poetischer Atlas scheinbarer Anfänge – wo Mythen und Wissenschaft sich als Projektionen derselben Illusion zeigen. Alles Gesagte verweist nur auf das, was nie begann."> 
-<meta name="viewport" content="width=device-width, initial-scale=1"> 
-<!-- PWA Manifest --> 
-<link rel="manifest" href="manifest.webmanifest"> 
-<link rel="stylesheet" href="assets/css/kalanf.css">
-<meta name="theme-color" content="#0b0b0c"> 
-<meta name="background-color" content="#0b0b0c"> 
-<!-- Favicon (klassisch für Browser) --> 
-<link rel="icon" href="icons/favicon.ico" sizes="any"> 
-<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png"> 
-<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png"> 
-<link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png"> 
-<!-- Apple Touch Icons --> 
-<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png"> 
-<link rel="apple-touch-icon" sizes="167x167" href="icons/apple-touch-icon-ipad.png"> 
-<link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152.png"> 
-<!-- Android/Chrome Maskable Icon --> 
-<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" purpose="any maskable">
-</head>
+<head>
+  <meta charset="utf-8">
+  <title>Kaleidoskop der Anfangsbilder</title>
+  <meta name="description" content="Ein poetischer Atlas scheinbarer Anfänge – wo Mythen und Wissenschaft sich als Projektionen derselben Illusion zeigen. Alles Gesagte verweist nur auf das, was nie begann.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Grund-Farblogik -->
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0b0b0c">
+  <meta name="background-color" content="#0b0b0c">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/css/kalanf.css">
+
+  <!-- Favicon (klassisch für Browser) -->
+  <link rel="icon" href="icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48.png">
+
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="icons/apple-touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152.png">
+
+  <!-- Android/Chrome Maskable Icon -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" purpose="any maskable">
+
+  <!-- JTS-Header-Styling (lokal, konfliktarm) -->
+  <style>
+    .jts-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      background: linear-gradient(to bottom, rgba(7,7,9,0.94), rgba(7,7,9,0.86));
+      border-bottom: 1px solid rgba(148,163,184,0.45);
+    }
+    .jts-header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: .6rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      flex-wrap: wrap;
+      color: #e5e7eb;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    .jts-chip {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .25rem .85rem;
+      border-radius: 999px;
+      font-size: .85rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #111827;
+      background: radial-gradient(circle at 30% 30%, #f8e4b7 0%, #ddb266 45%, #b28b47 100%);
+      border: 1px solid rgba(178,139,71,0.45);
+      box-shadow:
+        0 3px 9px rgba(0,0,0,0.35),
+        0 0 0 1px rgba(148,115,64,0.6);
+      white-space: nowrap;
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        background .35s ease,
+        opacity .35s ease;
+      opacity: 0;
+      animation: jts-chip-in 0.8s ease-out forwards;
+    }
+    .jts-chip:hover {
+      transform: translateY(-1px);
+      background: radial-gradient(circle at 30% 30%, #fbe9bf 0%, #e0b96f 40%, #c0924d 100%);
+      box-shadow:
+        0 4px 12px rgba(0,0,0,0.45),
+        0 0 0 1px rgba(178,139,71,0.8);
+      text-decoration: none;
+    }
+    .jts-chip:active {
+      transform: scale(0.97);
+    }
+    @keyframes jts-chip-in {
+      from { opacity: 0; transform: translateY(-4px) scale(0.96); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .jts-title-block {
+      display: flex;
+      flex-direction: column;
+      gap: .1rem;
+      min-width: 0;
+    }
+    .jts-title {
+      font-size: clamp(1.05rem, 1rem + .5vw, 1.4rem);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      white-space: nowrap;
+    }
+    .jts-sub {
+      font-size: .85rem;
+      color: #9ca3af;
+      white-space: nowrap;
+    }
+    .jts-spacer {
+      flex: 1 1 auto;
+      min-width: .5rem;
+    }
+    .jts-link {
+      font-size: .85rem;
+      color: #cbd5f5;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: .25rem .75rem;
+      border: 1px solid rgba(148,163,184,0.55);
+      background: radial-gradient(circle at 0 0, rgba(148,163,184,0.18), transparent 70%);
+      white-space: nowrap;
+      transition:
+        background .2s ease,
+        color .2s ease,
+        transform .15s ease,
+        box-shadow .2s ease;
+    }
+    .jts-link:hover {
+      color: #e5e7eb;
+      background: radial-gradient(circle at 0 0, rgba(148,163,184,0.35), transparent 70%);
+      box-shadow: 0 4px 10px rgba(15,23,42,0.55);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+    .jts-link:active {
+      transform: scale(0.97);
+    }
+
+    @media (max-width: 640px) {
+      .jts-header-inner {
+        padding: .55rem .8rem;
+      }
+      .jts-title {
+        font-size: .98rem;
+        letter-spacing: .14em;
+      }
+      .jts-sub {
+        font-size: .8rem;
+      }
+      .jts-link {
+        margin-left: auto;
+      }
+    }
+  </style>
+</head>
 <body> 
+<body>
+
+  <!-- JTS-Header-Klammer -->
+  <header class="jts-header">
+    <div class="jts-header-inner">
+      <a href="../index.html"
+         class="jts-chip"
+         aria-label="Zur Startseite justthisspace">
+        JTS
+      </a>
+
+      <div class="jts-title-block">
+        <div class="jts-title">Kaleidoskop der Anfangsbilder</div>
+        <div class="jts-sub">poetischer Atlas scheinbarer Anfänge</div>
+      </div>
+
+      <div class="jts-spacer"></div>
+
+    </div>
+  </header>
+
+  <!-- Bestehende Steuerleiste bleibt unverändert -->
+  <div class="controls">
+    <button class="btn" id="installBtn" title="App installieren" hidden>📲</button>
+    <button class="btn" id="themeToggle" title="Hell/Dunkel umschalten"><span id="themeIcon">🌙</span></button>
+    <button class="btn" id="fontDec" title="Schrift kleiner">A−</button>
+    <button class="btn" id="fontInc" title="Schrift größer">A+</button>
+    <button class="btn" id="toggleAllManSagt" title="‚Man sagt:‘-Blöcke ein/aus">📜</button>
+    <button class="btn" id="randomJump" title="Zufälliger Abschnitt"><span>🎲</span></button>
+    <button class="btn" id="shareBtn" title="Link teilen/kopieren">🔗</button>
+    <button class="btn" id="printBtn" title="Seite drucken / als PDF speichern">🖨️</button>
+    <button class="btn" id="downloadBtn" title="Seite als HTML speichern">💾</button>
+    <button class="btn" id="sortToggle" title="Inhaltsverzeichnis sortieren: Original/Alphabetisch">A↕︎</button>
+    <button class="btn" id="focusSearch" title="Suche fokussieren">🔎</button>
+  </div>
+
+  <button class="btn" id="backTop" title="Nach oben">⬆️</button>
+
+  <main>
+    <!-- ab hier dein bestehender Inhalt unverändert -->
 <div class="controls"> 
 <button class="btn" id="installBtn" title="App installieren" hidden>📲</button> 
 <button class="btn" id="themeToggle" title="Hell/Dunkel umschalten"><span id="themeIcon">🌙</span></button> 
