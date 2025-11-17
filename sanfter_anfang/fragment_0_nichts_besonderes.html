@@ -3,12 +3,163 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>fragment 0 – nichts besonderes</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>fragment 0 – nichts besonderes – justthisspace</title>
+  <meta name="description" content="Ein stilles Fragment über das ganz gewöhnliche, unspektakuläre Dasein – ohne Zentrum, ohne Ziel.">
+  <link rel="stylesheet" href="sanfter_anfang.css">
+  <style>
+    :root{
+      --frag-bg:#faf8f4;
+      --frag-ink:#161616;
+      --frag-muted:#777;
+    }
+
+    body{
+      margin:0;
+      background:
+        radial-gradient(900px 700px at 15% 0%, rgba(0,0,0,0.04), transparent 60%),
+        radial-gradient(900px 700px at 85% 100%, rgba(0,0,0,0.04), transparent 60%),
+        linear-gradient(#f5f5f8,#f3f0ea);
+      color:var(--frag-ink);
+      font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+      line-height:1.7;
+      letter-spacing:.01em;
+    }
+
+    main{
+      min-height:calc(100vh - 64px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:3rem 1rem 3.5rem;
+    }
+
+    .fragment-card{
+      max-width:720px;
+      width:100%;
+      margin:0 auto;
+      background:var(--frag-bg);
+      border-radius:26px;
+      padding:2.6rem 2.1rem 2.4rem;
+      box-shadow:
+        0 18px 44px rgba(0,0,0,0.18),
+        0 0 0 1px rgba(0,0,0,0.03);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .fragment-card::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(0,0,0,0.04), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(0,0,0,0.03), transparent 55%);
+      opacity:0.85;
+      pointer-events:none;
+    }
+
+    .fragment-inner{
+      position:relative;
+      z-index:1;
+    }
+
+    .frag-label{
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:.76rem;
+      color:var(--frag-muted);
+      margin-bottom:.4rem;
+    }
+
+    h1{
+      margin:0 0 1.6rem;
+      font-size:clamp(1.3rem,1.05rem + 0.9vw,1.7rem);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .poem{
+      margin:0;
+      font-size:clamp(1.02rem,0.98rem + 0.25vw,1.15rem);
+      white-space:pre-wrap;
+    }
+
+    .poem span.line-break{
+      display:block;
+      height:0.6rem;
+    }
+
+    .frag-foot{
+      margin-top:2.2rem;
+      font-size:.85rem;
+      color:var(--frag-muted);
+      text-align:center;
+    }
+
+    @media (prefers-color-scheme: dark){
+      body{
+        background:
+          radial-gradient(900px 700px at 15% 0%, rgba(255,255,255,0.06), transparent 60%),
+          radial-gradient(900px 700px at 85% 100%, rgba(255,255,255,0.05), transparent 60%),
+          linear-gradient(#11100e,#151310);
+        color:#f3f3f3;
+      }
+      .fragment-card{
+        background:rgba(18,16,14,0.96);
+        box-shadow:
+          0 20px 46px rgba(0,0,0,0.75),
+          0 0 0 1px rgba(255,255,255,0.02);
+      }
+      .frag-label{
+        color:#9b9b9b;
+      }
+    }
+
+    @media (max-width:640px){
+      main{
+        padding:2.3rem 0.85rem 3.1rem;
+      }
+      .fragment-card{
+        padding:2.1rem 1.4rem 2.2rem;
+        border-radius:20px;
+      }
+    }
+  </style>
 </head>
-<body class="bg-white text-neutral-900 leading-relaxed p-8 max-w-2xl mx-auto">
-  <h1 class="text-2xl font-semibold mb-8 text-center">fragment 0 – nichts besonderes</h1>
-  <p class="whitespace-pre-line text-lg">
+<body>
+
+<header>
+  <div class="wrap row">
+    <div class="row" aria-label="Brand">
+      <a href="../index.html"
+         class="chip"
+         id="chipHome"
+         aria-label="Zur Startseite justthisspace">
+        JTS
+      </a>
+      <strong class="title-head" id="headerTitle">fragment 0 – nichts besonderes</strong>
+    </div>
+    <div class="spacer"></div>
+    <div class="row" aria-label="Language controls">
+      <label for="lang" class="muted" id="langLabel">Sprache</label>
+      <select id="lang" aria-label="Sprache wählen">
+        <option value="de">Deutsch</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="fragment-card" aria-label="fragment 0 – nichts besonderes">
+    <div class="fragment-inner">
+      <div class="frag-label" id="fragLabel">fragment 0</div>
+      <h1 id="pageTitle">fragment 0 – nichts besonderes</h1>
+
+      <article id="content">
+        <!-- Fallback (DE), falls JS deaktiviert -->
+        <p class="poem">
 kein jemand,
 kein begreifen,
 kein werden.
@@ -38,10 +189,199 @@ nichts besonderes.
 das einzige wunder
 ist dies,
 ganz ohne wunder.
-  </p>
+        </p>
+      </article>
 
-  <footer class="mt-10 text-sm text-neutral-500 text-center">
-    © justthisspace — schon jetzt. schon genug.
-  </footer>
+      <p class="frag-foot" id="foot">
+        © justthisspace — schon jetzt. schon genug.
+      </p>
+    </div>
+  </section>
+</main>
+
+<script>
+const T = {
+  de: {
+    brand: "JTS",
+    headerTitle: "fragment 0 – nichts besonderes",
+    title: "fragment 0 – nichts besonderes",
+    fragLabel: "fragment 0",
+    langLabel: "Sprache",
+    foot: "© justthisspace — schon jetzt. schon genug.",
+    body: `
+<p class="poem">
+kein jemand,
+kein begreifen,
+kein werden.
+
+sehen erscheint,
+nicht für wen.
+kein zentrum,
+kein rand.
+
+kein aufwachen,
+kein erwachen,
+kein manifestieren.
+
+alles,
+was der verstand sich erzählt,
+entsteht schon zu spät.
+
+es ist schon da,
+ohne zeuge,
+ohne ursprung,
+ohne ziel.
+
+gewöhnlich.
+unauffällig.
+nichts besonderes.
+
+das einzige wunder
+ist dies,
+ganz ohne wunder.
+</p>`
+  },
+  en: {
+    brand: "JTS",
+    headerTitle: "fragment 0 – nothing special",
+    title: "fragment 0 – nothing special",
+    fragLabel: "fragment 0",
+    langLabel: "Language",
+    foot: "© justthisspace — already here. already enough.",
+    body: `
+<p class="poem">
+no one,
+no understanding,
+no becoming.
+
+seeing appears,
+not for anyone.
+no center,
+no edge.
+
+no waking up,
+no awakening,
+no manifesting.
+
+everything
+the mind tells itself
+arises already too late.
+
+it is already here,
+without witness,
+without origin,
+without aim.
+
+ordinary.
+unremarkable.
+nothing special.
+
+the only miracle
+is this,
+without any miracle.
+</p>`
+  },
+  fr: {
+    brand: "JTS",
+    headerTitle: "fragment 0 – rien de spécial",
+    title: "fragment 0 – rien de spécial",
+    fragLabel: "fragment 0",
+    langLabel: "Langue",
+    foot: "© justthisspace — déjà là. déjà suffisant.",
+    body: `
+<p class="poem">
+aucun quelqu’un,
+aucune compréhension,
+aucun devenir.
+
+la vision apparaît,
+pour personne.
+aucun centre,
+aucune bordure.
+
+pas de réveil,
+pas d’éveil,
+pas de manifestation.
+
+tout ce
+que l’esprit se raconte
+naît déjà trop tard.
+
+c’est déjà là,
+sans témoin,
+sans origine,
+sans but.
+
+ordinaire.
+discret.
+rien de spécial.
+
+le seul miracle
+est ceci,
+sans miracle.
+</p>`
+  }
+};
+
+const $ = sel => document.querySelector(sel);
+
+const el = {
+  headerTitle: $('#headerTitle'),
+  pageTitle:   $('#pageTitle'),
+  fragLabel:   $('#fragLabel'),
+  label:       $('#langLabel'),
+  select:      $('#lang'),
+  content:     $('#content'),
+  foot:        $('#foot'),
+  chip:        $('#chipHome')
+};
+
+function getStoredLang(){
+  try{ return window.localStorage.getItem('jts-i18n-lang'); }
+  catch(e){ return null; }
+}
+function storeLang(lang){
+  try{ window.localStorage.setItem('jts-i18n-lang', lang); }
+  catch(e){}
+}
+function getNavigatorLang(){
+  try{ return (navigator.language || 'de').slice(0,2); }
+  catch(e){ return 'de'; }
+}
+
+function render(lang){
+  const t = T[lang] || T.de;
+  if(!el.pageTitle || !el.content) return;
+
+  document.documentElement.lang = lang;
+  document.title = t.title + " – justthisspace";
+
+  el.headerTitle.textContent = t.headerTitle;
+  el.pageTitle.textContent   = t.title;
+  el.fragLabel.textContent   = t.fragLabel;
+  el.label.textContent       = t.langLabel;
+  el.foot.textContent        = t.foot;
+  el.chip.textContent        = t.brand;
+
+  el.content.innerHTML = t.body.trim();
+  storeLang(lang);
+}
+
+(function init(){
+  if(!el.select || !el.content) return;
+
+  const supported = ['de','en','fr'];
+  const stored    = getStoredLang();
+  const nav       = getNavigatorLang();
+  const candidate = stored || nav || 'de';
+  const initial   = supported.includes(candidate) ? candidate : 'de';
+
+  el.select.value = initial;
+  render(initial);
+
+  el.select.addEventListener('change', e => render(e.target.value));
+})();
+</script>
+
 </body>
 </html>
