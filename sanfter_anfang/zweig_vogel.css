@@ -13,7 +13,7 @@
 #bg-zweig {
   position: fixed;
   bottom: 0;
-  left: 50%;
+  left: 25%;
   height: 60vh;
   opacity: 0.5;
   pointer-events: none;
@@ -79,4 +79,30 @@
 
 @media (prefers-reduced-motion: reduce) {
   #bg-vogel, #bg-zweig { animation: none !important; }
+}
+/* Mobile Standard */
+#bg-zweig {
+  left: 25%;
+  transform: translateX(-50%) translateY(20%) rotate(0deg);
+}
+
+/* Desktop: Zweig an die linke Header-Kante schieben */
+@media (min-width: 768px) {
+  #bg-zweig {
+    left: 2rem;                 /* exakt linker Rand des Headers */
+    transform: translateY(20%) rotate(0deg);
+  }
+}
+/* Mobile Standard */
+#bg-zweig {
+  left: 25%;
+  transform: translateX(-50%) translateY(20%) rotate(0deg);
+}
+
+/* Desktop: Zweig an die linke Header-Kante schieben */
+@media (min-width: 768px) {
+  #bg-zweig {
+    left: 2rem;                 /* exakt linker Rand des Headers */
+    transform: translateY(20%) rotate(0deg);
+  }
 }
