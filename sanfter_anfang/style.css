@@ -105,6 +105,20 @@ section {
   text-align: center;
 }
 
+/* sanfter Anfang: kurze Seiten (start/sinn/pure) weich mittig zentrieren */
+.page-short main#content {
+  min-height: calc(100vh - 180px);  /* Platz für Header + Menü abziehen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* auf größeren Screens etwas mehr Luft oben/unten */
+@media (min-width: 768px) {
+  .page-short main#content {
+    min-height: calc(100vh - 210px);
+  }
+}
 /* sanfter Anfang: Textkörper schmal & zentriert */
 main#content section {
   max-width: 38rem;        /* etwas schmaler als 2xl */
@@ -340,5 +354,19 @@ body::before {
   .progress > span {
     transition: none !important;
     transform: scaleX(0) !important;
+  }
+}
+/* Sanfter Anfang – kurze Texte stärker zentrieren */
+main#content {
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Optional: große Desktop screens etwas luftiger */
+@media (min-width: 768px) {
+  main#content {
+    max-width: 38rem;
   }
 }
