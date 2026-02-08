@@ -664,6 +664,20 @@ window.addEventListener('scroll', () => {
   }
 });
 
+  let lastScroll = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  const current = window.scrollY;
+
+  if (current < lastScroll && current < window.innerHeight * 0.4) {
+    document.body.classList.add('return-soft');
+  } else {
+    document.body.classList.remove('return-soft');
+  }
+
+  lastScroll = current;
+});
+
 
 </script>
 
