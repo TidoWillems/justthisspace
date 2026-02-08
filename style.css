@@ -542,3 +542,13 @@
   font-size: 0.9em;
   opacity: .8;
 }
+#toggle {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+#toggle.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
