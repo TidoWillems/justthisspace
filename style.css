@@ -525,3 +525,14 @@
   min-height: auto;
 }
 
+.reading-mode #navi {
+  display: none !important;
+}
+
+.reading-mode #klaerung {
+  max-width: 48rem;
+}
+
+.reading-mode #radikal {
+  min-height: auto;
+}
