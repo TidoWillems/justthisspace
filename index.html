@@ -10,8 +10,8 @@
   <meta property="og:title" content="justthisspace — ein stiller Hinweis">
   <meta property="og:description" content="Dies ist kein Portal. Kein Shop. Keine Agenda. Nur das, was schon da ist.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tidowillems.github.io/justthisspace/">
-  <meta property="og:image" content="https://tidowillems.github.io/justthisspace/favicon.svg">
+  <meta property="og:url" content="https://justthis.space/">
+  <meta property="og:image" content="https://justthis.space/favicon.svg">
   <meta name="theme-color" content="#b28b47">
   <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.webmanifest">
@@ -33,6 +33,9 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preload" href="style.css" as="style">
+  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
+
   <link rel="stylesheet" href="style.css">
 
 
@@ -227,9 +230,11 @@
   <main id="radikal"
       class="section-flow flex items-center justify-center min-h-[calc(92vh-3.5rem)] text-center px-6">
 
- <p id="heroText style="opacity:1""
+<p id="heroText"
+   style="opacity:1"
    data-i18n="index.hero"
    class="intro-gold optical-center text-2xl sm:text-3xl font-medium leading-relaxed mx-auto text-center">
+
 
     Alles erscheint.<br/>
     Nicht für jemanden.<br/>
