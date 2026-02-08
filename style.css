@@ -536,3 +536,9 @@
 .reading-mode #radikal {
   min-height: auto;
 }
+
+#toggle::after{
+  content:" →";
+  font-size: 0.9em;
+  opacity: .8;
+}
