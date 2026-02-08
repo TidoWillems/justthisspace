@@ -131,6 +131,14 @@
       goldBreath 9s ease-in-out 0.6s infinite;
   }
 
+/* verhindert initialen Pixel-Jump */
+#heroText{
+  will-change: opacity, transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+
   /* einmalige Einblendung */
   @keyframes introFade {
     0% {
@@ -442,8 +450,6 @@
   transform: translateY(-0.02em);
 }
 
-
-
 .scroll-cue{
   margin-top: 3.5rem;
   width: 42px;
@@ -477,7 +483,6 @@
   margin:0 auto;
   text-align:center;
 }
-
 
 /* ----- deep reading gravity ----- */
 
