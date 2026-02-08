@@ -567,3 +567,18 @@ body.scroll-settled{
   opacity: .85;
   transition: opacity 1.4s ease;
 }
+
+/* --- micro contrast breathing --- */
+
+body{
+  animation: contrastBreath 28s ease-in-out infinite;
+}
+
+@keyframes contrastBreath{
+  0%,100%{
+    filter: contrast(100%) brightness(100%);
+  }
+  50%{
+    filter: contrast(101.2%) brightness(100.6%);
+  }
+}
