@@ -215,7 +215,7 @@
 
 <!-- Radikal-Hinweis -->
 <main id="radikal"
-      class="section-flow flex items-center justify-center min-h-[calc(100vh-3.5rem)] text-center px-6">
+      class="section-flow flex items-center justify-center min-h-[calc(92vh-3.5rem)] text-center px-6">
 
   <p id="heroText"
      data-i18n="index.hero"
@@ -590,6 +590,20 @@ toggleObs.observe(klaerung);
 
   </script>
 
+<script>
+const navi = document.getElementById('navi');
+const klaerung = document.getElementById('klaerung');
+
+const naviObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navi.classList.remove('hidden');
+    }
+  });
+},{ threshold:0.4 });
+
+naviObs.observe(klaerung);
+</script>
 
   
 </body>
