@@ -487,3 +487,28 @@
     transparent
   );
 }
+
+/* ===== Typographic Quieting ===== */
+
+/* ruhiger Lesesatz für längere Textabschnitte */
+.reading-text {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+}
+
+/* Zitate optisch leicht aus der Mitte lösen (ruhiger Blickfluss) */
+.reading-quote {
+  max-width: 34rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  line-height: 1.7;
+}
+
+/* sehr leichte optische Zentrierkorrektur für große Introtexte */
+.optical-center {
+  transform: translateY(-0.02em);
+}
