@@ -579,6 +579,6 @@ body{
     filter: contrast(100%) brightness(100%);
   }
   50%{
-    filter: contrast(101.2%) brightness(100.6%);
+    filter: contrast(101.6%) brightness(100.3%);
   }
 }
