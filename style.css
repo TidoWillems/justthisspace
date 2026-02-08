@@ -465,12 +465,19 @@
   50%{opacity:.75; transform:scaleX(1);}
 }
 
+#radikal{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
 #radikal p{
-  max-width: 28rem;
-  margin-left:auto;
-  margin-right:auto;
+  max-width: 30rem;
+  margin:0 auto;
   text-align:center;
 }
+
 
 /* ----- deep reading gravity ----- */
 
