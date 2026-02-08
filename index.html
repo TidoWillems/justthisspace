@@ -224,6 +224,38 @@
     </p>
   </main>
 
+  <!-- Sanfter Übergang -->
+<div class="relative w-full py-12 flex items-center justify-center pointer-events-none">
+  <div class="w-24 h-px bg-neutral-300 dark:bg-neutral-600 opacity-60"></div>
+</div>
+  
+  <!-- Klärungsabschnitt: Ereignis und Beschreibung -->
+<section id="klaerung" class="fade-soft relative mx-auto max-w-2xl px-6 pb-20 text-center">
+  <h2 class="text-xl font-semibold mb-6">Ereignis und Beschreibung</h2>
+
+  <p class="leading-relaxed text-neutral-700 dark:text-neutral-200">
+    Die Welt geschieht unabhängig davon, wie wir sie benennen.
+    Sprache entsteht danach: Sie ordnet, unterscheidet und bildet Kategorien,
+    mit denen Menschen Erfahrung strukturieren und miteinander kommunizieren.
+  </p>
+
+  <p class="mt-6 leading-relaxed text-neutral-700 dark:text-neutral-200">
+    Begriffe, Identitäten und Modelle helfen bei Orientierung und Verständigung,
+    doch sie sind Beschreibungen – nicht das Geschehen selbst.
+    Viele wahrgenommene Trennungen entstehen erst durch diese begrifflichen
+    Differenzierungen.
+  </p>
+
+  <blockquote class="mt-10 border-l-4 border-neutral-300 dark:border-neutral-600 pl-5 text-lg font-medium">
+    Die Wirklichkeit geschieht – Bedeutung entsteht danach.
+  </blockquote>
+
+  <div class="mt-10 text-sm font-semibold tracking-wide text-neutral-600 dark:text-neutral-300">
+    Ereignis → Wahrnehmung → Benennung → Interpretation → erlebte Wirklichkeit
+  </div>
+</section>
+
+
   <!-- Navigation / Sammlung -->
   <main id="navi" class="hidden relative mx-auto max-w-3xl px-6 py-16 text-center">
     <h1 class="text-2xl font-semibold text-neutral-900 dark:text-neutral-100" id="navTitle">
@@ -530,5 +562,20 @@ const linkLabels = document.querySelectorAll('#navi nav .nav-label');
       });
     })();
   </script>
+
+  <script>
+  const fadeBlocks = document.querySelectorAll('.fade-soft');
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  fadeBlocks.forEach(el => obs.observe(el));
+</script>
+
 </body>
 </html>
