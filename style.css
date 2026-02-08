@@ -545,4 +545,13 @@ body::after{
   opacity:1;
 }
 
+/* --- stillness lock --- */
+
+body.scroll-settled{
+  scroll-behavior: auto;
+}
+
+.scroll-settled .gravity-zone{
+  transition: transform 1.2s ease;
+}
 
