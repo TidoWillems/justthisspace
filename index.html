@@ -584,7 +584,23 @@ const linkLabels = document.querySelectorAll('#navi nav .nav-label');
   }, { threshold: 0.15 });
 
   fadeBlocks.forEach(el => obs.observe(el));
+
+    const toggle = document.getElementById('toggle');
+const klaerung = document.getElementById('klaerung');
+
+const toggleObs = new IntersectionObserver(entries => {
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      toggle.classList.add('visible');
+    }
+  });
+},{threshold:0.35});
+
+toggleObs.observe(klaerung);
+
   </script>
 
+
+  
 </body>
 </html>
