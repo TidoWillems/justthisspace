@@ -499,3 +499,21 @@ header.jts-header{
   opacity: 1;
 }
 
+/* --- Mobile Hero Typografie --- */
+
+@media (max-width: 520px){
+
+  #heroText{
+    font-size: clamp(1.55rem, 5.2vw, 1.95rem);
+    line-height: 1.38;
+    max-width: 22rem;
+    letter-spacing: 0.01em;
+  }
+
+}
+
+#heroText br:first-of-type{
+  line-height: 1.6;
+}
+
+
