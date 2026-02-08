@@ -500,7 +500,7 @@ header.jts-header{
 }
 
 .gravity-active .gravity-zone {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
   opacity: 1;
 }
 
@@ -519,6 +519,30 @@ header.jts-header{
 
 #heroText br:first-of-type{
   line-height: 1.6;
+}
+
+/* --- reading center gravity --- */
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background:
+    radial-gradient(
+      ellipse at 50% 58%,
+      rgba(0,0,0,0.035) 0%,
+      rgba(0,0,0,0.02) 22%,
+      rgba(0,0,0,0.0) 60%
+    );
+  opacity:0;
+  transition: opacity 1.8s ease;
+}
+
+/* aktiviert, wenn Leser in den Textbereich kommt */
+.gravity-active body::after{
+  opacity:1;
 }
 
 
