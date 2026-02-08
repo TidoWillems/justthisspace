@@ -555,3 +555,15 @@ body.scroll-settled{
   transition: transform 1.2s ease;
 }
 
+/* --- quiet return --- */
+
+.return-soft #radikal{
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .9s ease, transform .9s ease;
+}
+
+.return-soft #navi{
+  opacity: .85;
+  transition: opacity 1.4s ease;
+}
