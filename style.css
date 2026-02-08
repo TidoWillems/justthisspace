@@ -485,6 +485,15 @@
   transition: transform 1.6s ease, opacity 1.6s ease;
 }
 
+header.jts-header{
+  transition: opacity 1.6s ease, backdrop-filter 1.6s ease;
+}
+
+.header-soft header.jts-header{
+  opacity:0.78;
+  backdrop-filter:saturate(150%) blur(6px);
+}
+
 .gravity-active .gravity-zone {
   transform: translateY(-6px);
   opacity: 1;
