@@ -606,6 +606,17 @@ const gravityObs = new IntersectionObserver(entries => {
 
 gravityObs.observe(klaerung);
 
+  const headerObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.body.classList.add('header-soft');
+    }
+  });
+},{threshold:0.55});
+
+headerObs.observe(klaerung);
+
+
 
 </script>
 
