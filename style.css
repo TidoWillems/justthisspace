@@ -459,3 +459,31 @@
   transform: translateY(0);
 }
 
+/* ===== Reading Flow Rhythm ===== */
+
+/* vertikale Ruheachsen */
+.section-flow {
+  padding-top: clamp(4rem, 8vh, 7rem);
+  padding-bottom: clamp(4rem, 8vh, 7rem);
+}
+
+/* dezenter Mittelachsen-Fokus */
+.section-narrow {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* sanfter Abschnittsübergang */
+.section-divider {
+  position: relative;
+  margin: clamp(3rem, 6vh, 5rem) auto;
+  width: 90px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(160,160,160,0.35),
+    transparent
+  );
+}
