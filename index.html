@@ -590,6 +590,16 @@ const naviObs = new IntersectionObserver(entries => {
 },{ threshold:0.4 });
 
 naviObs.observe(klaerung);
+
+  const cue = document.querySelector('.scroll-cue');
+
+window.addEventListener('scroll', ()=>{
+  if(window.scrollY > 40){
+    cue.style.opacity = 0;
+    cue.style.transition = 'opacity 1.2s ease';
+  }
+},{once:true});
+
 </script>
 
   
