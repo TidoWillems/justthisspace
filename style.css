@@ -446,3 +446,16 @@
     text-decoration: underline;
   }
 }
+
+/* sanfte Scroll-Einblendung für Klärungsabschnitt */
+.fade-soft {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 1.4s ease, transform 1.4s ease;
+}
+
+.fade-soft.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
