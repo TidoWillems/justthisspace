@@ -236,7 +236,8 @@
   
   <!-- Klärungsabschnitt: Ereignis und Beschreibung -->
 <section id="klaerung"
-         class="section-flow section-narrow fade-soft reading-text text-center">
+         class="gravity-zone section-flow section-narrow fade-soft reading-text text-center">
+
 
   <h2 class="text-xl font-semibold mb-6">Ereignis und Beschreibung</h2>
 
@@ -591,6 +592,19 @@ window.addEventListener('scroll', ()=>{
     cue.style.transition = 'opacity 1.2s ease';
   }
 },{once:true});
+
+  const body = document.body;
+
+const gravityObs = new IntersectionObserver(entries => {
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      body.classList.add('gravity-active');
+    }
+  });
+},{threshold:0.45});
+
+gravityObs.observe(klaerung);
+
 
 </script>
 
