@@ -465,3 +465,10 @@
   50%{opacity:.75; transform:scaleX(1);}
 }
 
+#radikal p{
+  max-width: 28rem;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+
