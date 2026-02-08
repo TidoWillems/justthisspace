@@ -472,3 +472,14 @@
   text-align:center;
 }
 
+/* ----- deep reading gravity ----- */
+
+.gravity-zone {
+  transition: transform 1.6s ease, opacity 1.6s ease;
+}
+
+.gravity-active .gravity-zone {
+  transform: translateY(-6px);
+  opacity: 1;
+}
+
