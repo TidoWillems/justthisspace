@@ -482,27 +482,34 @@
 </main>
 
 <script>
-  // Slider-Logik
-  (function(){
-    const stage  = document.getElementById('stage');
-    const imgTop = document.getElementById('imgTop');
-    const handle = document.getElementById('handle');
-    const range  = document.getElementById('range');
-    const auto   = document.getElementById('auto');
-    const knob   = document.querySelector('.knob');
+document.addEventListener("DOMContentLoaded", function(){
 
-    let w = 0, h = 0, autoId = null, t0 = 0;
+  /* =========================
+     SLIDER / DIPTYCH LOGIK
+  ========================== */
+
+  const stage  = document.getElementById('stage');
+  const imgTop = document.getElementById('imgTop');
+  const handle = document.getElementById('handle');
+  const range  = document.getElementById('range');
+  const auto   = document.getElementById('auto');
+  const knob   = document.querySelector('.knob');
+
+  if(stage && imgTop && handle && range && knob){
+
+    let w = 0, autoId = null, t0 = 0;
 
     function layout(){
       const r = stage.getBoundingClientRect();
-      w = r.width; h = r.height;
+      w = r.width;
       setSplit(range.valueAsNumber / 100);
     }
 
     function setSplit(p){
       p = Math.max(0, Math.min(1, p));
       const right = (1 - p) * 100;
-      imgTop.style.clipPath = 'inset(0 ' + right + '% 0 0)';
+      imgTop.style.clipPath = `inset(0 ${right}% 0 0)`;
+
       const x = p * w;
       handle.style.left = x + 'px';
       knob.style.left   = x + 'px';
@@ -513,57 +520,67 @@
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       const x = clientX - rect.left;
       const p = x / w;
+
       range.value = Math.round(Math.max(0, Math.min(1, p)) * 100);
       setSplit(p);
     }
 
     let dragging = false;
+
     stage.addEventListener('mousedown', e => { dragging = true; fromEvent(e); });
     stage.addEventListener('touchstart', e => { dragging = true; fromEvent(e); }, {passive:true});
     window.addEventListener('mousemove', e => dragging && fromEvent(e));
     window.addEventListener('touchmove', e => dragging && fromEvent(e), {passive:true});
-    window.addEventListener('mouseup',   () => dragging = false);
-    window.addEventListener('touchend',  () => dragging = false);
+    window.addEventListener('mouseup', () => dragging = false);
+    window.addEventListener('touchend', () => dragging = false);
 
-    range.addEventListener('input', () => setSplit(range.valueAsNumber / 100));
+    range.addEventListener('input', () => {
+      setSplit(range.valueAsNumber / 100);
+    });
 
     function tick(ts){
       if (!t0) t0 = ts;
       const t = (ts - t0) / 1000;
-      const p = 0.5 + 0.45 * Math.sin(t * 0.5); // langsamer Atem
+      const p = 0.5 + 0.45 * Math.sin(t * 0.5);
       range.value = Math.round(p * 100);
       setSplit(p);
       autoId = requestAnimationFrame(tick);
     }
 
-    auto.addEventListener('change', () => {
-      if (auto.checked){
-        cancelAnimationFrame(autoId);
-        t0 = 0;
-        autoId = requestAnimationFrame(tick);
-      } else {
-        cancelAnimationFrame(autoId);
-        autoId = null;
-      }
-    });
+    if(auto){
+      auto.addEventListener('change', () => {
+        if (auto.checked){
+          cancelAnimationFrame(autoId);
+          t0 = 0;
+          autoId = requestAnimationFrame(tick);
+        } else {
+          cancelAnimationFrame(autoId);
+          autoId = null;
+        }
+      });
+    }
 
     window.addEventListener('resize', layout);
     layout();
-  })();
+  }
 
-  // I18N-Logik (ähnlich wie sanfter_anfang)
+
+  /* =========================
+     I18N LOGIK
+  ========================== */
+
   const T = {
     de: {
       brand: "JTS",
       headerTitle: "resonanz-diptychon",
       title: "Resonanz-Diptychon",
-      subtitle: "Himmel(Ganzheit) & Mauer (Verdichtung) – ein stilles Gespräch.",
+      subtitle: "Himmel (Ganzheit) & Mauer (Verdichtung) – ein stilles Gespräch.",
       langLabel: "Sprache",
       sliderLabel: "Überblendung",
       autoLabel: "Auto-Atmung",
-      sliderHint: " Links: Mauer — "Rechts: Himmel",
-      quote: "„Der Friede, der jeglichen Verstand übersteigt, ist insubstanziell und ganz. Nur Sprache schafft Trennung – für Niemanden.“",
-      small: "Lesart: Die Mauer zeigt die verdichtete Welt der Begriffe; der Himmel zeigt den bedingungslosen Raum. Die Hand am Regler ist die Aufmerksamkeit, die beide ohne Urteil hält.",
+      sliderHint: "Links: Mauer – Rechts: Himmel",
+      quote: "„Der Friede, der jeglichen Verstand übersteigt, ist insubstanziell und ganz. Nur Sprache schafft Trennung – für niemanden.“",
+      small: "Lesart: Die Mauer zeigt die verdichtete Welt der Begriffe; der Himmel zeigt den bedingungslosen Raum. Die Hand am Regler ist Aufmerksamkeit, die beide ohne Urteil hält.",
       conceptSummary: "Konzept & Credits",
       conceptText: "Bild-Dialog nach deinem Text „Kein Konstrukt“. Gestaltung: Diptychon mit Slider & Auto-Atmung. Technik: Vanilla JS, keine externen Libraries.",
       beiblattTitle: "🎨 Künstlerischer Einklang: Die Mauer und der Friede",
@@ -577,9 +594,9 @@
       langLabel: "Language",
       sliderLabel: "Blend",
       autoLabel: "Auto-breath",
-      sliderHint: "Left: wall – Right:sky",
+      sliderHint: "Left: wall – Right: sky",
       quote: "“The peace that surpasses all understanding is insubstantial and whole. Only language creates separation — for no one.”",
-      small: "Reading: the wall shows the condensed world of concepts; the sky shows unconditional space. The hand on the slider is attention, holding both without judgement.",
+      small: "Reading: the wall shows the condensed world of concepts; the sky shows unconditional space. The hand on the slider is attention holding both without judgement.",
       conceptSummary: "Concept & credits",
       conceptText: "Image dialogue inspired by your text “No construct”. Design: diptych with slider & auto-breath. Tech: vanilla JS, no external libraries.",
       beiblattTitle: "🎨 Artistic consonance: the wall and the peace",
@@ -593,13 +610,13 @@
       langLabel: "Langue",
       sliderLabel: "Fondu",
       autoLabel: "Respiration auto",
-      sliderHint: "Gauche: mur – Droite : ciel",
+      sliderHint: "Gauche : mur – Droite : ciel",
       quote: "« La paix qui dépasse toute compréhension est insubstantielle et entière. Seul le langage crée la séparation — pour personne. »",
       small: "Lecture : le mur montre le monde condensé des concepts ; le ciel montre l’espace inconditionnel. La main sur le curseur est l’attention qui tient les deux sans jugement.",
       conceptSummary: "Concept & crédits",
       conceptText: "Dialogue d’images inspiré de ton texte « Aucun construit ». Conception : diptyque avec curseur & respiration automatique. Technique : JS vanilla, sans bibliothèques externes.",
       beiblattTitle: "🎨 Accord artistique : le mur et la paix",
-      langNote: "L’explication détaillée est actuellement disponible uniquement en allemand."
+      langNote: "Description détaillée actuellement disponible uniquement en allemand."
     }
   };
 
@@ -623,26 +640,6 @@
     langNote: $('#langNote')
   };
 
-  function getStoredLang(){
-    try{
-      return window.localStorage.getItem('jts-i18n-lang');
-    }catch(e){
-      return null;
-    }
-  }
-  function storeLang(lang){
-    try{
-      window.localStorage.setItem('jts-i18n-lang', lang);
-    }catch(e){}
-  }
-  function getNavigatorLang(){
-    try{
-      return (navigator.language || 'de').slice(0,2);
-    }catch(e){
-      return 'de';
-    }
-  }
-
   function render(lang){
     const t = T[lang] || T.de;
     document.documentElement.lang = lang;
@@ -665,20 +662,30 @@
     el.beiblattTitle.textContent = t.beiblattTitle;
     el.langNote.textContent = t.langNote;
 
-    storeLang(lang);
+    try{
+      localStorage.setItem('jts-i18n-lang', lang);
+    }catch(e){}
   }
 
-  (function initI18N(){
-    if (!el.select) return;
+  if(el.select){
     const supported = ['de','en','fr'];
-    const stored = getStoredLang();
-    const nav = getNavigatorLang();
-    const candidate = stored || nav || 'de';
-    const initial = supported.includes(candidate) ? candidate : 'de';
+    let stored = null;
+
+    try{
+      stored = localStorage.getItem('jts-i18n-lang');
+    }catch(e){}
+
+    const nav = (navigator.language || 'de').slice(0,2);
+    const initial = supported.includes(stored) ? stored :
+                    supported.includes(nav) ? nav : 'de';
+
     el.select.value = initial;
     render(initial);
+
     el.select.addEventListener('change', e => render(e.target.value));
-  })();
+  }
+
+});
 </script>
 
 </body>
