@@ -192,3 +192,8 @@ body[data-theme="dark"] {
   }
   body.nav-open aside{ transform: translateX(0); }
 }
+.meta-note{
+  margin-top:2rem;
+  font-size:.95rem;
+  color:#555;
+}
