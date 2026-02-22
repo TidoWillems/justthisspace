@@ -324,7 +324,7 @@
 <header>
   <div class="wrap row">
     <div class="row" aria-label="Brand">
-      <a href="Https://justthis.space/index.html"
+      <a href="https://justthis.space/"
          class="chip"
          id="chipHome"
          aria-label="Zur Startseite justthis.space">
@@ -345,7 +345,6 @@
 </header>
 
 <main>
-  <nav class="breadcrumbs"><a href="/genug/">/genug</a> · <a href="/genug/ausdruck/">/ausdruck</a></nav>
 
   <header class="hero">
     <h1 class="title" id="pageTitle">Resonanz-Diptychon</h1>
@@ -368,7 +367,7 @@
       <div class="controls">
         <label class="pill">
           <span id="sliderLabel">Überblendung</span>
-          <input id="range" class="range" type="range" min="0" max="100" value="50" aria-label="Überblendung Himmel/Mauer">
+          <input id="range" class="range" type="range" min="0" max="100" value="50" aria-label="Überblendung Mauer/Himmel">
         </label>
 
         <label class="pill">
@@ -426,7 +425,7 @@
         <blockquote>„Der Friede, der jeglichen Verstand übersteigt, ist insubstanziell und ganz. Nur Sprache schafft Trennung für ‚Niemanden‘.“</blockquote>
 
         <h3>🇵🇸 I. Die Begrenzung – Das Ergebnis des Gedankens</h3>
-        <p>Das abstrakte Gemälde (Bild 2) wird zur Metapher für die konditionierte, leidvolle Welt, die durch Denken und Sprache konstruiert wird.</p>
+        <p>Das abstrakte Gemälde (Bild 1) wird zur Metapher für die konditionierte, leidvolle Welt, die durch Denken und Sprache konstruiert wird.</p>
 
         <table>
           <thead>
@@ -558,11 +557,11 @@
       brand: "JTS",
       headerTitle: "resonanz-diptychon",
       title: "Resonanz-Diptychon",
-      subtitle: "Himmel & Mauer (Ganzheit) &  (Verdichtung) – ein stilles Gespräch.",
+      subtitle: "Himmel(Ganzheit) & Mauer (Verdichtung) – ein stilles Gespräch.",
       langLabel: "Sprache",
       sliderLabel: "Überblendung",
       autoLabel: "Auto-Atmung",
-      sliderHint: Links: Mauer — "Rechts: Himmel",
+      sliderHint: " Links: Mauer — "Rechts: Himmel",
       quote: "„Der Friede, der jeglichen Verstand übersteigt, ist insubstanziell und ganz. Nur Sprache schafft Trennung – für Niemanden.“",
       small: "Lesart: Die Mauer zeigt die verdichtete Welt der Begriffe; der Himmel zeigt den bedingungslosen Raum. Die Hand am Regler ist die Aufmerksamkeit, die beide ohne Urteil hält.",
       conceptSummary: "Konzept & Credits",
@@ -647,7 +646,7 @@
   function render(lang){
     const t = T[lang] || T.de;
     document.documentElement.lang = lang;
-    document.title = t.title + " – justthisspace";
+    document.title = t.title + " – justthis.space";
 
     if (!el.pageTitle) return;
 
