@@ -2,48 +2,62 @@
 <html lang="de">
 <head>
 <meta name="robots" content="noindex, nofollow">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>503 • nicht verfügbar</title>
-  <link href="/tailwind.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css" />
-  <link rel="stylesheet" href="/zweig_vogel.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STATUS – justthis.space</title>
+
+<style>
+  body{
+    margin:0;
+    background:#fdfdfd;
+    color:#222;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    text-align:center;
+  }
+
+  main{
+    max-width:600px;
+    padding:2rem;
+    line-height:1.6;
+  }
+
+  h1{
+    font-size:1.5rem;
+    letter-spacing:.05em;
+    margin-bottom:1.2rem;
+    font-weight:600;
+  }
+
+  p{
+    margin:.6rem 0;
+  }
+
+  a{
+    display:inline-block;
+    margin-top:1.8rem;
+    text-decoration:none;
+    color:#777;
+    font-size:.9rem;
+    transition:color .2s ease;
+  }
+
+  a:hover{
+    color:#000;
+  }
+</style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-serif flex flex-col min-h-screen layout-left">
-  <img src="/zweig.png" alt="Zweig" id="bg-zweig" />
-  <img src="/vogel.png" alt="Vogel" id="bg-vogel" />
+<body>
 
-<main id="content" class="flex-grow p-6 max-w-2xl mx-auto space-y-8">
+<main>
+ <h1>503 – vorübergehend nicht erreichbar</h1>
 
-  <section data-lang-content="de">
-    <h1 class="text-3xl font-bold text-gray-900">503 – Dienst nicht verfügbar</h1>
-    <p class="mt-4 leading-relaxed">
-      Jetzt ist nicht der Moment.<br>Das, was dienen könnte, ruht.<br><br>Vielleicht ein Zeichen zur Pause.
-    </p>
-  </section>
-
-  <section data-lang-content="en" style="display:none;">
-    <h1 class="text-3xl font-bold text-gray-900">503 – service unavailable</h1>
-    <p class="mt-4 leading-relaxed">
-      Now is not the moment.<br>That which might serve, rests.<br><br>Perhaps a sign to pause.
-    </p>
-  </section>
-
-  <section data-lang-content="fr" style="display:none;">
-    <h1 class="text-3xl font-bold text-gray-900">503 – service indisponible</h1>
-    <p class="mt-4 leading-relaxed">
-      Ce n’est pas le moment.<br>Ce qui pourrait servir est en repos.<br><br>Peut-être un appel à la pause.
-    </p>
-  </section>
-
+<p>Auch Räume schließen sich.</p>
+<p>Um später wieder offen zu sein.</p>
 </main>
 
-  <div class="text-center text-gray-400 text-sm p-4">
-    <a href="/start.html" class="hover:underline">zurück zur Mitte</a>
-  </div>
-  <script src="/navigation.js"></script>
-  <script src="/sprachlogik.js"></script>
-  <script src="/zweig_vogel.js"></script>
-<script src="/zweig_vogel_drag.js"></script>
 </body>
 </html>
