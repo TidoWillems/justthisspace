@@ -1,4 +1,4 @@
-const CACHE_NAME = 'jts-v1';
+const CACHE_NAME = 'jts-v2';
 
 // Wichtige Shell-Dateien, damit die Startseite offline geht
 const OFFLINE_URLS = [
